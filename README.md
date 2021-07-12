@@ -18,8 +18,8 @@ Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
 * ### a) Papier:
 
   * Eigenschaften:
-  * Farbe (Weiß, Grün, Blau)
-  * Größe (A3, A4, A5)
+    * Farbe (Weiß, Grün, Blau)
+    * Größe (A3, A4, A5)
 
   * Besonderheiten:
     * Keine
@@ -27,8 +27,8 @@ Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
 * ### b) Holz:
 
   * Eigenschaften:
-  * Art (Kiefer, Buche, Eiche)
-  * Form (Bretter, Balken, Scheit)
+    * Art (Kiefer, Buche, Eiche)
+    * Form (Bretter, Balken, Scheit)
 
   * Besonderheiten:
     * Holzbalken sind lang und werden daher auf zwei Paletten verteilt.
@@ -37,8 +37,8 @@ Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
 * ### c) Stein:
 
   * Eigenschaften:
-  * Art (Marmor, Granit, Sandstein)
-  * Gewicht (Leicht, Mittel, Schwer)
+    * Art (Marmor, Granit, Sandstein)
+    * Gewicht (Leicht, Mittel, Schwer)
 
   * Besonderheiten:
     * Schwere Steine sind zu Schwer für das Regal und können nur auf den unteren beiden Etagen eingelagert werden.
