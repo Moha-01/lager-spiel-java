@@ -39,11 +39,19 @@ Besonderheiten:
 Schwere Steine sind zu Schwer für das Regal und können nur auf den unteren beiden Etagen eingelagert werden. Mittelschwere können nicht in der obersten Etage eingelagert werden.
 
 # Die Abwicklung:
-Einlagerungsauftrag: Zu einem Auftrag werden die möglichen Lagerplätze dargestellt, also freie Lagerplätze. Nach Wahl eines Lagerplatzes wird die Palette eingelagert und die Belohnung gutgeschrieben.
-Auslagerungsauftrag: Zu einem Auftrag werden die möglichen Lagerplätze dargestellt, also Lagerplätze, an dem genau dieses Produkt eingelagert ist. Nach Wahl eines Lagerplatzes wird die Palette ausgelagert und die Belohnung wird gutgeschrieben.
-Die Lagerverwaltung:
-Es ist möglich, dass ein Produkt zwar im Lager vorhanden ist, aber es wird durch ein anderes Produkt weiter vorne blockiert. Um dennoch an dieses Produkt heranzukommen, muss umgelagert werden. Dazu wird die gewünschte Palette ausgewählt. Wenn nicht durch andere Waren blockiert, kann die Palette einen Platz nach rechts, links, oben, unten, hinten oder vorne verschoben werden. Umlagerungen kosten 50 EUR. Des weiteren kann ein Produkt auch verschrottet werden, das kostet 300 EUR. Verschrottet werden kann nur, was sich auf der untersten Etage befindet.
-Das Auftragsmanagement:
+Einlagerungsauftrag: 
+Zu einem Auftrag werden die möglichen Lagerplätze dargestellt, also freie Lagerplätze. Nach Wahl eines Lagerplatzes wird die Palette eingelagert und die Belohnung gutgeschrieben.
+
+Auslagerungsauftrag: 
+Zu einem Auftrag werden die möglichen Lagerplätze dargestellt, also Lagerplätze, an dem genau dieses Produkt eingelagert ist. Nach Wahl eines Lagerplatzes wird die Palette ausgelagert und die Belohnung wird gutgeschrieben.
+
+# Die Lagerverwaltung:
+Es ist möglich, dass ein Produkt zwar im Lager vorhanden ist, aber es wird durch ein anderes Produkt weiter vorne blockiert. Um dennoch an dieses Produkt heranzukommen, muss umgelagert werden. 
+Dazu wird die gewünschte Palette ausgewählt. Wenn nicht durch andere Waren blockiert, kann die Palette einen Platz nach rechts, links, oben, unten, hinten oder vorne verschoben werden. Umlagerungen kosten 50 EUR. 
+Des weiteren kann ein Produkt auch verschrottet werden, das kostet 300 EUR. Verschrottet werden kann nur, was sich auf der untersten Etage befindet.
+
+# Das Auftragsmanagement:
 Es können maximal vier Aufträge gleichzeitig bearbeitet werden (weitere Klicks auf "Neuer Auftrag"). So können Sie einen Auftrag auch zunächst einmal zurückstellen. Ein Auftrag kann auch abgelehnt werden, allerdings wird die Belohnung als Vertragsstrafe vom Kontostand abgezogen.
-Die Bilanz:
+
+# Die Bilanz:
 Natürlich muss immer der Kontostand sichtbar sein. Zusätzlich gibt es einen Button "Bilanz". Die Bilanz öffnet sich in separatem Fenster und zeigt folgende Informationen: Umsätze (Summe), Kosten (Summe) und Einzelbuchungen, also eine Tabelle mit jeder Veränderung des Kontostands. Jede Buchung ist mit einem Text (Einlagerungsauftrag, Auslagerungsauftrag, Umlagerung usw.) und einem Betrag versehen.
