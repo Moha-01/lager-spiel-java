@@ -15,7 +15,7 @@ Wenn das Ende der Datei erreicht ist, kann wieder mit Auftrag 1 begonnen werden.
 ## Die Produkte:
 Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
 
-* a) Papier:
+* ### a) Papier:
 
   * Eigenschaften: 
   * Farbe (Weiß, Grün, Blau), Größe (A3, A4, A5)
@@ -23,13 +23,14 @@ Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
   * Besonderheiten:
     * Keine
 
-b) Holz:
+* ### b) Holz:
 
-Eigenschaften:
-Art (Kiefer, Buche, Eiche), Form (Bretter, Balken, Scheit)
+  * Eigenschaften:
+  * Art (Kiefer, Buche, Eiche), Form (Bretter, Balken, Scheit)
 
-Besonderheiten: 
-Holzbalken sind lang und werden daher auf zwei Paletten verteilt. Ein gesamter Lagerplatz wird notwendig
+  * Besonderheiten: 
+    * Holzbalken sind lang und werden daher auf zwei Paletten verteilt. 
+    * Ein gesamter Lagerplatz wird notwendig
 
 c) Stein:
 
