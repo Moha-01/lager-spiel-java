@@ -15,13 +15,13 @@ Wenn das Ende der Datei erreicht ist, kann wieder mit Auftrag 1 begonnen werden.
 ## Die Produkte:
 Es gibt verschiedene Produkte mit jeweils verschiedenen Eigenschaften.
 
-a) Papier:
+* a) Papier:
 
-Eigenschaften: 
-Farbe (Weiß, Grün, Blau), Größe (A3, A4, A5)
+  * Eigenschaften: 
+  * Farbe (Weiß, Grün, Blau), Größe (A3, A4, A5)
 
-Besonderheiten:
-Keine
+  * Besonderheiten:
+    * Keine
 
 b) Holz:
 
