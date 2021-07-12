@@ -35,8 +35,10 @@ c) Stein:
 
 Eigenschaften:
 Art (Marmor, Granit, Sandstein), Gewicht (Leicht, Mittel, Schwer)
+
 Besonderheiten: 
-Schwere Steine sind zu Schwer für das Regal und können nur auf den unteren beiden Etagen eingelagert werden. Mittelschwere können nicht in der obersten Etage eingelagert werden.
+Schwere Steine sind zu Schwer für das Regal und können nur auf den unteren beiden Etagen eingelagert werden. 
+Mittelschwere können nicht in der obersten Etage eingelagert werden.
 
 # Die Abwicklung:
 Einlagerungsauftrag: 
@@ -47,6 +49,7 @@ Zu einem Auftrag werden die möglichen Lagerplätze dargestellt, also Lagerplät
 
 # Die Lagerverwaltung:
 Es ist möglich, dass ein Produkt zwar im Lager vorhanden ist, aber es wird durch ein anderes Produkt weiter vorne blockiert. Um dennoch an dieses Produkt heranzukommen, muss umgelagert werden. 
+
 Dazu wird die gewünschte Palette ausgewählt. Wenn nicht durch andere Waren blockiert, kann die Palette einen Platz nach rechts, links, oben, unten, hinten oder vorne verschoben werden. Umlagerungen kosten 50 EUR. 
 Des weiteren kann ein Produkt auch verschrottet werden, das kostet 300 EUR. Verschrottet werden kann nur, was sich auf der untersten Etage befindet.
 
