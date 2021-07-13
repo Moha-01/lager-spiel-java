@@ -1,5 +1,5 @@
 import GUI.GUI;
-import Produkt.Paper;
+import Product.Paper;
 
 public class Main {
   public static void main(String[] args) {

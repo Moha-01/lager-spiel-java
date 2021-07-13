@@ -1,4 +1,4 @@
-package Produkt;
+package Product;
 
 
 public class Paper extends Product{
