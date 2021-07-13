@@ -33,6 +33,15 @@ public class GUI extends JFrame implements ActionListener{
 	private JButton r2h4 = new JButton();
 	private JButton r2h5 = new JButton();
 	
+	/* Underline */
+	private JLabel Label1Regal = new JLabel();
+	private JLabel Label2Regal = new JLabel();
+	private JLabel Label1Vorne = new JLabel();
+	private JLabel Label1Hinten = new JLabel();
+	private JLabel Label2Vorne = new JLabel();
+	private JLabel Label2Hinten = new JLabel();
+	
+	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
 	
 	
@@ -93,6 +102,14 @@ public class GUI extends JFrame implements ActionListener{
 		cp.add(r2h3);
 		cp.add(r2h4);
 		cp.add(r2h5);
+		
+		//Underline
+		cp.add(Label1Regal);
+		cp.add(Label2Regal);
+        cp.add(Label1Vorne);
+        cp.add(Label1Hinten);
+        cp.add(Label2Vorne);
+        cp.add(Label2Hinten);
 		
 		
 		setLocationRelativeTo(null);
@@ -371,7 +388,54 @@ public class GUI extends JFrame implements ActionListener{
   	    	  System.out.println("Klick");
   	      }
   	    });
-		
+  	    
+  	    
+  	    /* Underlines */
+  	    
+        Label1Regal.setBounds(51, 30, 363, 20);
+        Label1Regal.setText("1. Regal");
+        Label1Regal.setHorizontalAlignment(SwingConstants.CENTER);
+        Label1Regal.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label1Regal.setBackground(Color.BLACK);
+        Label1Regal.setForeground(Color.WHITE);
+        Label1Regal.setOpaque(true);
+        
+        Label2Regal.setBounds(450, 30, 363, 20);
+        Label2Regal.setText("2. Regal");
+        Label2Regal.setHorizontalAlignment(SwingConstants.CENTER);
+        Label2Regal.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label2Regal.setBackground(Color.BLACK);
+        Label2Regal.setForeground(Color.WHITE);
+        Label2Regal.setOpaque(true);
+        
+        Label1Vorne.setBounds(51, 465, 177, 20);
+        Label1Vorne.setText("Vorne");
+        Label1Vorne.setHorizontalAlignment(SwingConstants.CENTER);
+        Label1Vorne.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label1Vorne.setBackground(Color.GREEN);
+        Label1Vorne.setOpaque(true);
+        
+        Label1Hinten.setBounds(236, 465, 177, 20);
+        Label1Hinten.setText("Hinten");
+        Label1Hinten.setHorizontalAlignment(SwingConstants.CENTER);
+        Label1Hinten.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label1Hinten.setBackground(Color.YELLOW);
+        Label1Hinten.setOpaque(true);
+        
+        Label2Vorne.setBounds(451, 465, 177, 20);
+        Label2Vorne.setText("Vorne");
+        Label2Vorne.setHorizontalAlignment(SwingConstants.CENTER);
+        Label2Vorne.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label2Vorne.setBackground(Color.GREEN);
+        Label2Vorne.setOpaque(true);
+        
+        Label2Hinten.setBounds(637, 465, 177, 20);
+        Label2Hinten.setText("Hinten");
+        Label2Hinten.setHorizontalAlignment(SwingConstants.CENTER);
+        Label2Hinten.setHorizontalTextPosition(SwingConstants.CENTER);
+        Label2Hinten.setBackground(Color.YELLOW);
+        Label2Hinten.setOpaque(true);
+			
 	}
 
 	@Override
