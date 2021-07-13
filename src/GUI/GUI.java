@@ -3,6 +3,7 @@ package GUI;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
@@ -126,7 +127,8 @@ public class GUI extends JFrame implements ActionListener{
 
 		//Regal 1 Vorne
 		int abstandx = 54;
-		r1v1 = new JButton(btnIcon);
+		r1v1.setIcon(btnIcon);
+		r1v1.setBorder(new LineBorder(Color.BLACK));
 		r1v1.setBounds(50, abstandx, 180, 80);
 	    r1v1.setBackground(Color.WHITE);
 	    r1v1.setForeground(Color.BLACK);
@@ -139,7 +141,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v2 = new JButton(btnIcon);
+	    r1v2.setIcon(btnIcon);
 	    r1v2.setBounds(50, abstandx, 180, 80);
 	    r1v2.setBackground(Color.WHITE);
 	    r1v2.setForeground(Color.BLACK);
@@ -152,7 +154,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v3 = new JButton(btnIcon);
+	    r1v3.setIcon(btnIcon);
 	    r1v3.setBounds(50, abstandx, 180, 80);
 	    r1v3.setBackground(Color.WHITE);
 	    r1v3.setForeground(Color.BLACK);
@@ -165,7 +167,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v4 = new JButton(btnIcon);
+	    r1v4.setIcon(btnIcon);
 	    r1v4.setBounds(50, abstandx, 180, 80);
 	    r1v4.setBackground(Color.WHITE);
 	    r1v4.setForeground(Color.BLACK);
@@ -178,7 +180,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v5 = new JButton(btnIcon);
+	    r1v5.setIcon(btnIcon);
 	    r1v5.setBounds(50, abstandx, 180, 80);
 	    r1v5.setBackground(Color.WHITE);
 	    r1v5.setForeground(Color.BLACK);
@@ -192,7 +194,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    // Regal 1 Hinten
 	    abstandx = 54;
-	    r1h1 = new JButton(btnIcon);
+	    r1h1.setIcon(btnIcon);
 	    r1h1.setBounds(235, abstandx, 180, 80);
 	    r1h1.setBackground(Color.WHITE);
 	    r1h1.setForeground(Color.BLACK);
@@ -205,7 +207,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h2 = new JButton(btnIcon);
+	    r1h2.setIcon(btnIcon);
 	    r1h2.setBounds(235, abstandx, 180, 80);
 	    r1h2.setBackground(Color.WHITE);
 	    r1h2.setForeground(Color.BLACK);
@@ -218,7 +220,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h3 = new JButton(btnIcon);
+	    r1h3.setIcon(btnIcon);
 	    r1h3.setBounds(235, abstandx, 180, 80);
 	    r1h3.setBackground(Color.WHITE);
 	    r1h3.setForeground(Color.BLACK);
@@ -231,7 +233,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h4 = new JButton(btnIcon);
+	    r1h4.setIcon(btnIcon);
 	    r1h4.setBounds(235, abstandx, 180, 80);
 	    r1h4.setBackground(Color.WHITE);
 	    r1h4.setForeground(Color.BLACK);
@@ -244,7 +246,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h5 = new JButton(btnIcon);
+	    r1h5.setIcon(btnIcon);
 	    r1h5.setBounds(235, abstandx, 180, 80);
 	    r1h5.setBackground(Color.WHITE);
 	    r1h5.setForeground(Color.BLACK);
@@ -260,7 +262,7 @@ public class GUI extends JFrame implements ActionListener{
 
     	//Regal 2 Vorne
   		abstandx = 54;
-    	  r2v1 = new JButton(btnIcon);
+    	  r2v1.setIcon(btnIcon);
     	  r2v1.setBounds(450, abstandx, 180, 80);
 	    r2v1.setBackground(Color.WHITE);
 	    r2v1.setForeground(Color.BLACK);
@@ -273,7 +275,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
   	 	abstandx=(abstandx + 82);
-    	  r2v2 = new JButton(btnIcon);
+    	  r2v2.setIcon(btnIcon);
     	  r2v2.setBounds(450, abstandx, 180, 80);
 	    r2v2.setBackground(Color.WHITE);
 	    r2v2.setForeground(Color.BLACK);
@@ -286,7 +288,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	  r2v3 = new JButton(btnIcon);
+  	  r2v3.setIcon(btnIcon);
   	  r2v3.setBounds(450, abstandx, 180, 80);
 	    r2v3.setBackground(Color.WHITE);
 	    r2v3.setForeground(Color.BLACK);
@@ -299,7 +301,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	  r2v4 = new JButton(btnIcon);
+  	  r2v4.setIcon(btnIcon);
   	  r2v4.setBounds(450, abstandx, 180, 80);
 	    r2v4.setBackground(Color.WHITE);
 	    r2v4.setForeground(Color.BLACK);
@@ -312,7 +314,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);  	  
-  	  r2v5 = new JButton(btnIcon);
+  	  r2v5.setIcon(btnIcon);
   	  r2v5.setBounds(450, abstandx, 180, 80);
 	    r2v5.setBackground(Color.WHITE);
 	    r2v5.setForeground(Color.BLACK);
@@ -326,7 +328,7 @@ public class GUI extends JFrame implements ActionListener{
 
   	    // Regal 2 Hinten
   	  abstandx = 54;
-  	  r2h1 = new JButton(btnIcon);
+  	  r2h1.setIcon(btnIcon);
   	  r2h1.setBounds(635, abstandx, 180, 80);
 	    r2h1.setBackground(Color.WHITE);
 	    r2h1.setForeground(Color.BLACK);
@@ -339,7 +341,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	r2h2 = new JButton(btnIcon);
+  	r2h2.setIcon(btnIcon);
   	r2h2.setBounds(635, abstandx, 180, 80);
   	    r2h2.setBackground(Color.WHITE);
 	    r2h2.setForeground(Color.BLACK);
@@ -352,7 +354,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	r2h3 = new JButton(btnIcon);
+  	r2h3.setIcon(btnIcon);
   	r2h3.setBounds(635, abstandx, 180, 80);  
 	    r2h3.setBackground(Color.WHITE);
 	    r2h3.setForeground(Color.BLACK);
@@ -365,7 +367,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	r2h4 = new JButton(btnIcon);
+  	r2h4.setIcon(btnIcon);
   	r2h4.setBounds(635, abstandx, 180, 80);
 	    r2h4.setBackground(Color.WHITE);
 	    r2h4.setForeground(Color.BLACK);
@@ -378,7 +380,7 @@ public class GUI extends JFrame implements ActionListener{
   	  });
 
   	  abstandx=(abstandx + 82);
-  	r2h5 = new JButton(btnIcon);
+  	r2h5.setIcon(btnIcon);
   	r2h5.setBounds(635, abstandx, 180, 80);
 	    r2h5.setBackground(Color.WHITE);
 	    r2h5.setForeground(Color.BLACK);
