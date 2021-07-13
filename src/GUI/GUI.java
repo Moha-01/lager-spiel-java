@@ -41,10 +41,13 @@ public class GUI extends JFrame implements ActionListener{
 	private JLabel Label1Hinten = new JLabel();
 	private JLabel Label2Vorne = new JLabel();
 	private JLabel Label2Hinten = new JLabel();
+	
 	private Icon btnIcon = new ImageIcon(GUI.class.getResource("placeholder.png"));
 
-
+	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
+
+	
 
 
 
@@ -53,8 +56,8 @@ public class GUI extends JFrame implements ActionListener{
 		super();
 		setTitle("Lager Spiel");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-
+		
+		
 		int frameWidth = 1700;
 	    int frameHeight = 1000;
 	    setSize(frameWidth, frameHeight);
@@ -68,7 +71,6 @@ public class GUI extends JFrame implements ActionListener{
 	    cp.setLayout(null);
 	    cp.setBackground(Color.LIGHT_GRAY);
 	    setIconImage(img.getImage());
-
 
 
 		initComponents();
