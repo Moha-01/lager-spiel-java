@@ -284,7 +284,7 @@ public class GUI extends JFrame implements ActionListener{
   	      }
   	    });
 
-  	  abstandx=(abstandx + 82);
+  	    abstandx=(abstandx + 82);
   	    r2v3.setBounds(450, abstandx, 180, 80);
   	    r2v3.setText("r2v3");
 	    r2v3.setBackground(Color.WHITE);
