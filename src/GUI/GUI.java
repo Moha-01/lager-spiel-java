@@ -44,12 +44,11 @@ public class GUI extends JFrame implements ActionListener{
 	private JLabel Label2Hinten = new JLabel();
 	
 	private Icon btnIcon = new ImageIcon(GUI.class.getResource("placeholder.png"));
-
+	private Icon btnDestroy = new ImageIcon(GUI.class.getResource("destroy.png"));
+	private Icon btnMove = new ImageIcon(GUI.class.getResource("move.png"));
+	private Icon btnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
-
-	
-
 
 
 	public GUI() {
@@ -122,14 +121,38 @@ public class GUI extends JFrame implements ActionListener{
 
 	}
 
+	//Placeholder
+	int r1v1_ph = 1;
+	int r1v2_ph = 1;
+	int r1v3_ph = 1;
+	int r1v4_ph = 1;
+	int r1v5_ph = 1;
+	int r1h1_ph = 1;
+	int r1h2_ph = 1;
+	int r1h3_ph = 1;
+	int r1h4_ph = 1;
+	int r1h5_ph = 1;
+	int r2v1_ph = 1;
+	int r2v2_ph = 1;
+	int r2v3_ph = 1;
+	int r2v4_ph = 1;
+	int r2v5_ph = 1;
+	int r2h1_ph = 1;
+	int r2h2_ph = 1;
+	int r2h3_ph = 1;
+	int r2h4_ph = 1;
+	int r2h5_ph = 1;
+	
 	private void initComponents() {
-
+		
+		
 		/*Label*/
 
 		/*Button*/
 
 		//Regal 1 Vorne
 		int abstandx = 54;
+		
 		r1v1.setIcon(btnIcon);
 		r1v1.setBorder(new LineBorder(Color.BLACK));
 		r1v1.setBounds(50, abstandx, 180, 80);
@@ -148,11 +171,19 @@ public class GUI extends JFrame implements ActionListener{
 	    		  r1v1.setBackground(Color.white);
 	    	  }
 	    	  
+	    	  if (r1v2_ph == 1) {
+				r1v2.setBackground(Color.ORANGE);
+				r1v2_ph = 0;
+			}
+	    	  
+	    	  
 	      }
 	    });
 
 	    abstandx=(abstandx + 82);
+	    
 	    r1v2.setIcon(btnIcon);
+		r1v2.setBorder(new LineBorder(Color.BLACK));
 	    r1v2.setBounds(50, abstandx, 180, 80);
 	    r1v2.setBackground(Color.WHITE);
 	    r1v2.setForeground(Color.BLACK);
@@ -160,12 +191,16 @@ public class GUI extends JFrame implements ActionListener{
 	    r1v2.setMargin(new Insets(2, 2, 2, 2));
 	    r1v2.addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	        System.out.println("Klick");
+	        if (r1v2_ph == 0) {
+				r1v2.setBackground(Color.white);
+				r1v2_ph = 1;
+			}
 	      }
 	    });
 
 	    abstandx=(abstandx + 82);
 	    r1v3.setIcon(btnIcon);
+		r1v3.setBorder(new LineBorder(Color.BLACK));
 	    r1v3.setBounds(50, abstandx, 180, 80);
 	    r1v3.setBackground(Color.WHITE);
 	    r1v3.setForeground(Color.BLACK);
@@ -179,6 +214,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1v4.setIcon(btnIcon);
+		r1v4.setBorder(new LineBorder(Color.BLACK));
 	    r1v4.setBounds(50, abstandx, 180, 80);
 	    r1v4.setBackground(Color.WHITE);
 	    r1v4.setForeground(Color.BLACK);
@@ -192,6 +228,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1v5.setIcon(btnIcon);
+	    r1v5.setBorder(new LineBorder(Color.BLACK));
 	    r1v5.setBounds(50, abstandx, 180, 80);
 	    r1v5.setBackground(Color.WHITE);
 	    r1v5.setForeground(Color.BLACK);
@@ -206,6 +243,7 @@ public class GUI extends JFrame implements ActionListener{
 	    // Regal 1 Hinten
 	    abstandx = 54;
 	    r1h1.setIcon(btnIcon);
+	    r1h1.setBorder(new LineBorder(Color.BLACK));
 	    r1h1.setBounds(235, abstandx, 180, 80);
 	    r1h1.setBackground(Color.WHITE);
 	    r1h1.setForeground(Color.BLACK);
@@ -219,6 +257,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1h2.setIcon(btnIcon);
+	    r1h2.setBorder(new LineBorder(Color.BLACK));
 	    r1h2.setBounds(235, abstandx, 180, 80);
 	    r1h2.setBackground(Color.WHITE);
 	    r1h2.setForeground(Color.BLACK);
@@ -232,6 +271,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1h3.setIcon(btnIcon);
+		r1v1.setBorder(new LineBorder(Color.BLACK));
 	    r1h3.setBounds(235, abstandx, 180, 80);
 	    r1h3.setBackground(Color.WHITE);
 	    r1h3.setForeground(Color.BLACK);
@@ -245,6 +285,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1h4.setIcon(btnIcon);
+	    r1h4.setBorder(new LineBorder(Color.BLACK));
 	    r1h4.setBounds(235, abstandx, 180, 80);
 	    r1h4.setBackground(Color.WHITE);
 	    r1h4.setForeground(Color.BLACK);
@@ -258,6 +299,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    r1h5.setIcon(btnIcon);
+	    r1h5.setBorder(new LineBorder(Color.BLACK));
 	    r1h5.setBounds(235, abstandx, 180, 80);
 	    r1h5.setBackground(Color.WHITE);
 	    r1h5.setForeground(Color.BLACK);
@@ -273,135 +315,145 @@ public class GUI extends JFrame implements ActionListener{
 
     	//Regal 2 Vorne
   		abstandx = 54;
-    	  r2v1.setIcon(btnIcon);
-    	  r2v1.setBounds(450, abstandx, 180, 80);
+    	r2v1.setIcon(btnIcon);
+    	r2v1.setBorder(new LineBorder(Color.BLACK));
+    	r2v1.setBounds(450, abstandx, 180, 80);
 	    r2v1.setBackground(Color.WHITE);
 	    r2v1.setForeground(Color.BLACK);
 	    r2v1.setFocusPainted(false);
-  	  r2v1.setMargin(new Insets(2, 2, 2, 2));
-  	  r2v1.addActionListener(new ActionListener() {
-		      public void actionPerformed(ActionEvent evt) {
-			        System.out.println("Klick");
-			      }
+  	  	r2v1.setMargin(new Insets(2, 2, 2, 2));
+  	  	r2v1.addActionListener(new ActionListener() {
+	      public void actionPerformed(ActionEvent evt) {
+		        System.out.println("Klick");
+		  }
 	    });
 
   	 	abstandx=(abstandx + 82);
-    	  r2v2.setIcon(btnIcon);
-    	  r2v2.setBounds(450, abstandx, 180, 80);
+    	r2v2.setIcon(btnIcon);
+    	r2v2.setBorder(new LineBorder(Color.BLACK));
+    	r2v2.setBounds(450, abstandx, 180, 80);
 	    r2v2.setBackground(Color.WHITE);
 	    r2v2.setForeground(Color.BLACK);
 	    r2v2.setFocusPainted(false);
-  	  r2v2.setMargin(new Insets(2, 2, 2, 2));
-  	  r2v2.addActionListener(new ActionListener() {
-		  	  public void actionPerformed(ActionEvent evt) {
-		  	      System.out.println("Klick");
-		  	    }
-  	  });
+  	  	r2v2.setMargin(new Insets(2, 2, 2, 2));
+  	  	r2v2.addActionListener(new ActionListener() {
+	  	  public void actionPerformed(ActionEvent evt) {
+	  	      System.out.println("Klick");
+	  	    }
+  	  	});
 
-  	  abstandx=(abstandx + 82);
-  	  r2v3.setIcon(btnIcon);
-  	  r2v3.setBounds(450, abstandx, 180, 80);
+  	  	abstandx=(abstandx + 82);
+  	  	r2v3.setIcon(btnIcon);
+  	  	r2v3.setBorder(new LineBorder(Color.BLACK));
+  	  	r2v3.setBounds(450, abstandx, 180, 80);
 	    r2v3.setBackground(Color.WHITE);
 	    r2v3.setForeground(Color.BLACK);
 	    r2v3.setFocusPainted(false);
-  	  r2v3.setMargin(new Insets(2, 2, 2, 2));
-  	  r2v3.addActionListener(new ActionListener() {
+  	  	r2v3.setMargin(new Insets(2, 2, 2, 2));
+  	  	r2v3.addActionListener(new ActionListener() {
   	  		public void actionPerformed(ActionEvent evt) {
-  	        System.out.println("Klick");
-  	      }
-  	  });
+  	  			System.out.println("Klick");
+  	  		}
+  	  	});
 
-  	  abstandx=(abstandx + 82);
-  	  r2v4.setIcon(btnIcon);
-  	  r2v4.setBounds(450, abstandx, 180, 80);
+  	  	abstandx=(abstandx + 82);
+  	  	r2v4.setIcon(btnIcon);
+  	  	r2v4.setBorder(new LineBorder(Color.BLACK));
+  	  	r2v4.setBounds(450, abstandx, 180, 80);
 	    r2v4.setBackground(Color.WHITE);
 	    r2v4.setForeground(Color.BLACK);
 	    r2v4.setFocusPainted(false);
-  	  r2v4.setMargin(new Insets(2, 2, 2, 2));
-  	  r2v4.addActionListener(new ActionListener() {
+	    r2v4.setMargin(new Insets(2, 2, 2, 2));
+	    r2v4.addActionListener(new ActionListener() {
 	  	    public void actionPerformed(ActionEvent evt) {
 	  	      System.out.println("Klick");
 	  	    }
-  	  });
+	    });
 
-  	  abstandx=(abstandx + 82);  	  
-  	  r2v5.setIcon(btnIcon);
-  	  r2v5.setBounds(450, abstandx, 180, 80);
+  	  	abstandx=(abstandx + 82);  	  
+  	  	r2v5.setIcon(btnIcon);
+  	  	r2v5.setBorder(new LineBorder(Color.BLACK));
+  	  	r2v5.setBounds(450, abstandx, 180, 80);
 	    r2v5.setBackground(Color.WHITE);
 	    r2v5.setForeground(Color.BLACK);
 	    r2v5.setFocusPainted(false);
-  	  r2v5.setMargin(new Insets(2, 2, 2, 2));
-  	  r2v5.addActionListener(new ActionListener() {
-  	   	public void actionPerformed(ActionEvent evt) {
-  	       	System.out.println("Klick");
-  	     	}
-  	  });
+	    r2v5.setMargin(new Insets(2, 2, 2, 2));
+	    r2v5.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent evt) {
+	    		System.out.println("Klick");
+	    	}
+	    });
 
   	    // Regal 2 Hinten
-  	  abstandx = 54;
-  	  r2h1.setIcon(btnIcon);
-  	  r2h1.setBounds(635, abstandx, 180, 80);
+	    abstandx = 54;
+	    r2h1.setIcon(btnIcon);
+	    r2h1.setBorder(new LineBorder(Color.BLACK));
+	    r2h1.setBounds(635, abstandx, 180, 80);
 	    r2h1.setBackground(Color.WHITE);
 	    r2h1.setForeground(Color.BLACK);
 	    r2h1.setFocusPainted(false);
-  	  r2h1.setMargin(new Insets(2, 2, 2, 2));
-  	  r2h1.addActionListener(new ActionListener() {
+	    r2h1.setMargin(new Insets(2, 2, 2, 2));
+	    r2h1.addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
-  	  });
+	    });
 
-  	  abstandx=(abstandx + 82);
-  	r2h2.setIcon(btnIcon);
-  	r2h2.setBounds(635, abstandx, 180, 80);
+	    abstandx=(abstandx + 82);
+	    r2h2.setIcon(btnIcon);
+	    r2h2.setBorder(new LineBorder(Color.BLACK));
+	    r2h2.setBounds(635, abstandx, 180, 80);
   	    r2h2.setBackground(Color.WHITE);
 	    r2h2.setForeground(Color.BLACK);
 	    r2h2.setFocusPainted(false);
-  	  r2h2.setMargin(new Insets(2, 2, 2, 2));
-  	  r2h2.addActionListener(new ActionListener() {
+	    r2h2.setMargin(new Insets(2, 2, 2, 2));
+  	  	r2h2.addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
-  	  });
+  	  	});
 
-  	  abstandx=(abstandx + 82);
-  	r2h3.setIcon(btnIcon);
-  	r2h3.setBounds(635, abstandx, 180, 80);  
+  	  	abstandx=(abstandx + 82);
+  	  	r2h3.setIcon(btnIcon);
+  	  	r2h3.setBorder(new LineBorder(Color.BLACK));
+  	  	r2h3.setBounds(635, abstandx, 180, 80);  
 	    r2h3.setBackground(Color.WHITE);
 	    r2h3.setForeground(Color.BLACK);
 	    r2h3.setFocusPainted(false);
-  	  r2h3.setMargin(new Insets(2, 2, 2, 2));
-  	  r2h3.addActionListener(new ActionListener() {
+	    r2h3.setMargin(new Insets(2, 2, 2, 2));
+	    r2h3.addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
-  	  });
+	    });
 
-  	  abstandx=(abstandx + 82);
-  	r2h4.setIcon(btnIcon);
-  	r2h4.setBounds(635, abstandx, 180, 80);
+	    abstandx=(abstandx + 82);
+	    r2h4.setIcon(btnIcon);
+	    r2h4.setBorder(new LineBorder(Color.BLACK));
+	    r2h4.setBounds(635, abstandx, 180, 80);
 	    r2h4.setBackground(Color.WHITE);
 	    r2h4.setForeground(Color.BLACK);
 	    r2h4.setFocusPainted(false);
-  	  r2h4.setMargin(new Insets(2, 2, 2, 2));
-  	  r2h4.addActionListener(new ActionListener() {
+	    r2h4.setMargin(new Insets(2, 2, 2, 2));
+	    r2h4.addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
-  	  });
+	    });
 
-  	  abstandx=(abstandx + 82);
-  	r2h5.setIcon(btnIcon);
-  	r2h5.setBounds(635, abstandx, 180, 80);
+	    abstandx=(abstandx + 82);
+	    r2h5.setIcon(btnIcon);
+	    r2h5.setBorder(new LineBorder(Color.BLACK));
+	    r2h5.setBounds(635, abstandx, 180, 80);
 	    r2h5.setBackground(Color.WHITE);
 	    r2h5.setForeground(Color.BLACK);
 	    r2h5.setFocusPainted(false);
-  	  r2h5.setMargin(new Insets(2, 2, 2, 2));
-  	  r2h5.addActionListener(new ActionListener() {
+	    r2h5.setMargin(new Insets(2, 2, 2, 2));
+	    r2h5.addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
-  	  });
+	    });
 
 
 	    /* Underlines */
