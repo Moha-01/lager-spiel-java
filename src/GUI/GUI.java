@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements ActionListener{
 
@@ -137,8 +138,16 @@ public class GUI extends JFrame implements ActionListener{
 	    r1v1.setFocusPainted(false);
 	    r1v1.setMargin(new Insets(2, 2, 2, 2));
 	    r1v1.addActionListener(new ActionListener() {
+	      int klick = 0;
 	      public void actionPerformed(ActionEvent evt) {
-	        System.out.println("Klick");
+	    	  if(klick == 0) {
+	    		  klick = 1;
+	    		  r1v1.setBackground(Color.red);
+	    	  } else if(klick == 1) {
+	    		  klick = 0;
+	    		  r1v1.setBackground(Color.white);
+	    	  }
+	    	  
 	      }
 	    });
 
