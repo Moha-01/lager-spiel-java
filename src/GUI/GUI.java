@@ -34,7 +34,11 @@ public class GUI extends JFrame implements ActionListener{
 	private JButton r2h3 = new JButton();
 	private JButton r2h4 = new JButton();
 	private JButton r2h5 = new JButton();
-
+	private JButton outControl = new JButton();
+	private JButton moveControl = new JButton();
+	private JButton destroyControl = new JButton();
+	private JButton bilanzButton = new JButton();
+	
 	/* Underline */
 	private JLabel Label1Regal = new JLabel();
 	private JLabel Label2Regal = new JLabel();
@@ -42,13 +46,26 @@ public class GUI extends JFrame implements ActionListener{
 	private JLabel Label1Hinten = new JLabel();
 	private JLabel Label2Vorne = new JLabel();
 	private JLabel Label2Hinten = new JLabel();
+	private JLabel controlsLabel = new JLabel();
+	private JLabel colLeft = new JLabel();
+	private JLabel colRight = new JLabel();
+	private JLabel colBottom = new JLabel();
+	private JLabel LabelAuslagern = new JLabel();
+	private JLabel LabelMove = new JLabel();
+	private JLabel LabelDestroy = new JLabel();
+	private JLabel lKontostand = new JLabel();
+	private JLabel LabelBilanz = new JLabel();
 	
 	private Icon btnIcon = new ImageIcon(GUI.class.getResource("placeholder.png"));
 	private Icon btnDestroy = new ImageIcon(GUI.class.getResource("destroy.png"));
 	private Icon btnMove = new ImageIcon(GUI.class.getResource("move.png"));
 	private Icon btnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
+	private Icon btnBilanz = new ImageIcon(GUI.class.getResource("bilanz.png"));
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
+	
+	//TextField
+	private JTextField KontostandTextField = new JTextField();
 
 
 	public GUI() {
@@ -58,8 +75,8 @@ public class GUI extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
-		int frameWidth = 1700;
-	    int frameHeight = 1000;
+		int frameWidth = 1600;
+	    int frameHeight = 920;
 	    setSize(frameWidth, frameHeight);
 	    Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (d.width - getSize().width) / 2;
@@ -114,7 +131,20 @@ public class GUI extends JFrame implements ActionListener{
         cp.add(Label1Hinten);
         cp.add(Label2Vorne);
         cp.add(Label2Hinten);
-
+        cp.add(controlsLabel);
+        cp.add(colLeft);
+        cp.add(colRight);
+        cp.add(colBottom);
+        cp.add(outControl);
+        cp.add(LabelAuslagern);
+        cp.add(moveControl);
+        cp.add(destroyControl);
+        cp.add(LabelMove);
+        cp.add(LabelDestroy);
+        cp.add(lKontostand);
+        cp.add(bilanzButton);
+        cp.add(LabelBilanz);
+        cp.add(KontostandTextField);
 
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -501,6 +531,122 @@ public class GUI extends JFrame implements ActionListener{
       Label2Hinten.setHorizontalTextPosition(SwingConstants.CENTER);
       Label2Hinten.setBackground(Color.YELLOW);
       Label2Hinten.setOpaque(true);
+      
+      controlsLabel.setBounds(50, 519, 768, 34);
+      controlsLabel.setText("Controls");
+      controlsLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+      controlsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+      controlsLabel.setBackground(Color.BLACK);
+      controlsLabel.setOpaque(true);
+      controlsLabel.setForeground(Color.WHITE);
+      
+      colLeft.setBounds(50, 551, 14, 153);
+      colLeft.setText("");
+      colLeft.setBackground(Color.BLACK);
+      colLeft.setOpaque(true);
+      
+      colRight.setBounds(804, 551, 14, 153);
+      colRight.setBackground(Color.BLACK);
+      colRight.setText("");
+      colRight.setOpaque(true);
+      
+      colBottom.setBounds(50, 688, 768, 17);
+      colBottom.setBackground(Color.BLACK);
+      colBottom.setText("");
+      colBottom.setOpaque(true);
+      
+      outControl.setBounds(105, 569, 180, 80);
+      outControl.setIcon(btnOut);
+      outControl.setMargin(new Insets(2, 2, 2, 2));
+      outControl.setBackground(Color.WHITE);
+      outControl.setFocusPainted(false);
+      outControl.setBorder(new LineBorder(Color.BLACK));
+      outControl.addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+          System.out.println("Klick");
+        }
+      });
+      
+      LabelAuslagern.setBounds(106, 655, 179, 20);
+      LabelAuslagern.setText("Auslagern");
+      LabelAuslagern.setHorizontalTextPosition(SwingConstants.CENTER);
+      LabelAuslagern.setHorizontalAlignment(SwingConstants.CENTER);
+      LabelAuslagern.setBackground(new Color(0xFFC800));
+      LabelAuslagern.setOpaque(true);
+      
+      
+      moveControl.setBounds(345, 569, 180, 80);
+      moveControl.setIcon(btnMove);
+      moveControl.setMargin(new Insets(2, 2, 2, 2));
+      moveControl.setBackground(Color.WHITE);
+      moveControl.setFocusPainted(false);
+      moveControl.setBorder(new LineBorder(Color.BLACK));
+      moveControl.addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+        	System.out.println("Klick");
+        }
+      });
+      
+      LabelMove.setBounds(346, 655, 179, 20);
+      LabelMove.setText("Move");
+      LabelMove.setHorizontalTextPosition(SwingConstants.CENTER);
+      LabelMove.setHorizontalAlignment(SwingConstants.CENTER);
+      LabelMove.setBackground(Color.YELLOW);
+      LabelMove.setOpaque(true);
+      
+      destroyControl.setBounds(585, 569, 180, 80);
+      destroyControl.setIcon(btnDestroy);
+      destroyControl.setMargin(new Insets(2, 2, 2, 2));
+      destroyControl.setBackground(Color.WHITE);
+      destroyControl.setFocusPainted(false);
+      destroyControl.setBorder(new LineBorder(Color.BLACK));
+      destroyControl.addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+        	System.out.println("Klick");
+        }
+      });
+      
+      LabelDestroy.setBounds(586, 655, 179, 20);
+      LabelDestroy.setText("Verschrotten");
+      LabelDestroy.setHorizontalTextPosition(SwingConstants.CENTER);
+      LabelDestroy.setHorizontalAlignment(SwingConstants.CENTER);
+      LabelDestroy.setBackground(Color.RED);
+      LabelDestroy.setOpaque(true);
+      
+      lKontostand.setBounds(61, 778, 266, 43);
+      lKontostand.setText("  Kontostand:                          €");
+      lKontostand.setHorizontalTextPosition(SwingConstants.CENTER);
+      lKontostand.setHorizontalAlignment(SwingConstants.LEFT);
+      lKontostand.setBackground(new Color(0xEEEEEE));
+      lKontostand.setOpaque(true);
+      lKontostand.setFont(new Font("Dialog", Font.BOLD, 18));
+      
+      bilanzButton.setBounds(387, 745, 180, 80);
+      bilanzButton.setIcon(btnBilanz);
+      bilanzButton.setBackground(Color.WHITE);
+      bilanzButton.setBorder(new javax.swing.border.LineBorder(Color.BLACK));
+      bilanzButton.setMargin(new Insets(2, 2, 2, 2));
+      bilanzButton.setFocusPainted(false);
+      bilanzButton.addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+        	System.out.println("Klick");
+        }
+      });
+      
+      LabelBilanz.setBounds(387, 830, 180, 20);
+      LabelBilanz.setText("BILANZ");
+      LabelBilanz.setHorizontalTextPosition(SwingConstants.CENTER);
+      LabelBilanz.setHorizontalAlignment(SwingConstants.CENTER);
+      LabelBilanz.setBackground(Color.BLACK);
+      LabelBilanz.setForeground(Color.WHITE);
+      LabelBilanz.setOpaque(true);
+      
+      KontostandTextField.setBounds(183, 783, 116, 35);
+      KontostandTextField.setText("0");
+      KontostandTextField.setEditable(false);
+      KontostandTextField.setFont(new Font("Dialog", Font.PLAIN, 18));
+      
+      
 
 	}
 
