@@ -2,8 +2,17 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Iterator;
+import java.util.Scanner;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+
+import org.w3c.dom.css.Counter;
+
+import Table.Table;
 
 
 @SuppressWarnings("serial")
@@ -34,6 +43,8 @@ public class GUI extends JFrame implements ActionListener{
 	private JButton r2h3 = new JButton();
 	private JButton r2h4 = new JButton();
 	private JButton r2h5 = new JButton();
+	
+	
 	private JButton outControl = new JButton();
 	private JButton moveControl = new JButton();
 	private JButton destroyControl = new JButton();
@@ -80,9 +91,26 @@ public class GUI extends JFrame implements ActionListener{
 	
 	//TextField
 	private JTextField KontostandTextField = new JTextField();
+	
+	 
 
 	
 	//Variablen
+	String fileAbsolutPathString = new File("").getAbsolutePath();
+	
+	File getCSVFiles = new File(fileAbsolutPathString + "\\src\\GUI\\Leistungsnachweis.csv");
+	
+	//Bilanz Variablen
+	String[] colTableStrings = {"Eintrag", "Kosten", "Kontostand", "Umsatz"};
+    String[][] dataStrings = new String[100][4];
+    String[] allCSVData = new String[500];
+    String[] auftragStrings= new String[100];
+    String[] auftragsartStrings= new String[100];
+    String[] produktStrings= new String[100];
+    String[] attribut1Strings= new String[100];
+    String[] attribut2Strings= new String[100];
+    String[] belohnungStrings= new String[100];
+    
 	//Placeholder
 	int r1v1_ph = 1;
 	int r1v2_ph = 1;
@@ -106,7 +134,8 @@ public class GUI extends JFrame implements ActionListener{
 	int r2h5_ph = 1;
 	
 	public GUI() {
-
+		
+	    
 		super();
 		setTitle("Lager Spiel");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -130,6 +159,7 @@ public class GUI extends JFrame implements ActionListener{
 		initComponents();
 
 
+		
 		/*Labels*/
 
 		/*Buttons*/
@@ -204,7 +234,6 @@ public class GUI extends JFrame implements ActionListener{
 	
 	
 	private void initComponents() {
-		
 		
 		/*Label*/
 
@@ -659,7 +688,13 @@ public class GUI extends JFrame implements ActionListener{
       bilanzButton.setFocusPainted(false);
       bilanzButton.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+	            JFrame jf=new JFrame();
+	            Table tab= new Table(colTableStrings, dataStrings);
+	            jf.setTitle("Bilanz");
+	            jf.setSize(800, 500);
+	            jf.setVisible(true);
+	            jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	            jf.add(tab); 
         }
       });
       
@@ -708,7 +743,42 @@ public class GUI extends JFrame implements ActionListener{
       bNeuerAuftrag.setFocusPainted(false);
       bNeuerAuftrag.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	
+        	//CSV lesen
+            Scanner sc = null;
+			try {
+				sc = new Scanner(getCSVFiles);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+            sc.useDelimiter(";|\\n");
+            int dataCounter = 0;
+            while (sc.hasNext())
+            {
+            	allCSVData[dataCounter] = sc.next();
+            	System.out.println(allCSVData[dataCounter] + "  Index: " + dataCounter);
+            	if(allCSVData[dataCounter] == null) {
+            		break;
+            	}
+      			dataCounter++;
+            }
+            
+            dataCounter = dataCounter - 1;
+            System.out.println(dataCounter/6);
+            //Bearbeiten
+            
+            for(int i = 0; i <= (dataCounter/6); i++) {
+            	auftragStrings[i] = allCSVData[i+6];
+                auftragsartStrings[i]  = allCSVData[i+7];
+                produktStrings[i]  = allCSVData[i+8];
+                attribut1Strings[i]  = allCSVData[i+9];
+                attribut2Strings[i]  = allCSVData[i+10];
+                belohnungStrings[i]  = allCSVData[i+11];
+            }
+            System.out.println(auftragStrings[0] + ";" + auftragsartStrings[0] + ";" + produktStrings[0] + ";" + attribut1Strings[0] + ";" + attribut2Strings[0] + ";" + belohnungStrings[0]);
+            sc.close(); 
+            
+            
         }
       });
       
@@ -815,10 +885,6 @@ public class GUI extends JFrame implements ActionListener{
         }
       });
       
-      
-      
-      
-      
 
 	}
 
@@ -827,8 +893,4 @@ public class GUI extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 
 	}
-
-
-
-
 }
