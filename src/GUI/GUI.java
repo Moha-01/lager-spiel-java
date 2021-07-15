@@ -89,13 +89,24 @@ public class GUI extends JFrame implements ActionListener{
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
 	
-	//TextField
-	private JTextField KontostandTextField = new JTextField();
 	
 	 
 
 	
 	//Variablen
+	
+	int KontoStand = 10000;
+	int Belohnung1 = 0;
+	int Belohnung2 = 0;
+	int Belohnung3 = 0;
+	int Belohnung4 = 0;
+	String Art1 = "";
+	String Art2 = "";
+	String Art3 = "";
+	String Art4 = "";
+	
+	int Eintrag = 0;
+	
 	String fileAbsolutPathString = new File("").getAbsolutePath();
 	
 	File getCSVFiles = new File(fileAbsolutPathString + "\\src\\GUI\\Leistungsnachweis.csv");
@@ -132,6 +143,13 @@ public class GUI extends JFrame implements ActionListener{
 	int r2h3_ph = 1;
 	int r2h4_ph = 1;
 	int r2h5_ph = 1;
+	
+	//Check ob die Aufträge frei sind oder nicht
+	int af1 = 0;
+	int af2 = 0;
+	int af3 = 0;
+	int af4 = 0;
+	
 	
 	public GUI() {
 		
@@ -211,7 +229,6 @@ public class GUI extends JFrame implements ActionListener{
         cp.add(lKontostand);
         cp.add(bilanzButton);
         cp.add(LabelBilanz);
-        cp.add(KontostandTextField);
         cp.add(lAuftraege);
         cp.add(colLeft_auf);
         cp.add(colRight_auf);
@@ -673,7 +690,7 @@ public class GUI extends JFrame implements ActionListener{
       LabelDestroy.setOpaque(true);
       
       lKontostand.setBounds(561, 778, 266, 43);
-      lKontostand.setText("  Kontostand:                          €");
+      lKontostand.setText("  Kontostand:  " + KontoStand +" €");
       lKontostand.setHorizontalTextPosition(SwingConstants.CENTER);
       lKontostand.setHorizontalAlignment(SwingConstants.LEFT);
       lKontostand.setBackground(new Color(0xEEEEEE));
@@ -706,11 +723,6 @@ public class GUI extends JFrame implements ActionListener{
       LabelBilanz.setForeground(Color.WHITE);
       LabelBilanz.setOpaque(true);
       
-      KontostandTextField.setBounds(683, 783, 116, 35);
-      KontostandTextField.setText("0");
-      KontostandTextField.setEditable(false);
-      KontostandTextField.setFont(new Font("Dialog", Font.PLAIN, 18));
-      
       lAuftraege.setBounds(898, 55, 824, 34);
       lAuftraege.setText("Aufträge");
       lAuftraege.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -742,6 +754,7 @@ public class GUI extends JFrame implements ActionListener{
       bNeuerAuftrag.setMargin(new Insets(2, 2, 2, 2));
       bNeuerAuftrag.setFocusPainted(false);
       bNeuerAuftrag.addActionListener(new ActionListener() { 
+    	int auf_num = 0;
         public void actionPerformed(ActionEvent evt) { 
         	
         	//CSV lesen
@@ -755,8 +768,7 @@ public class GUI extends JFrame implements ActionListener{
             int dataCounter = 0;
             while (sc.hasNext())
             {
-            	allCSVData[dataCounter] = sc.next();
-            	System.out.println(allCSVData[dataCounter] + "  Index: " + dataCounter);
+            	allCSVData[dataCounter] = sc.next().replace("\n", "").replace(" ", "").replace("\r", "");
             	if(allCSVData[dataCounter] == null) {
             		break;
             	}
@@ -764,20 +776,78 @@ public class GUI extends JFrame implements ActionListener{
             }
             
             dataCounter = dataCounter - 1;
-            System.out.println(dataCounter/6);
-            //Bearbeiten
             
+            //Bearbeiten
+            int x = 6;
             for(int i = 0; i <= (dataCounter/6); i++) {
-            	auftragStrings[i] = allCSVData[i+6];
-                auftragsartStrings[i]  = allCSVData[i+7];
-                produktStrings[i]  = allCSVData[i+8];
-                attribut1Strings[i]  = allCSVData[i+9];
-                attribut2Strings[i]  = allCSVData[i+10];
-                belohnungStrings[i]  = allCSVData[i+11];
+            	auftragStrings[i] = allCSVData[i+x];
+                auftragsartStrings[i]  = allCSVData[i+x+1];
+                produktStrings[i]  = allCSVData[i+x+2];
+                attribut1Strings[i]  = allCSVData[i+x+3];
+                attribut2Strings[i]  = allCSVData[i+x+4];
+                belohnungStrings[i]  = allCSVData[i+x+5];
+                x= (x+6)-1;
             }
-            System.out.println(auftragStrings[0] + ";" + auftragsartStrings[0] + ";" + produktStrings[0] + ";" + attribut1Strings[0] + ";" + attribut2Strings[0] + ";" + belohnungStrings[0]);
             sc.close(); 
             
+            if(bAuftrag1.getText() == "Leer" && af1 != 1) {
+            	af1 = 1;
+            	
+            	bAuftrag1.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
+            	Belohnung1 = Integer.parseInt(belohnungStrings[auf_num]);
+            	Art1 = auftragsartStrings[auf_num];
+            	if(auftragsartStrings[auf_num].equals("Auslagerung")) {
+        			bAuftrag1.setBorder(new LineBorder(Color.RED, 5));
+        		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
+        			bAuftrag1.setBorder(new LineBorder(Color.GREEN, 5));
+        		}
+            	
+            	auf_num++;
+            } else if(bAuftrag2.getText() == "Leer" && af2 != 1) {
+	            	af2 = 1;
+		            	
+		           	bAuftrag2.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
+		           	Belohnung2 = Integer.parseInt(belohnungStrings[auf_num]);
+		           	Art2 = auftragsartStrings[auf_num];
+	            	if(auftragsartStrings[auf_num].equals("Auslagerung")) {
+	        			bAuftrag2.setBorder(new LineBorder(Color.RED, 5));
+	        		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
+	        			bAuftrag2.setBorder(new LineBorder(Color.GREEN, 5));
+	        		} 
+	            	
+	            	auf_num++;
+        			
+        	}else if(bAuftrag3.getText() == "Leer" && af3 != 1) {
+        		af3 = 1;
+            	
+	           	bAuftrag3.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
+	           	Belohnung3 = Integer.parseInt(belohnungStrings[auf_num]);
+	           	Art3 = auftragsartStrings[auf_num];
+            	if(auftragsartStrings[auf_num].equals("Auslagerung")) {
+        			bAuftrag3.setBorder(new LineBorder(Color.RED, 5));
+        		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
+        			bAuftrag3.setBorder(new LineBorder(Color.GREEN, 5));
+        		} 
+            	
+            	auf_num++;
+        	}else if(bAuftrag4.getText() == "Leer" && af4 != 1) {
+        		af4 = 1;
+            	
+	           	bAuftrag4.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
+	           	Belohnung4 = Integer.parseInt(belohnungStrings[auf_num]);
+	           	Art4 = auftragsartStrings[auf_num];
+            	if(auftragsartStrings[auf_num].equals("Auslagerung")) {
+        			bAuftrag4.setBorder(new LineBorder(Color.RED, 5));
+        		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
+        			bAuftrag4.setBorder(new LineBorder(Color.GREEN, 5));
+        		} 
+            	
+            	auf_num++;
+        	}
+            
+            if(auf_num == 47) {
+            	auf_num = 0;
+            }
             
         }
       });
@@ -792,7 +862,13 @@ public class GUI extends JFrame implements ActionListener{
       bAuftrag1.setFont(new Font("Dialog", Font.BOLD, 16));
       bAuftrag1.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	if(af1 == 1) {
+        		System.out.println("Selected AF1");
+        		af1 = 0;
+        	}else if(af1 == 0) {
+        		System.out.println("Unselected AF1");
+        		af1 = 1;
+        	}
         }
       });
       
@@ -805,7 +881,7 @@ public class GUI extends JFrame implements ActionListener{
       bAuftrag2.setFont(new Font("Dialog", Font.BOLD, 16));
       bAuftrag2.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	
         }
       });
       
@@ -818,7 +894,7 @@ public class GUI extends JFrame implements ActionListener{
       bAuftrag3.setFont(new Font("Dialog", Font.BOLD, 16));
       bAuftrag3.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	
         }
       });
       
@@ -831,7 +907,7 @@ public class GUI extends JFrame implements ActionListener{
       bAuftrag4.setFont(new Font("Dialog", Font.BOLD, 16));
       bAuftrag4.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	
         }
       });
       
@@ -844,7 +920,16 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen1.setFocusPainted(false);
       bAblehnen1.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	if(af1 == 1) {
+        		bAuftrag1.setText("Leer");
+        		bAuftrag1.setBorder(new LineBorder(Color.BLACK));
+        		af1 = 0;
+        		KontoStand = KontoStand - Belohnung1;
+        		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		dataStrings[Eintrag][0] = Art1;
+        		Eintrag++;
+        		
+        	}
         }
       });
       
@@ -856,7 +941,15 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen2.setFocusPainted(false);
       bAblehnen2.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	if(af2 == 1) {
+        		bAuftrag2.setText("Leer");
+        		bAuftrag2.setBorder(new LineBorder(Color.BLACK));
+        		af2 = 0;
+        		KontoStand = KontoStand - Belohnung2;
+        		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		dataStrings[Eintrag][0] = Art2;
+        		Eintrag++;
+        	}
         }
       });
       
@@ -869,7 +962,15 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen3.setFocusPainted(false);
       bAblehnen3.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	if(af3 == 1) {
+        		bAuftrag3.setText("Leer");
+        		bAuftrag3.setBorder(new LineBorder(Color.BLACK));
+        		af3 = 0;
+        		KontoStand = KontoStand - Belohnung3;
+        		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		dataStrings[Eintrag][0] = Art3;
+        		Eintrag++;
+        	}
         }
       });
       
@@ -881,7 +982,15 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen4.setFocusPainted(false);
       bAblehnen4.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	System.out.println("Klick");
+        	if(af4 == 1) {
+        		bAuftrag4.setText("Leer");
+        		bAuftrag4.setBorder(new LineBorder(Color.BLACK));
+        		af4 = 0;
+        		KontoStand = KontoStand - Belohnung4;
+        		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		dataStrings[Eintrag][0] = Art4;
+        		Eintrag++;
+        	}
         }
       });
       
