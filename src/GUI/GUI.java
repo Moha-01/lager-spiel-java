@@ -69,12 +69,12 @@ public class GUI extends JFrame implements ActionListener{
 	private JLabel colRight_auf = new JLabel();
 	private JLabel colButtom_auf = new JLabel();
 	
-	private Icon btnIcon = new ImageIcon(GUI.class.getResource("placeholder.png"));
-	private Icon btnDestroy = new ImageIcon(GUI.class.getResource("destroy.png"));
-	private Icon btnMove = new ImageIcon(GUI.class.getResource("move.png"));
-	private Icon btnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
-	private Icon btnBilanz = new ImageIcon(GUI.class.getResource("bilanz.png"));
-	private Icon btnDelete = new ImageIcon(GUI.class.getResource("ablehnen.png"));
+	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
+	private Icon icnDestroy = new ImageIcon(GUI.class.getResource("destroy.png"));
+	private Icon icnMove = new ImageIcon(GUI.class.getResource("move.png"));
+	private Icon icnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
+	private Icon icnBilanz = new ImageIcon(GUI.class.getResource("bilanz.png"));
+	private Icon icnDelete = new ImageIcon(GUI.class.getResource("ablehnen.png"));
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
 	
@@ -213,7 +213,7 @@ public class GUI extends JFrame implements ActionListener{
 		//Regal 1 Vorne
 		int abstandx = 54;
 		
-		r1v1.setIcon(btnIcon);
+		r1v1.setIcon(icnPlaceHolder);
 		r1v1.setBorder(new LineBorder(Color.BLACK));
 		r1v1.setBounds(50, abstandx, 180, 80);
 	    r1v1.setBackground(Color.WHITE);
@@ -242,7 +242,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    abstandx=(abstandx + 82);
 	    
-	    r1v2.setIcon(btnIcon);
+	    r1v2.setIcon(icnPlaceHolder);
 		r1v2.setBorder(new LineBorder(Color.BLACK));
 	    r1v2.setBounds(50, abstandx, 180, 80);
 	    r1v2.setBackground(Color.WHITE);
@@ -259,7 +259,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v3.setIcon(btnIcon);
+	    r1v3.setIcon(icnPlaceHolder);
 		r1v3.setBorder(new LineBorder(Color.BLACK));
 	    r1v3.setBounds(50, abstandx, 180, 80);
 	    r1v3.setBackground(Color.WHITE);
@@ -273,7 +273,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v4.setIcon(btnIcon);
+	    r1v4.setIcon(icnPlaceHolder);
 		r1v4.setBorder(new LineBorder(Color.BLACK));
 	    r1v4.setBounds(50, abstandx, 180, 80);
 	    r1v4.setBackground(Color.WHITE);
@@ -287,7 +287,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1v5.setIcon(btnIcon);
+	    r1v5.setIcon(icnPlaceHolder);
 	    r1v5.setBorder(new LineBorder(Color.BLACK));
 	    r1v5.setBounds(50, abstandx, 180, 80);
 	    r1v5.setBackground(Color.WHITE);
@@ -302,7 +302,7 @@ public class GUI extends JFrame implements ActionListener{
 
 	    // Regal 1 Hinten
 	    abstandx = 54;
-	    r1h1.setIcon(btnIcon);
+	    r1h1.setIcon(icnPlaceHolder);
 	    r1h1.setBorder(new LineBorder(Color.BLACK));
 	    r1h1.setBounds(235, abstandx, 180, 80);
 	    r1h1.setBackground(Color.WHITE);
@@ -316,7 +316,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h2.setIcon(btnIcon);
+	    r1h2.setIcon(icnPlaceHolder);
 	    r1h2.setBorder(new LineBorder(Color.BLACK));
 	    r1h2.setBounds(235, abstandx, 180, 80);
 	    r1h2.setBackground(Color.WHITE);
@@ -330,7 +330,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h3.setIcon(btnIcon);
+	    r1h3.setIcon(icnPlaceHolder);
 		r1v1.setBorder(new LineBorder(Color.BLACK));
 	    r1h3.setBounds(235, abstandx, 180, 80);
 	    r1h3.setBackground(Color.WHITE);
@@ -344,7 +344,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h4.setIcon(btnIcon);
+	    r1h4.setIcon(icnPlaceHolder);
 	    r1h4.setBorder(new LineBorder(Color.BLACK));
 	    r1h4.setBounds(235, abstandx, 180, 80);
 	    r1h4.setBackground(Color.WHITE);
@@ -358,7 +358,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r1h5.setIcon(btnIcon);
+	    r1h5.setIcon(icnPlaceHolder);
 	    r1h5.setBorder(new LineBorder(Color.BLACK));
 	    r1h5.setBounds(235, abstandx, 180, 80);
 	    r1h5.setBackground(Color.WHITE);
@@ -375,7 +375,7 @@ public class GUI extends JFrame implements ActionListener{
 
     	//Regal 2 Vorne
   		abstandx = 54;
-    	r2v1.setIcon(btnIcon);
+    	r2v1.setIcon(icnPlaceHolder);
     	r2v1.setBorder(new LineBorder(Color.BLACK));
     	r2v1.setBounds(450, abstandx, 180, 80);
 	    r2v1.setBackground(Color.WHITE);
@@ -389,7 +389,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
   	 	abstandx=(abstandx + 82);
-    	r2v2.setIcon(btnIcon);
+    	r2v2.setIcon(icnPlaceHolder);
     	r2v2.setBorder(new LineBorder(Color.BLACK));
     	r2v2.setBounds(450, abstandx, 180, 80);
 	    r2v2.setBackground(Color.WHITE);
@@ -403,7 +403,7 @@ public class GUI extends JFrame implements ActionListener{
   	  	});
 
   	  	abstandx=(abstandx + 82);
-  	  	r2v3.setIcon(btnIcon);
+  	  	r2v3.setIcon(icnPlaceHolder);
   	  	r2v3.setBorder(new LineBorder(Color.BLACK));
   	  	r2v3.setBounds(450, abstandx, 180, 80);
 	    r2v3.setBackground(Color.WHITE);
@@ -417,7 +417,7 @@ public class GUI extends JFrame implements ActionListener{
   	  	});
 
   	  	abstandx=(abstandx + 82);
-  	  	r2v4.setIcon(btnIcon);
+  	  	r2v4.setIcon(icnPlaceHolder);
   	  	r2v4.setBorder(new LineBorder(Color.BLACK));
   	  	r2v4.setBounds(450, abstandx, 180, 80);
 	    r2v4.setBackground(Color.WHITE);
@@ -431,7 +431,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
   	  	abstandx=(abstandx + 82);  	  
-  	  	r2v5.setIcon(btnIcon);
+  	  	r2v5.setIcon(icnPlaceHolder);
   	  	r2v5.setBorder(new LineBorder(Color.BLACK));
   	  	r2v5.setBounds(450, abstandx, 180, 80);
 	    r2v5.setBackground(Color.WHITE);
@@ -446,7 +446,7 @@ public class GUI extends JFrame implements ActionListener{
 
   	    // Regal 2 Hinten
 	    abstandx = 54;
-	    r2h1.setIcon(btnIcon);
+	    r2h1.setIcon(icnPlaceHolder);
 	    r2h1.setBorder(new LineBorder(Color.BLACK));
 	    r2h1.setBounds(635, abstandx, 180, 80);
 	    r2h1.setBackground(Color.WHITE);
@@ -460,7 +460,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r2h2.setIcon(btnIcon);
+	    r2h2.setIcon(icnPlaceHolder);
 	    r2h2.setBorder(new LineBorder(Color.BLACK));
 	    r2h2.setBounds(635, abstandx, 180, 80);
   	    r2h2.setBackground(Color.WHITE);
@@ -474,7 +474,7 @@ public class GUI extends JFrame implements ActionListener{
   	  	});
 
   	  	abstandx=(abstandx + 82);
-  	  	r2h3.setIcon(btnIcon);
+  	  	r2h3.setIcon(icnPlaceHolder);
   	  	r2h3.setBorder(new LineBorder(Color.BLACK));
   	  	r2h3.setBounds(635, abstandx, 180, 80);  
 	    r2h3.setBackground(Color.WHITE);
@@ -488,7 +488,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r2h4.setIcon(btnIcon);
+	    r2h4.setIcon(icnPlaceHolder);
 	    r2h4.setBorder(new LineBorder(Color.BLACK));
 	    r2h4.setBounds(635, abstandx, 180, 80);
 	    r2h4.setBackground(Color.WHITE);
@@ -502,7 +502,7 @@ public class GUI extends JFrame implements ActionListener{
 	    });
 
 	    abstandx=(abstandx + 82);
-	    r2h5.setIcon(btnIcon);
+	    r2h5.setIcon(icnPlaceHolder);
 	    r2h5.setBorder(new LineBorder(Color.BLACK));
 	    r2h5.setBounds(635, abstandx, 180, 80);
 	    r2h5.setBackground(Color.WHITE);
@@ -586,7 +586,7 @@ public class GUI extends JFrame implements ActionListener{
       colBottom.setOpaque(true);
       
       outControl.setBounds(105, 569, 180, 80);
-      outControl.setIcon(btnOut);
+      outControl.setIcon(icnOut);
       outControl.setMargin(new Insets(2, 2, 2, 2));
       outControl.setBackground(Color.WHITE);
       outControl.setFocusPainted(false);
@@ -606,7 +606,7 @@ public class GUI extends JFrame implements ActionListener{
       
       
       moveControl.setBounds(345, 569, 180, 80);
-      moveControl.setIcon(btnMove);
+      moveControl.setIcon(icnMove);
       moveControl.setMargin(new Insets(2, 2, 2, 2));
       moveControl.setBackground(Color.WHITE);
       moveControl.setFocusPainted(false);
@@ -625,7 +625,7 @@ public class GUI extends JFrame implements ActionListener{
       LabelMove.setOpaque(true);
       
       destroyControl.setBounds(585, 569, 180, 80);
-      destroyControl.setIcon(btnDestroy);
+      destroyControl.setIcon(icnDestroy);
       destroyControl.setMargin(new Insets(2, 2, 2, 2));
       destroyControl.setBackground(Color.WHITE);
       destroyControl.setFocusPainted(false);
@@ -652,7 +652,7 @@ public class GUI extends JFrame implements ActionListener{
       lKontostand.setFont(new Font("Dialog", Font.BOLD, 18));
       
       bilanzButton.setBounds(887, 745, 180, 80);
-      bilanzButton.setIcon(btnBilanz);
+      bilanzButton.setIcon(icnBilanz);
       bilanzButton.setBackground(Color.WHITE);
       bilanzButton.setBorder(new javax.swing.border.LineBorder(Color.BLACK));
       bilanzButton.setMargin(new Insets(2, 2, 2, 2));
@@ -767,7 +767,7 @@ public class GUI extends JFrame implements ActionListener{
       
       
       bAblehnen1.setBounds(1616, 202, 75, 80);
-      bAblehnen1.setIcon(btnDelete);
+      bAblehnen1.setIcon(icnDelete);
       bAblehnen1.setBackground(Color.WHITE);
       bAblehnen1.setBorder(new LineBorder(Color.BLACK));
       bAblehnen1.setMargin(new Insets(2, 2, 2, 2));
@@ -779,7 +779,7 @@ public class GUI extends JFrame implements ActionListener{
       });
       
       bAblehnen2.setBounds(1616, 300, 75, 80);
-      bAblehnen2.setIcon(btnDelete);
+      bAblehnen2.setIcon(icnDelete);
       bAblehnen2.setBackground(Color.WHITE);
       bAblehnen2.setBorder(new LineBorder(Color.BLACK));
       bAblehnen2.setMargin(new Insets(2, 2, 2, 2));
@@ -792,7 +792,7 @@ public class GUI extends JFrame implements ActionListener{
       
       
       bAblehnen3.setBounds(1616, 398, 75, 80);
-      bAblehnen3.setIcon(btnDelete);
+      bAblehnen3.setIcon(icnDelete);
       bAblehnen3.setBackground(Color.WHITE);
       bAblehnen3.setBorder(new LineBorder(Color.BLACK));
       bAblehnen3.setMargin(new Insets(2, 2, 2, 2));
@@ -804,7 +804,7 @@ public class GUI extends JFrame implements ActionListener{
       });
       
       bAblehnen4.setBounds(1616, 495, 75, 81);
-      bAblehnen4.setIcon(btnDelete);
+      bAblehnen4.setIcon(icnDelete);
       bAblehnen4.setBackground(Color.WHITE);
       bAblehnen4.setBorder(new LineBorder(Color.BLACK));
       bAblehnen4.setMargin(new Insets(2, 2, 2, 2));
