@@ -3,7 +3,7 @@ import Product.Holz;
 import Product.Papier;
 import Product.Stein;
 
-public class Main {
+public class Start {
   public static void main(String[] args) {
 	Papier papier = new Papier("White", "A3");
 	System.out.println(papier);							//Product.Paper@cac736f
