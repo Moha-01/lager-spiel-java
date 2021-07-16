@@ -950,7 +950,8 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen2.setMargin(new Insets(2, 2, 2, 2));
       bAblehnen2.setFocusPainted(false);
       bAblehnen2.addActionListener(new ActionListener() { 
-        public void actionPerformed(ActionEvent evt) { 
+        public void actionPerformed(ActionEvent evt) {
+        	
         	if(af2 == 1) {
         		bAuftrag2.setText("Leer");
         		bAuftrag2.setBorder(new LineBorder(Color.BLACK));
@@ -958,7 +959,7 @@ public class GUI extends JFrame implements ActionListener{
         		KontoStand = KontoStand - Belohnung2;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
         		
-        		Umsatz = (KontoStand + Belohnung2) - KontoStand;
+        		Umsatz = KontoStand - (KontoStand + Belohnung2);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
@@ -971,7 +972,6 @@ public class GUI extends JFrame implements ActionListener{
         	}
         }
       });
-      
       
       bAblehnen3.setBounds(1616, 398, 75, 80);
       bAblehnen3.setIcon(icnDelete);
@@ -988,7 +988,7 @@ public class GUI extends JFrame implements ActionListener{
         		KontoStand = KontoStand - Belohnung3;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
 
-        		Umsatz = (KontoStand + Belohnung3) - KontoStand;
+        		Umsatz = KontoStand - (KontoStand + Belohnung3);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
@@ -1017,7 +1017,7 @@ public class GUI extends JFrame implements ActionListener{
         		KontoStand = KontoStand - Belohnung4;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
 
-        		Umsatz = (KontoStand + Belohnung4) - KontoStand;
+        		Umsatz = KontoStand - (KontoStand + Belohnung4);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
@@ -1031,8 +1031,6 @@ public class GUI extends JFrame implements ActionListener{
         	}
         }
       });
-      
-
 	}
 
 	@Override
