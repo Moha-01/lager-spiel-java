@@ -100,6 +100,7 @@ public class GUI extends JFrame implements ActionListener{
 	int Belohnung2 = 0;
 	int Belohnung3 = 0;
 	int Belohnung4 = 0;
+	int Umsatz = 0;
 	String Art1 = "";
 	String Art2 = "";
 	String Art3 = "";
@@ -926,7 +927,16 @@ public class GUI extends JFrame implements ActionListener{
         		af1 = 0;
         		KontoStand = KontoStand - Belohnung1;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		
+        		Umsatz = KontoStand - (KontoStand + Belohnung1);
+        		if(Eintrag != 0) {
+        			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+        		}
+        		
         		dataStrings[Eintrag][0] = Art1;
+        		dataStrings[Eintrag][1] = "-" + Belohnung1;
+        		dataStrings[Eintrag][2] = "" + KontoStand;
+        		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         		
         	}
@@ -947,7 +957,16 @@ public class GUI extends JFrame implements ActionListener{
         		af2 = 0;
         		KontoStand = KontoStand - Belohnung2;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+        		
+        		Umsatz = (KontoStand + Belohnung2) - KontoStand;
+        		if(Eintrag != 0) {
+        			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+        		}
+        		
         		dataStrings[Eintrag][0] = Art2;
+        		dataStrings[Eintrag][1] = "-" + Belohnung2;
+        		dataStrings[Eintrag][2] = "" + KontoStand;
+        		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
         }
@@ -968,7 +987,16 @@ public class GUI extends JFrame implements ActionListener{
         		af3 = 0;
         		KontoStand = KontoStand - Belohnung3;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+
+        		Umsatz = (KontoStand + Belohnung3) - KontoStand;
+        		if(Eintrag != 0) {
+        			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+        		}
+        		
         		dataStrings[Eintrag][0] = Art3;
+        		dataStrings[Eintrag][1] = "-" + Belohnung3;
+        		dataStrings[Eintrag][2] = "" + KontoStand;
+        		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
         }
@@ -988,7 +1016,17 @@ public class GUI extends JFrame implements ActionListener{
         		af4 = 0;
         		KontoStand = KontoStand - Belohnung4;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+
+        		Umsatz = (KontoStand + Belohnung4) - KontoStand;
+        		if(Eintrag != 0) {
+        			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+        		}
+        		
+        		
         		dataStrings[Eintrag][0] = Art4;
+        		dataStrings[Eintrag][1] = "-" + Belohnung4;
+        		dataStrings[Eintrag][2] = "" + KontoStand;
+        		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
         }
