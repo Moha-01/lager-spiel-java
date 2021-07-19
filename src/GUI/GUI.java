@@ -4,13 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import org.w3c.dom.css.Counter;
 
 import Table.Table;
 
@@ -86,6 +84,33 @@ public class GUI extends JFrame implements ActionListener{
 	private Icon icnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
 	private Icon icnBilanz = new ImageIcon(GUI.class.getResource("bilanz.png"));
 	private Icon icnDelete = new ImageIcon(GUI.class.getResource("ablehnen.png"));
+	private Icon buche_balken = new ImageIcon(GUI.class.getResource("Buche_Balken.png"));
+	private Icon buche_brett = new ImageIcon(GUI.class.getResource("Buche_Brett.png"));
+	private Icon buche_scheit = new ImageIcon(GUI.class.getResource("Buche_Scheit.png"));
+	private Icon eiche_balken = new ImageIcon(GUI.class.getResource("Eiche_Balken.png"));
+	private Icon eiche_brett = new ImageIcon(GUI.class.getResource("Eiche_Brett.png"));
+	private Icon eiche_scheit = new ImageIcon(GUI.class.getResource("Eiche_Scheit.png"));
+	private Icon kiefer_balken = new ImageIcon(GUI.class.getResource("Kiefer_Balken.png"));
+	private Icon kiefer_brett = new ImageIcon(GUI.class.getResource("Kiefer_Brett.png"));
+	private Icon kiefer_scheit = new ImageIcon(GUI.class.getResource("Kiefer_Scheit.png"));
+	private Icon granit_leicht = new ImageIcon(GUI.class.getResource("Granit_Leicht.png"));
+	private Icon granit_mittel = new ImageIcon(GUI.class.getResource("Granit_Mittel.png"));
+	private Icon granit_schwer = new ImageIcon(GUI.class.getResource("Granit_Schwer.png"));
+	private Icon sandstein_leicht = new ImageIcon(GUI.class.getResource("Sandstein_Leicht.png"));
+	private Icon sandstein_mittel = new ImageIcon(GUI.class.getResource("Sandstein_Mittel.png"));
+	private Icon sandstein_schwer = new ImageIcon(GUI.class.getResource("Sandstein_Schwer.png"));
+	private Icon marmor_leicht = new ImageIcon(GUI.class.getResource("Marmor_leicht.png"));
+	private Icon marmor_mittel = new ImageIcon(GUI.class.getResource("Marmor_Mittel.png"));
+	private Icon marmor_schwer = new ImageIcon(GUI.class.getResource("Marmor_Schwer.png"));
+	private Icon papier_blue_a3 = new ImageIcon(GUI.class.getResource("papier_blue_a3.png"));
+	private Icon papier_blue_a4 = new ImageIcon(GUI.class.getResource("papier_blue_a4.png"));
+	private Icon papier_blue_a5 = new ImageIcon(GUI.class.getResource("papier_blue_a5.png"));
+	private Icon papier_green_a3 = new ImageIcon(GUI.class.getResource("papier_green_a3.png"));
+	private Icon papier_green_a4 = new ImageIcon(GUI.class.getResource("papier_green_a4.png"));
+	private Icon papier_green_a5 = new ImageIcon(GUI.class.getResource("papier_green_a5.png"));
+	private Icon papier_white_a3 = new ImageIcon(GUI.class.getResource("papier_white_a3.png"));
+	private Icon papier_white_a4 = new ImageIcon(GUI.class.getResource("papier_white_a4.png"));
+	private Icon papier_white_a5 = new ImageIcon(GUI.class.getResource("papier_white_a5.png"));
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
 	
@@ -95,66 +120,65 @@ public class GUI extends JFrame implements ActionListener{
 	
 	//Variablen
 	
-	int KontoStand = 10000;
-	int Belohnung1 = 0;
-	int Belohnung2 = 0;
-	int Belohnung3 = 0;
-	int Belohnung4 = 0;
-	int Umsatz = 0;
-	String Art1 = "";
-	String Art2 = "";
-	String Art3 = "";
-	String Art4 = "";
+	private int KontoStand = 10000;
+	private int Belohnung1 = 0;
+	private int Belohnung2 = 0;
+	private int Belohnung3 = 0;
+	private int Belohnung4 = 0;
+	private int Umsatz = 0;
+	private String Art1 = "";
+	private String Art2 = "";
+	private String Art3 = "";
+	private String Art4 = "";
 	
-	int Eintrag = 0;
+	private int Eintrag = 0;
 	
-	String fileAbsolutPathString = new File("").getAbsolutePath();
+	private String fileAbsolutPathString = new File("").getAbsolutePath();
 	
 	File getCSVFiles = new File(fileAbsolutPathString + "\\src\\GUI\\Leistungsnachweis.csv");
 	
 	//Bilanz Variablen
-	String[] colTableStrings = {"Eintrag", "Kosten", "Kontostand", "Umsatz"};
-    String[][] dataStrings = new String[100][4];
-    String[] allCSVData = new String[500];
-    String[] auftragStrings= new String[100];
-    String[] auftragsartStrings= new String[100];
-    String[] produktStrings= new String[100];
-    String[] attribut1Strings= new String[100];
-    String[] attribut2Strings= new String[100];
-    String[] belohnungStrings= new String[100];
+	private String[] colTableStrings = {"Eintrag", "Kosten", "Kontostand", "Umsatz"};
+	private String[][] dataStrings = new String[100][4];
+	private String[] allCSVData = new String[500];
+	private String[] auftragStrings= new String[100];
+	private String[] auftragsartStrings= new String[100];
+	private String[] produktStrings= new String[100];
+	private String[] attribut1Strings= new String[100];
+	private String[] attribut2Strings= new String[100];
+	private String[] belohnungStrings= new String[100];
     
 	//Placeholder
-	int r1v1_ph = 1;
-	int r1v2_ph = 1;
-	int r1v3_ph = 1;
-	int r1v4_ph = 1;
-	int r1v5_ph = 1;
-	int r1h1_ph = 1;
-	int r1h2_ph = 1;
-	int r1h3_ph = 1;
-	int r1h4_ph = 1;
-	int r1h5_ph = 1;
-	int r2v1_ph = 1;
-	int r2v2_ph = 1;
-	int r2v3_ph = 1;
-	int r2v4_ph = 1;
-	int r2v5_ph = 1;
-	int r2h1_ph = 1;
-	int r2h2_ph = 1;
-	int r2h3_ph = 1;
-	int r2h4_ph = 1;
-	int r2h5_ph = 1;
+	private int r1v1_ph = 1;
+	private int r1v2_ph = 1;
+	private int r1v3_ph = 1;
+	private int r1v4_ph = 1;
+	private int r1v5_ph = 1;
+	private int r1h1_ph = 1;
+	private int r1h2_ph = 1;
+	private int r1h3_ph = 1;
+	private int r1h4_ph = 1;
+	private int r1h5_ph = 1;
+	private int r2v1_ph = 1;
+	private int r2v2_ph = 1;
+	private int r2v3_ph = 1;
+	private int r2v4_ph = 1;
+	private int r2v5_ph = 1;
+	private int r2h1_ph = 1;
+	private int r2h2_ph = 1;
+	private int r2h3_ph = 1;
+	private int r2h4_ph = 1;
+	private int r2h5_ph = 1;
 	
 	//Check ob die Aufträge frei sind oder nicht
-	int af1 = 0;
-	int af2 = 0;
-	int af3 = 0;
-	int af4 = 0;
+	private int af1 = 0;
+	private int af2 = 0;
+	private int af3 = 0;
+	private int af4 = 0;
 	
 	
 	public GUI() {
 		
-	    
 		super();
 		setTitle("Lager Spiel");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -246,7 +270,6 @@ public class GUI extends JFrame implements ActionListener{
 
 		setLocationRelativeTo(null);
 		setVisible(true);
-
 	}
 	
 	
@@ -277,13 +300,10 @@ public class GUI extends JFrame implements ActionListener{
 	    		  klick = 0;
 	    		  r1v1.setBackground(Color.white);
 	    	  }
-	    	  
 	    	  if (r1v2_ph == 1) {
 				r1v2.setBackground(Color.ORANGE);
 				r1v2_ph = 0;
 			}
-	    	  
-	    	  
 	      }
 	    });
 
@@ -710,8 +730,8 @@ public class GUI extends JFrame implements ActionListener{
 	            Table tab= new Table(colTableStrings, dataStrings);
 	            jf.setTitle("Bilanz");
 	            jf.setSize(800, 500);
-	            jf.setVisible(true);
 	            jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	            jf.setVisible(true);
 	            jf.add(tab); 
         }
       });
@@ -775,7 +795,6 @@ public class GUI extends JFrame implements ActionListener{
             	}
       			dataCounter++;
             }
-            
             dataCounter = dataCounter - 1;
             
             //Bearbeiten
@@ -790,10 +809,8 @@ public class GUI extends JFrame implements ActionListener{
                 x= (x+6)-1;
             }
             sc.close(); 
-            
             if(bAuftrag1.getText() == "Leer" && af1 != 1) {
             	af1 = 1;
-            	
             	bAuftrag1.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
             	Belohnung1 = Integer.parseInt(belohnungStrings[auf_num]);
             	Art1 = auftragsartStrings[auf_num];
@@ -802,11 +819,9 @@ public class GUI extends JFrame implements ActionListener{
         		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
         			bAuftrag1.setBorder(new LineBorder(Color.GREEN, 5));
         		}
-            	
             	auf_num++;
             } else if(bAuftrag2.getText() == "Leer" && af2 != 1) {
 	            	af2 = 1;
-		            	
 		           	bAuftrag2.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
 		           	Belohnung2 = Integer.parseInt(belohnungStrings[auf_num]);
 		           	Art2 = auftragsartStrings[auf_num];
@@ -815,12 +830,9 @@ public class GUI extends JFrame implements ActionListener{
 	        		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
 	        			bAuftrag2.setBorder(new LineBorder(Color.GREEN, 5));
 	        		} 
-	            	
 	            	auf_num++;
-        			
         	}else if(bAuftrag3.getText() == "Leer" && af3 != 1) {
         		af3 = 1;
-            	
 	           	bAuftrag3.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
 	           	Belohnung3 = Integer.parseInt(belohnungStrings[auf_num]);
 	           	Art3 = auftragsartStrings[auf_num];
@@ -829,11 +841,9 @@ public class GUI extends JFrame implements ActionListener{
         		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
         			bAuftrag3.setBorder(new LineBorder(Color.GREEN, 5));
         		} 
-            	
             	auf_num++;
         	}else if(bAuftrag4.getText() == "Leer" && af4 != 1) {
         		af4 = 1;
-            	
 	           	bAuftrag4.setText(auftragStrings[auf_num] + ": " + produktStrings[auf_num] + ", " + attribut1Strings[auf_num] + ", " + attribut2Strings[auf_num] + ", " + belohnungStrings[auf_num]);
 	           	Belohnung4 = Integer.parseInt(belohnungStrings[auf_num]);
 	           	Art4 = auftragsartStrings[auf_num];
@@ -842,14 +852,11 @@ public class GUI extends JFrame implements ActionListener{
         		}else if(auftragsartStrings[auf_num].equals("Einlagerung")) {
         			bAuftrag4.setBorder(new LineBorder(Color.GREEN, 5));
         		} 
-            	
             	auf_num++;
         	}
-            
             if(auf_num == 47) {
             	auf_num = 0;
             }
-            
         }
       });
       
@@ -927,18 +934,15 @@ public class GUI extends JFrame implements ActionListener{
         		af1 = 0;
         		KontoStand = KontoStand - Belohnung1;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
-        		
         		Umsatz = KontoStand - (KontoStand + Belohnung1);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		
         		dataStrings[Eintrag][0] = Art1;
         		dataStrings[Eintrag][1] = "-" + Belohnung1;
         		dataStrings[Eintrag][2] = "" + KontoStand;
         		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
-        		
         	}
         }
       });
@@ -951,19 +955,16 @@ public class GUI extends JFrame implements ActionListener{
       bAblehnen2.setFocusPainted(false);
       bAblehnen2.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) {
-        	
         	if(af2 == 1) {
         		bAuftrag2.setText("Leer");
         		bAuftrag2.setBorder(new LineBorder(Color.BLACK));
         		af2 = 0;
         		KontoStand = KontoStand - Belohnung2;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
-        		
         		Umsatz = KontoStand - (KontoStand + Belohnung2);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		
         		dataStrings[Eintrag][0] = Art2;
         		dataStrings[Eintrag][1] = "-" + Belohnung2;
         		dataStrings[Eintrag][2] = "" + KontoStand;
@@ -983,7 +984,7 @@ public class GUI extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent evt) { 
         	if(af3 == 1) {
         		bAuftrag3.setText("Leer");
-        		bAuftrag3.setBorder(new LineBorder(Color.BLACK));
+        		bAuftrag3.setBorder(new LineBorder(Color.BLACK)); 
         		af3 = 0;
         		KontoStand = KontoStand - Belohnung3;
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
@@ -992,7 +993,6 @@ public class GUI extends JFrame implements ActionListener{
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		
         		dataStrings[Eintrag][0] = Art3;
         		dataStrings[Eintrag][1] = "-" + Belohnung3;
         		dataStrings[Eintrag][2] = "" + KontoStand;
@@ -1021,8 +1021,6 @@ public class GUI extends JFrame implements ActionListener{
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		
-        		
         		dataStrings[Eintrag][0] = Art4;
         		dataStrings[Eintrag][1] = "-" + Belohnung4;
         		dataStrings[Eintrag][2] = "" + KontoStand;
@@ -1031,6 +1029,8 @@ public class GUI extends JFrame implements ActionListener{
         	}
         }
       });
+      
+      
 	}
 
 	@Override
