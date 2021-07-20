@@ -84,35 +84,11 @@ public class GUI extends JFrame implements ActionListener{
 	private Icon icnOut = new ImageIcon(GUI.class.getResource("auslagern.png"));
 	private Icon icnBilanz = new ImageIcon(GUI.class.getResource("bilanz.png"));
 	private Icon icnDelete = new ImageIcon(GUI.class.getResource("ablehnen.png"));
-	private Icon buche_balken = new ImageIcon(GUI.class.getResource("Buche_Balken.png"));
-	private Icon buche_brett = new ImageIcon(GUI.class.getResource("Buche_Brett.png"));
-	private Icon buche_scheit = new ImageIcon(GUI.class.getResource("Buche_Scheit.png"));
-	private Icon eiche_balken = new ImageIcon(GUI.class.getResource("Eiche_Balken.png"));
-	private Icon eiche_brett = new ImageIcon(GUI.class.getResource("Eiche_Brett.png"));
-	private Icon eiche_scheit = new ImageIcon(GUI.class.getResource("Eiche_Scheit.png"));
-	private Icon kiefer_balken = new ImageIcon(GUI.class.getResource("Kiefer_Balken.png"));
-	private Icon kiefer_brett = new ImageIcon(GUI.class.getResource("Kiefer_Brett.png"));
-	private Icon kiefer_scheit = new ImageIcon(GUI.class.getResource("Kiefer_Scheit.png"));
-	private Icon granit_leicht = new ImageIcon(GUI.class.getResource("Granit_Leicht.png"));
-	private Icon granit_mittel = new ImageIcon(GUI.class.getResource("Granit_Mittel.png"));
-	private Icon granit_schwer = new ImageIcon(GUI.class.getResource("Granit_Schwer.png"));
-	private Icon sandstein_leicht = new ImageIcon(GUI.class.getResource("Sandstein_Leicht.png"));
-	private Icon sandstein_mittel = new ImageIcon(GUI.class.getResource("Sandstein_Mittel.png"));
-	private Icon sandstein_schwer = new ImageIcon(GUI.class.getResource("Sandstein_Schwer.png"));
-	private Icon marmor_leicht = new ImageIcon(GUI.class.getResource("Marmor_leicht.png"));
-	private Icon marmor_mittel = new ImageIcon(GUI.class.getResource("Marmor_Mittel.png"));
-	private Icon marmor_schwer = new ImageIcon(GUI.class.getResource("Marmor_Schwer.png"));
-	private Icon papier_blue_a3 = new ImageIcon(GUI.class.getResource("papier_blue_a3.png"));
-	private Icon papier_blue_a4 = new ImageIcon(GUI.class.getResource("papier_blue_a4.png"));
-	private Icon papier_blue_a5 = new ImageIcon(GUI.class.getResource("papier_blue_a5.png"));
-	private Icon papier_green_a3 = new ImageIcon(GUI.class.getResource("papier_green_a3.png"));
-	private Icon papier_green_a4 = new ImageIcon(GUI.class.getResource("papier_green_a4.png"));
-	private Icon papier_green_a5 = new ImageIcon(GUI.class.getResource("papier_green_a5.png"));
-	private Icon papier_white_a3 = new ImageIcon(GUI.class.getResource("papier_white_a3.png"));
-	private Icon papier_white_a4 = new ImageIcon(GUI.class.getResource("papier_white_a4.png"));
-	private Icon papier_white_a5 = new ImageIcon(GUI.class.getResource("papier_white_a5.png"));
+	
 	
 	private ImageIcon img = new ImageIcon(GUI.class.getResource("gaming.png"));
+	
+	private JPanel kontostandPanel = new JPanel();
 	
 	
 	 
@@ -251,7 +227,7 @@ public class GUI extends JFrame implements ActionListener{
         cp.add(destroyControl);
         cp.add(LabelMove);
         cp.add(LabelDestroy);
-        cp.add(lKontostand);
+        kontostandPanel.add(lKontostand);
         cp.add(bilanzButton);
         cp.add(LabelBilanz);
         cp.add(lAuftraege);
@@ -267,6 +243,8 @@ public class GUI extends JFrame implements ActionListener{
         cp.add(bAblehnen2);
         cp.add(bAblehnen3);
         cp.add(bAblehnen4);
+        
+        cp.add(kontostandPanel);
 
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -710,8 +688,8 @@ public class GUI extends JFrame implements ActionListener{
       LabelDestroy.setBackground(Color.RED);
       LabelDestroy.setOpaque(true);
       
-      lKontostand.setBounds(561, 778, 266, 43);
-      lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+      //lKontostand.setBounds(561, 778, 266, 43);
+      lKontostand.setText("  Kontostand:  " + KontoStand +" € ");
       lKontostand.setHorizontalTextPosition(SwingConstants.CENTER);
       lKontostand.setHorizontalAlignment(SwingConstants.LEFT);
       lKontostand.setBackground(new Color(0xEEEEEE));
@@ -1029,8 +1007,9 @@ public class GUI extends JFrame implements ActionListener{
         	}
         }
       });
-      
-      
+      kontostandPanel.setBackground(Color.GRAY);
+      kontostandPanel.setBounds(561, 778, 266, 43);
+      kontostandPanel.setVisible(true);
 	}
 
 	@Override

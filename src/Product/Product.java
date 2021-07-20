@@ -10,6 +10,7 @@ public class Product {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		};
+		
 	}
 	
 	public String getProduktType() {

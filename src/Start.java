@@ -1,6 +1,7 @@
 import GUI.GUI;
 import Product.Holz;
 import Product.Papier;
+import Product.Product;
 import Product.Stein;
 
 public class Start {
@@ -14,12 +15,28 @@ public class Start {
 	System.out.println(holz);
 	System.out.println(holz.getProduktType());
 	System.out.println(holz.getForm());
+
+	System.out.println(holz.getIcon());
 	
 	Stein stein = new Stein("Marmor", "Leicht");
 	System.out.println(stein);
 	System.out.println(stein.getProduktType());
 	System.out.println(stein.getArt());
 	
+	
+	Product test = new Product();
+	test.setProductType("Papier");
+
+	System.out.println("1. " + test);
+	System.out.println("2. " + test.getProduktType());
+	
+	
+	if(test.getProduktType() == "Papier") {
+		test = new Papier("","");
+	}
+	System.out.println("3. " + test);
+	((Papier) test).setFarbe("Rot");
+	System.out.println("4. " + ((Papier) test).getFarbe());
 	
 	GUI Spiel = new GUI();
   }
