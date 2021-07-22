@@ -1,4 +1,4 @@
-package Table;
+package Bilanz;
 
 import java.awt.Dimension;
 import javax.swing.JPanel;
@@ -6,16 +6,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class Table extends JPanel{
+@SuppressWarnings("serial")
+public class Bilanz extends JPanel{
 
-    JTable jt;
-    private String [] header;
-    private String [][] data; //= new String[100][4];
-    
-    public Table(String[] header, String [][] data){
+    public Bilanz(String[] header, String [][] data){
 
-    	this.header = header;
-    	this.data = data;
         DefaultTableModel model = new DefaultTableModel(data,header);
 
         JTable table = new JTable(model);
