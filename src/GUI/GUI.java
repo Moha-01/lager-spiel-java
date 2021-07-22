@@ -8,9 +8,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import Auftrag.Auftrag;
 import Bilanz.Bilanz;
 import Controls.Controls;
 import FileLoader.FileLoader;
+import Product.*;
 import Regale.Regal1;
 import Regale.Regal2;
 
@@ -26,14 +28,8 @@ public class GUI extends JFrame {
 	
 	private JButton bilanzButton = new JButton();
 	private JButton bNeuerAuftrag = new JButton();
-	private JButton bAuftrag1 = new JButton();
-	private JButton bAuftrag2 = new JButton();
-	private JButton bAuftrag3 = new JButton();
-	private JButton bAuftrag4 = new JButton();
-	private JButton bAblehnen1 = new JButton();
-	private JButton bAblehnen2 = new JButton();
-	private JButton bAblehnen3 = new JButton();
-	private JButton bAblehnen4 = new JButton();
+	private JButton [] AuftragListe = new JButton[4];
+	private JButton [] AuftragAblehnen = new JButton[4];
 	
 	private JLabel lKontostand = new JLabel();
 	private JLabel LabelBilanz = new JLabel();
@@ -55,15 +51,9 @@ public class GUI extends JFrame {
 	//Variablen
 	
 	private int KontoStand = 10000;
-	private int Belohnung1 = 0;
-	private int Belohnung2 = 0;
-	private int Belohnung3 = 0;
-	private int Belohnung4 = 0;
+	private int [] Belohnung = new int[4];
 	private int Umsatz = 0;
-	private String Art1 = "";
-	private String Art2 = "";
-	private String Art3 = "";
-	private String Art4 = "";
+	private String [] Art = new String[4];
 	
 	private int Eintrag = 0;
 	
@@ -81,12 +71,11 @@ public class GUI extends JFrame {
 	 * 
 	 * */
 	private String auftragDaten[][] = new String[6][100];
+	private static Auftrag [] auftrag = new Auftrag[4];
+	
+	private Product [] Regal1Produkte = new Product[10];
+	private Product [] Regal2Produkte = new Product[10];
     
-	//Check ob die Aufträge frei sind oder nicht
-	private int af1 = 0;
-	private int af2 = 0;
-	private int af3 = 0;
-	private int af4 = 0;
 	
 	
 	public GUI() {
@@ -122,14 +111,14 @@ public class GUI extends JFrame {
         cp.add(colRight_auf);
         cp.add(colButtom_auf);
         cp.add(bNeuerAuftrag);
-        cp.add(bAuftrag1);
-        cp.add(bAuftrag2);
-        cp.add(bAuftrag3);
-        cp.add(bAuftrag4);
-        cp.add(bAblehnen1);
-        cp.add(bAblehnen2);
-        cp.add(bAblehnen3);
-        cp.add(bAblehnen4);
+        cp.add(AuftragListe[0]);
+        cp.add(AuftragListe[1]);
+        cp.add(AuftragListe[2]);
+        cp.add(AuftragListe[3]);
+        cp.add(AuftragAblehnen[0]);
+        cp.add(AuftragAblehnen[1]);
+        cp.add(AuftragAblehnen[2]);
+        cp.add(AuftragAblehnen[3]);
         cp.add(kontostandPanel);
 
 		setLocationRelativeTo(null);
@@ -208,49 +197,49 @@ public class GUI extends JFrame {
         	//CSV lesen
         	auftragDaten = csv.getCSVData();
         	
-            if(bAuftrag1.getText() == "Leer" && af1 != 1) {
-            	af1 = 1;
-            	bAuftrag1.setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
-            	Belohnung1 = Integer.parseInt(auftragDaten[5][auf_num]);
-            	Art1 = auftragDaten[1][auf_num];
+            if(AuftragListe[0].getText() == "Leer") {
+            	AuftragListe[0].setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
+            	Belohnung[0] = Integer.parseInt(auftragDaten[5][auf_num]);
+            	Art[0] = auftragDaten[1][auf_num];
             	if(auftragDaten[1][auf_num].equals("Auslagerung")) {
-        			bAuftrag1.setBorder(new LineBorder(Color.RED, 5));
+            		AuftragListe[0].setBorder(new LineBorder(Color.RED, 5));
         		}else if(auftragDaten[1][auf_num].equals("Einlagerung")) {
-        			bAuftrag1.setBorder(new LineBorder(Color.GREEN, 5));
+        			AuftragListe[0].setBorder(new LineBorder(Color.GREEN, 5));
         		}
+            	auftrag[0] = new Auftrag(auftragDaten[0][auf_num], auftragDaten[1][auf_num], auftragDaten[2][auf_num], auftragDaten[3][auf_num], auftragDaten[4][auf_num], auftragDaten[5][auf_num]);
             	auf_num++;
-            } else if(bAuftrag2.getText() == "Leer" && af2 != 1) {
-	            	af2 = 1;
-		           	bAuftrag2.setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
-		           	Belohnung2 = Integer.parseInt(auftragDaten[5][auf_num]);
-		           	Art2 = auftragDaten[1][auf_num];
-	            	if(auftragDaten[1][auf_num].equals("Auslagerung")) {
-	        			bAuftrag2.setBorder(new LineBorder(Color.RED, 5));
-	        		}else if(auftragDaten[1][auf_num].equals("Einlagerung")) {
-	        			bAuftrag2.setBorder(new LineBorder(Color.GREEN, 5));
-	        		} 
-	            	auf_num++;
-        	}else if(bAuftrag3.getText() == "Leer" && af3 != 1) {
-        		af3 = 1;
-	           	bAuftrag3.setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
-	           	Belohnung3 = Integer.parseInt(auftragDaten[5][auf_num]);
-	           	Art3 = auftragDaten[1][auf_num];
+            } else if(AuftragListe[1].getText() == "Leer" ) {
+            	AuftragListe[1].setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
+	           	Belohnung[1] = Integer.parseInt(auftragDaten[5][auf_num]);
+	           	Art[1] = auftragDaten[1][auf_num];
             	if(auftragDaten[1][auf_num].equals("Auslagerung")) {
-        			bAuftrag3.setBorder(new LineBorder(Color.RED, 5));
+            		AuftragListe[1].setBorder(new LineBorder(Color.RED, 5));
         		}else if(auftragDaten[1][auf_num].equals("Einlagerung")) {
-        			bAuftrag3.setBorder(new LineBorder(Color.GREEN, 5));
+        			AuftragListe[1].setBorder(new LineBorder(Color.GREEN, 5));
         		} 
+            	auftrag[1] = new Auftrag(auftragDaten[0][auf_num], auftragDaten[1][auf_num], auftragDaten[2][auf_num], auftragDaten[3][auf_num], auftragDaten[4][auf_num], auftragDaten[5][auf_num]);
             	auf_num++;
-        	}else if(bAuftrag4.getText() == "Leer" && af4 != 1) {
-        		af4 = 1;
-	           	bAuftrag4.setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
-	           	Belohnung4 = Integer.parseInt(auftragDaten[5][auf_num]);
-	           	Art4 = auftragDaten[1][auf_num];
+        	}else if(AuftragListe[2].getText() == "Leer") {
+        		AuftragListe[2].setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
+	           	Belohnung[2] = Integer.parseInt(auftragDaten[5][auf_num]);
+	           	Art[2] = auftragDaten[1][auf_num];
             	if(auftragDaten[1][auf_num].equals("Auslagerung")) {
-        			bAuftrag4.setBorder(new LineBorder(Color.RED, 5));
+            		AuftragListe[2].setBorder(new LineBorder(Color.RED, 5));
         		}else if(auftragDaten[1][auf_num].equals("Einlagerung")) {
-        			bAuftrag4.setBorder(new LineBorder(Color.GREEN, 5));
+        			AuftragListe[2].setBorder(new LineBorder(Color.GREEN, 5));
         		} 
+            	auftrag[2] = new Auftrag(auftragDaten[0][auf_num], auftragDaten[1][auf_num], auftragDaten[2][auf_num], auftragDaten[3][auf_num], auftragDaten[4][auf_num], auftragDaten[5][auf_num]);
+            	auf_num++;
+        	}else if(AuftragListe[3].getText() == "Leer" ) {
+        		AuftragListe[3].setText(auftragDaten[0][auf_num] + ": " + auftragDaten[2][auf_num] + ", " + auftragDaten[3][auf_num] + ", " + auftragDaten[4][auf_num] + ", " + auftragDaten[5][auf_num]);
+	           	Belohnung[3] = Integer.parseInt(auftragDaten[5][auf_num]);
+	           	Art[3] = auftragDaten[1][auf_num];
+            	if(auftragDaten[1][auf_num].equals("Auslagerung")) {
+            		AuftragListe[3].setBorder(new LineBorder(Color.RED, 5));
+        		}else if(auftragDaten[1][auf_num].equals("Einlagerung")) {
+        			AuftragListe[3].setBorder(new LineBorder(Color.GREEN, 5));
+        		} 
+            	auftrag[3] = new Auftrag(auftragDaten[0][auf_num], auftragDaten[1][auf_num], auftragDaten[2][auf_num], auftragDaten[3][auf_num], auftragDaten[4][auf_num], auftragDaten[5][auf_num]);
             	auf_num++;
         	}
             if(auf_num == 47) {
@@ -259,175 +248,285 @@ public class GUI extends JFrame {
         }
       });
       
-      bAuftrag1.setBounds(944, 202, 665, 80);
-      bAuftrag1.setText("Leer");
-      bAuftrag1.setBackground(Color.WHITE);
-      bAuftrag1.setBorder(new LineBorder(Color.BLACK));
-      bAuftrag1.setMargin(new Insets(2, 2, 2, 2));
-      bAuftrag1.setFocusPainted(false);
-      bAuftrag1.setFont(new Font("Dialog", Font.BOLD, 16));
-      bAuftrag1.addActionListener(new ActionListener() { 
+      for(int i = 0; i < 4; i++) {
+    	  AuftragListe[i] = new JButton();
+    	  AuftragAblehnen[i] = new JButton();
+    	  
+    	  AuftragListe[i].setText("Leer");
+    	  AuftragListe[i].setBackground(Color.WHITE);
+    	  AuftragListe[i].setBorder(new LineBorder(Color.BLACK));
+    	  AuftragListe[i].setMargin(new Insets(2, 2, 2, 2));
+    	  AuftragListe[i].setFocusPainted(false);
+    	  AuftragListe[i].setFont(new Font("Dialog", Font.BOLD, 16));
+    	  
+          AuftragAblehnen[i].setIcon(icnDelete);
+          AuftragAblehnen[i].setBackground(Color.WHITE);
+          AuftragAblehnen[i].setBorder(new LineBorder(Color.BLACK));
+          AuftragAblehnen[i].setMargin(new Insets(2, 2, 2, 2));
+          AuftragAblehnen[i].setFocusPainted(false);
+          
+          
+      }
+      AuftragListe[0].setBounds(944, 202, 665, 80);
+      AuftragListe[0].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	if(af1 == 1) {
-        		System.out.println("Selected AF1");
-        		af1 = 0;
-        	}else if(af1 == 0) {
-        		System.out.println("Unselected AF1");
-        		af1 = 1;
+        	if(AuftragListe[0].getText() != "Leer") {
+        		System.out.println(auftrag[0].getProdukt());
+        		if (AuftragListe[0].isSelected() == false) {
+            		AuftragListe[0].setSelected(true);
+            		System.out.println(AuftragListe[0].isSelected());
+            	} else if (AuftragListe[0].isSelected() == true) {
+            		AuftragListe[0].setSelected(false);
+            		System.out.println(AuftragListe[0].isSelected());
+            	}
+        		
+        		if(AuftragListe[0].isSelected() == true) {
+        			
+        			if(auftrag[0].getAuftragArt().equals("Einlagerung")) {
+        				AuftragListe[0].setBackground(Color.GREEN);
+        			}else if(auftrag[0].getAuftragArt().equals("Auslagerung")) {
+        				AuftragListe[0].setBackground(Color.RED);
+        			}
+        			
+        			
+        			AuftragListe[1].setSelected(false);
+        			AuftragListe[1].setBackground(Color.WHITE);
+        			
+        			AuftragListe[2].setSelected(false);
+        			AuftragListe[2].setBackground(Color.WHITE);
+        			
+        			AuftragListe[3].setSelected(false);
+        			AuftragListe[3].setBackground(Color.WHITE);
+        			
+        		}else if (AuftragListe[0].isSelected() == false) {
+        			AuftragListe[0].setBackground(Color.WHITE);
+        		}
+        	}
+        	
+        }
+      });
+      
+      AuftragListe[1].setBounds(944, 300, 665, 80);
+      AuftragListe[1].addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+        	if(AuftragListe[1].getText() != "Leer") {
+        		System.out.println(auftrag[1].getProdukt());
+        		if (AuftragListe[1].isSelected() == false) {
+            		AuftragListe[1].setSelected(true);
+            		System.out.println(AuftragListe[1].isSelected());
+            	} else if (AuftragListe[1].isSelected() == true) {
+            		AuftragListe[1].setSelected(false);
+            		System.out.println(AuftragListe[1].isSelected());
+            	}
+        	}
+        	if(AuftragListe[1].isSelected() == true) {
+    			
+        		if(auftrag[1].getAuftragArt().equals("Einlagerung")) {
+    				AuftragListe[1].setBackground(Color.GREEN);
+    			}else if(auftrag[1].getAuftragArt().equals("Auslagerung")) {
+    				AuftragListe[1].setBackground(Color.RED);
+    			}
+    			
+    			AuftragListe[0].setSelected(false);
+    			AuftragListe[0].setBackground(Color.WHITE);
+    			
+    			AuftragListe[2].setSelected(false);
+    			AuftragListe[2].setBackground(Color.WHITE);
+    			
+    			AuftragListe[3].setSelected(false);
+    			AuftragListe[3].setBackground(Color.WHITE);
+    			
+    		}else if (AuftragListe[1].isSelected() == false) {
+    			AuftragListe[1].setBackground(Color.WHITE);
+    		}
+        }
+      });
+      
+      AuftragListe[2].setBounds(944, 398, 665, 80);
+      AuftragListe[2].addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent evt) { 
+        	if(AuftragListe[2].getText() != "Leer") {
+        		System.out.println(auftrag[2].getProdukt());
+        		if (AuftragListe[2].isSelected() == false) {
+            		AuftragListe[2].setSelected(true);
+            		System.out.println(AuftragListe[2].isSelected());
+            	} else if (AuftragListe[2].isSelected() == true) {
+            		AuftragListe[2].setSelected(false);
+            		System.out.println(AuftragListe[2].isSelected());
+            	}
+        		
+        		if(AuftragListe[2].isSelected() == true) {
+        			
+        			if(auftrag[2].getAuftragArt().equals("Einlagerung")) {
+        				AuftragListe[2].setBackground(Color.GREEN);
+        			}else if(auftrag[2].getAuftragArt().equals("Auslagerung")) {
+        				AuftragListe[2].setBackground(Color.RED);
+        			}
+        			
+        			AuftragListe[0].setSelected(false);
+        			AuftragListe[0].setBackground(Color.WHITE);
+        			
+        			AuftragListe[1].setSelected(false);
+        			AuftragListe[1].setBackground(Color.WHITE);
+        			
+        			AuftragListe[3].setSelected(false);
+        			AuftragListe[3].setBackground(Color.WHITE);
+        			
+        		}else if (AuftragListe[2].isSelected() == false) {
+        			AuftragListe[2].setBackground(Color.WHITE);
+        		}
         	}
         }
       });
       
-      bAuftrag2.setBounds(944, 300, 665, 80);
-      bAuftrag2.setText("Leer");
-      bAuftrag2.setBackground(Color.WHITE);
-      bAuftrag2.setBorder(new LineBorder(Color.BLACK));
-      bAuftrag2.setMargin(new Insets(2, 2, 2, 2));
-      bAuftrag2.setFocusPainted(false);
-      bAuftrag2.setFont(new Font("Dialog", Font.BOLD, 16));
-      bAuftrag2.addActionListener(new ActionListener() { 
+      AuftragListe[3].setBounds(944, 495, 665, 81);
+      AuftragListe[3].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	
+        	if(AuftragListe[3].getText() != "Leer") {
+        		System.out.println(auftrag[3].getProdukt());
+        		if (AuftragListe[3].isSelected() == false) {
+            		AuftragListe[3].setSelected(true);
+            		System.out.println(AuftragListe[3].isSelected());
+            	} else if (AuftragListe[3].isSelected() == true) {
+            		AuftragListe[3].setSelected(false);
+            		System.out.println(AuftragListe[3].isSelected());
+            	}
+        		
+        		if(AuftragListe[3].isSelected() == true) {
+        			
+        			if(auftrag[3].getAuftragArt().equals("Einlagerung")) {
+        				AuftragListe[3].setBackground(Color.GREEN);
+        			}else if(auftrag[3].getAuftragArt().equals("Auslagerung")) {
+        				AuftragListe[3].setBackground(Color.RED);
+        			}
+        			
+        			AuftragListe[0].setSelected(false);
+        			AuftragListe[0].setBackground(Color.WHITE);
+        			
+        			AuftragListe[1].setSelected(false);
+        			AuftragListe[1].setBackground(Color.WHITE);
+        			
+        			AuftragListe[2].setSelected(false);
+        			AuftragListe[2].setBackground(Color.WHITE);
+        			
+        		}else if (AuftragListe[3].isSelected() == false) {
+        			AuftragListe[3].setBackground(Color.WHITE);
+        		}
+        	}
         }
       });
       
-      bAuftrag3.setBounds(944, 398, 665, 80);
-      bAuftrag3.setText("Leer");
-      bAuftrag3.setBackground(Color.WHITE);
-      bAuftrag3.setBorder(new LineBorder(Color.BLACK));
-      bAuftrag3.setMargin(new Insets(2, 2, 2, 2));
-      bAuftrag3.setFocusPainted(false);
-      bAuftrag3.setFont(new Font("Dialog", Font.BOLD, 16));
-      bAuftrag3.addActionListener(new ActionListener() { 
+      AuftragAblehnen[0].setBounds(1616, 202, 75, 80);
+      AuftragAblehnen[0].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	
-        }
-      });
-      
-      bAuftrag4.setBounds(944, 495, 665, 81);
-      bAuftrag4.setText("Leer");
-      bAuftrag4.setBackground(Color.WHITE);
-      bAuftrag4.setBorder(new LineBorder(Color.BLACK));
-      bAuftrag4.setMargin(new Insets(2, 2, 2, 2));
-      bAuftrag4.setFocusPainted(false);
-      bAuftrag4.setFont(new Font("Dialog", Font.BOLD, 16));
-      bAuftrag4.addActionListener(new ActionListener() { 
-        public void actionPerformed(ActionEvent evt) { 
-        	
-        }
-      });
-      
-      bAblehnen1.setBounds(1616, 202, 75, 80);
-      bAblehnen1.setIcon(icnDelete);
-      bAblehnen1.setBackground(Color.WHITE);
-      bAblehnen1.setBorder(new LineBorder(Color.BLACK));
-      bAblehnen1.setMargin(new Insets(2, 2, 2, 2));
-      bAblehnen1.setFocusPainted(false);
-      bAblehnen1.addActionListener(new ActionListener() { 
-        public void actionPerformed(ActionEvent evt) { 
-        	if(af1 == 1) {
-        		bAuftrag1.setText("Leer");
-        		bAuftrag1.setBorder(new LineBorder(Color.BLACK));
-        		af1 = 0;
-        		KontoStand = KontoStand - Belohnung1;
+        	if(AuftragListe[0].getText() != "Leer") {
+        		AuftragListe[0].setText("Leer");
+        		AuftragListe[0].setBorder(new LineBorder(Color.BLACK));
+        		KontoStand = KontoStand - Belohnung[0];
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
-        		Umsatz = KontoStand - (KontoStand + Belohnung1);
+        		Umsatz = KontoStand - (KontoStand + Belohnung[0]);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		dataStrings[Eintrag][0] = Art1;
-        		dataStrings[Eintrag][1] = "-" + Belohnung1;
+        		dataStrings[Eintrag][0] = Art[0];
+        		dataStrings[Eintrag][1] = "-" + Belohnung[0];
         		dataStrings[Eintrag][2] = "" + KontoStand;
         		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
+        	auftrag[0] = new Auftrag();
+        	AuftragListe[0].setBackground(Color.WHITE);
+        	AuftragListe[0].setSelected(false);
         }
       });
       
-      bAblehnen2.setBounds(1616, 300, 75, 80);
-      bAblehnen2.setIcon(icnDelete);
-      bAblehnen2.setBackground(Color.WHITE);
-      bAblehnen2.setBorder(new LineBorder(Color.BLACK));
-      bAblehnen2.setMargin(new Insets(2, 2, 2, 2));
-      bAblehnen2.setFocusPainted(false);
-      bAblehnen2.addActionListener(new ActionListener() { 
+      AuftragAblehnen[1].setBounds(1616, 300, 75, 80);
+      AuftragAblehnen[1].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) {
-        	if(af2 == 1) {
-        		bAuftrag2.setText("Leer");
-        		bAuftrag2.setBorder(new LineBorder(Color.BLACK));
-        		af2 = 0;
-        		KontoStand = KontoStand - Belohnung2;
+        	if(AuftragListe[1].getText() != "Leer") {
+        		AuftragListe[1].setText("Leer");
+        		AuftragListe[1].setBorder(new LineBorder(Color.BLACK));
+        		KontoStand = KontoStand - Belohnung[1];
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
-        		Umsatz = KontoStand - (KontoStand + Belohnung2);
+        		Umsatz = KontoStand - (KontoStand + Belohnung[1]);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		dataStrings[Eintrag][0] = Art2;
-        		dataStrings[Eintrag][1] = "-" + Belohnung2;
+        		dataStrings[Eintrag][0] = Art[1];
+        		dataStrings[Eintrag][1] = "-" + Belohnung[1];
         		dataStrings[Eintrag][2] = "" + KontoStand;
         		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
+        	auftrag[1] = new Auftrag();
+        	AuftragListe[1].setBackground(Color.WHITE);
+        	AuftragListe[1].setSelected(false);
         }
       });
       
-      bAblehnen3.setBounds(1616, 398, 75, 80);
-      bAblehnen3.setIcon(icnDelete);
-      bAblehnen3.setBackground(Color.WHITE);
-      bAblehnen3.setBorder(new LineBorder(Color.BLACK));
-      bAblehnen3.setMargin(new Insets(2, 2, 2, 2));
-      bAblehnen3.setFocusPainted(false);
-      bAblehnen3.addActionListener(new ActionListener() { 
+      AuftragAblehnen[2].setBounds(1616, 398, 75, 80);
+      AuftragAblehnen[2].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	if(af3 == 1) {
-        		bAuftrag3.setText("Leer");
-        		bAuftrag3.setBorder(new LineBorder(Color.BLACK)); 
-        		af3 = 0;
-        		KontoStand = KontoStand - Belohnung3;
+        	if(AuftragListe[2].getText() != "Leer") {
+        		AuftragListe[2].setText("Leer");
+        		AuftragListe[2].setBorder(new LineBorder(Color.BLACK)); 
+        		KontoStand = KontoStand - Belohnung[2];
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
 
-        		Umsatz = KontoStand - (KontoStand + Belohnung3);
+        		Umsatz = KontoStand - (KontoStand + Belohnung[2]);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		dataStrings[Eintrag][0] = Art3;
-        		dataStrings[Eintrag][1] = "-" + Belohnung3;
+        		dataStrings[Eintrag][0] = Art[2];
+        		dataStrings[Eintrag][1] = "-" + Belohnung[2];
         		dataStrings[Eintrag][2] = "" + KontoStand;
         		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
+        	auftrag[2] = new Auftrag();
+        	AuftragListe[2].setBackground(Color.WHITE);
+        	AuftragListe[2].setSelected(false);
+        	
         }
       });
       
-      bAblehnen4.setBounds(1616, 495, 75, 81);
-      bAblehnen4.setIcon(icnDelete);
-      bAblehnen4.setBackground(Color.WHITE);
-      bAblehnen4.setBorder(new LineBorder(Color.BLACK));
-      bAblehnen4.setMargin(new Insets(2, 2, 2, 2));
-      bAblehnen4.setFocusPainted(false);
-      bAblehnen4.addActionListener(new ActionListener() { 
+      AuftragAblehnen[3].setBounds(1616, 495, 75, 81);
+      AuftragAblehnen[3].addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent evt) { 
-        	if(af4 == 1) {
-        		bAuftrag4.setText("Leer");
-        		bAuftrag4.setBorder(new LineBorder(Color.BLACK));
-        		af4 = 0;
-        		KontoStand = KontoStand - Belohnung4;
+        	if(AuftragListe[3].getText() != "Leer") {
+        		AuftragListe[3].setText("Leer");
+        		AuftragListe[3].setBorder(new LineBorder(Color.BLACK));
+        		KontoStand = KontoStand - Belohnung[3];
         		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
 
-        		Umsatz = KontoStand - (KontoStand + Belohnung4);
+        		Umsatz = KontoStand - (KontoStand + Belohnung[3]);
         		if(Eintrag != 0) {
         			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
         		}
-        		dataStrings[Eintrag][0] = Art4;
-        		dataStrings[Eintrag][1] = "-" + Belohnung4;
+        		dataStrings[Eintrag][0] = Art[3];
+        		dataStrings[Eintrag][1] = "-" + Belohnung[3];
         		dataStrings[Eintrag][2] = "" + KontoStand;
         		dataStrings[Eintrag][3] = "" + Umsatz;
         		Eintrag++;
         	}
+        	auftrag[3] = new Auftrag();
+        	AuftragListe[3].setBackground(Color.WHITE);
+        	AuftragListe[3].setSelected(false);
         }
       });
       kontostandPanel.setBackground(Color.GRAY);
       kontostandPanel.setBounds(561, 778, 266, 43);
       kontostandPanel.setVisible(true);
+	}
+	
+	public static Auftrag[] getAuftragDaten() {
+		try {
+			return auftrag;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 }

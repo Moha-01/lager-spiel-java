@@ -27,6 +27,10 @@ public class Stein extends Product{
 	 * Mittelschwere können nicht in der obersten Etage eingelagert werden.
 	 * */
 	
+	public Stein() {
+		setProductType("Stein");
+	}
+	
 	public Stein(String Art, String Gewicht) {
 		setProductType("Stein");
 		this.Art = Art;

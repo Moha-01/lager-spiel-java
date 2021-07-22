@@ -21,6 +21,10 @@ public class Papier extends Product{
 	private Icon papier_white_a4 = new ImageIcon(GUI.class.getResource("papier_white_a4.png"));
 	private Icon papier_white_a5 = new ImageIcon(GUI.class.getResource("papier_white_a5.png"));
 	
+	public Papier() {
+		setProductType("Papier");
+	}
+	
 	public Papier(String Farbe, String Groesse) {
 		setProductType("Papier");
 		this.Farbe = Farbe;

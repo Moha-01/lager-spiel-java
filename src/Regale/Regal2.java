@@ -23,16 +23,8 @@ public class Regal2 {
 	
 	// r1v1 = Regal 1 Vorne 1 | r2h2 = regal 2 hinten 2
 	//Regal 2
-	private JButton r2v1 = new JButton();
-	private JButton r2v2 = new JButton();
-	private JButton r2v3 = new JButton();
-	private JButton r2v4 = new JButton();
-	private JButton r2v5 = new JButton();
-	private JButton r2h1 = new JButton();
-	private JButton r2h2 = new JButton();
-	private JButton r2h3 = new JButton();
-	private JButton r2h4 = new JButton();
-	private JButton r2h5 = new JButton();
+	private JButton [] RegalVorne = new JButton[5];
+	private JButton [] RegalHinten = new JButton[5];
 	
 	private JLabel Label2Regal = new JLabel();
 	private JLabel Label2Vorne = new JLabel();
@@ -47,70 +39,67 @@ public class Regal2 {
 		//Regal 2 Vorne
 		int abstandy = 24;
 		
-    	r2v1.setIcon(icnPlaceHolder);
-    	r2v1.setBorder(new LineBorder(Color.BLACK));
-    	r2v1.setBounds(0, abstandy, 180, 80);
-	    r2v1.setBackground(Color.WHITE);
-	    r2v1.setForeground(Color.BLACK);
-	    r2v1.setFocusPainted(false);
-  	  	r2v1.setMargin(new Insets(2, 2, 2, 2));
-  	  	r2v1.addActionListener(new ActionListener() {
+		for(int i = 0; i < 5; i++){
+			RegalVorne[i] = new JButton();
+			RegalHinten[i] = new JButton();
+
+			RegalVorne[i].setIcon(icnPlaceHolder);
+			RegalHinten[i].setIcon(icnPlaceHolder);
+			
+			RegalVorne[i].setBorder(new LineBorder(Color.BLACK));
+			RegalHinten[i].setBorder(new LineBorder(Color.BLACK));
+			
+			RegalVorne[i].setBackground(Color.WHITE);
+			RegalVorne[i].setForeground(Color.BLACK);
+			
+			RegalHinten[i].setBackground(Color.WHITE);
+			RegalHinten[i].setForeground(Color.BLACK);
+			
+
+			RegalVorne[i].setFocusPainted(false);
+			RegalVorne[i].setMargin(new Insets(2, 2, 2, 2));
+			
+
+			RegalHinten[i].setFocusPainted(false);
+			RegalHinten[i].setMargin(new Insets(2, 2, 2, 2));
+			
+		}
+		
+		
+		RegalVorne[0].setBounds(0, abstandy, 180, 80);
+		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 		        System.out.println("Klick");
 		  }
 	    });
 
   	  	abstandy=(abstandy + 82);
-    	r2v2.setIcon(icnPlaceHolder);
-    	r2v2.setBorder(new LineBorder(Color.BLACK));
-    	r2v2.setBounds(0, abstandy, 180, 80);
-	    r2v2.setBackground(Color.WHITE);
-	    r2v2.setForeground(Color.BLACK);
-	    r2v2.setFocusPainted(false);
-  	  	r2v2.setMargin(new Insets(2, 2, 2, 2));
-  	  	r2v2.addActionListener(new ActionListener() {
+  	  	RegalVorne[1].setBounds(0, abstandy, 180, 80);
+  	  	RegalVorne[1].addActionListener(new ActionListener() {
 	  	  public void actionPerformed(ActionEvent evt) {
 	  	      System.out.println("Klick");
 	  	    }
   	  	});
 
   	  	abstandy=(abstandy + 82);
-  	  	r2v3.setIcon(icnPlaceHolder);
-  	  	r2v3.setBorder(new LineBorder(Color.BLACK));
-  	  	r2v3.setBounds(0, abstandy, 180, 80);
-	    r2v3.setBackground(Color.WHITE);
-	    r2v3.setForeground(Color.BLACK);
-	    r2v3.setFocusPainted(false);
-  	  	r2v3.setMargin(new Insets(2, 2, 2, 2));
-  	  	r2v3.addActionListener(new ActionListener() {
+  	  	RegalVorne[2].setBounds(0, abstandy, 180, 80);
+  	  	RegalVorne[2].addActionListener(new ActionListener() {
   	  		public void actionPerformed(ActionEvent evt) {
   	  			System.out.println("Klick");
   	  		}
   	  	});
 
   	  	abstandy=(abstandy + 82);
-  	  	r2v4.setIcon(icnPlaceHolder);
-  	  	r2v4.setBorder(new LineBorder(Color.BLACK));
-  	  	r2v4.setBounds(0, abstandy, 180, 80);
-	    r2v4.setBackground(Color.WHITE);
-	    r2v4.setForeground(Color.BLACK);
-	    r2v4.setFocusPainted(false);
-	    r2v4.setMargin(new Insets(2, 2, 2, 2));
-	    r2v4.addActionListener(new ActionListener() {
+  	  	RegalVorne[3].setBounds(0, abstandy, 180, 80);
+  	  	RegalVorne[3].addActionListener(new ActionListener() {
 	  	    public void actionPerformed(ActionEvent evt) {
 	  	      System.out.println("Klick");
 	  	    }
 	    });
 
 	    abstandy=(abstandy + 82);  	  
-  	  	r2v5.setIcon(icnPlaceHolder);
-  	  	r2v5.setBorder(new LineBorder(Color.BLACK));
-  	  	r2v5.setBounds(0, abstandy, 180, 80);
-	    r2v5.setBackground(Color.WHITE);
-	    r2v5.setForeground(Color.BLACK);
-	    r2v5.setFocusPainted(false);
-	    r2v5.setMargin(new Insets(2, 2, 2, 2));
-	    r2v5.addActionListener(new ActionListener() {
+	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
+	    RegalVorne[4].addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent evt) {
 	    		System.out.println("Klick");
 	    	}
@@ -118,70 +107,40 @@ public class Regal2 {
 
   	    // Regal 2 Hinten
 	    abstandy = 24;
-	    r2h1.setIcon(icnPlaceHolder);
-	    r2h1.setBorder(new LineBorder(Color.BLACK));
-	    r2h1.setBounds(185, abstandy, 180, 80);
-	    r2h1.setBackground(Color.WHITE);
-	    r2h1.setForeground(Color.BLACK);
-	    r2h1.setFocusPainted(false);
-	    r2h1.setMargin(new Insets(2, 2, 2, 2));
-	    r2h1.addActionListener(new ActionListener() {
+	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[0].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r2h2.setIcon(icnPlaceHolder);
-	    r2h2.setBorder(new LineBorder(Color.BLACK));
-	    r2h2.setBounds(185, abstandy, 180, 80);
-  	    r2h2.setBackground(Color.WHITE);
-	    r2h2.setForeground(Color.BLACK);
-	    r2h2.setFocusPainted(false);
-	    r2h2.setMargin(new Insets(2, 2, 2, 2));
-  	  	r2h2.addActionListener(new ActionListener() {
+	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[1].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
   	  	});
 
   	  	abstandy=(abstandy + 82);
-  	  	r2h3.setIcon(icnPlaceHolder);
-  	  	r2h3.setBorder(new LineBorder(Color.BLACK));
-  	  	r2h3.setBounds(185, abstandy, 180, 80);  
-	    r2h3.setBackground(Color.WHITE);
-	    r2h3.setForeground(Color.BLACK);
-	    r2h3.setFocusPainted(false);
-	    r2h3.setMargin(new Insets(2, 2, 2, 2));
-	    r2h3.addActionListener(new ActionListener() {
+  	  	RegalHinten[2].setBounds(185, abstandy, 180, 80);  
+  	  	RegalHinten[2].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r2h4.setIcon(icnPlaceHolder);
-	    r2h4.setBorder(new LineBorder(Color.BLACK));
-	    r2h4.setBounds(185, abstandy, 180, 80);
-	    r2h4.setBackground(Color.WHITE);
-	    r2h4.setForeground(Color.BLACK);
-	    r2h4.setFocusPainted(false);
-	    r2h4.setMargin(new Insets(2, 2, 2, 2));
-	    r2h4.addActionListener(new ActionListener() {
+	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[3].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r2h5.setIcon(icnPlaceHolder);
-	    r2h5.setBorder(new LineBorder(Color.BLACK));
-	    r2h5.setBounds(185, abstandy, 180, 80);
-	    r2h5.setBackground(Color.WHITE);
-	    r2h5.setForeground(Color.BLACK);
-	    r2h5.setFocusPainted(false);
-	    r2h5.setMargin(new Insets(2, 2, 2, 2));
-	    r2h5.addActionListener(new ActionListener() {
+	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[4].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
   	    	  System.out.println("Klick");
   	      }
@@ -210,19 +169,19 @@ public class Regal2 {
 	    Label2Hinten.setOpaque(true);
 		
 		
-		//Regal 2 Vorne
-		regal2Panel.add(r2v1);
-		regal2Panel.add(r2v2);
-		regal2Panel.add(r2v3);
-		regal2Panel.add(r2v4);
-		regal2Panel.add(r2v5);
-
+	    //Regal 2 Vorne
+		regal2Panel.add(RegalVorne[0]);
+		regal2Panel.add(RegalVorne[1]);
+		regal2Panel.add(RegalVorne[2]);
+		regal2Panel.add(RegalVorne[3]);
+		regal2Panel.add(RegalVorne[4]);
+	
 		//Regal 2 Hinten
-		regal2Panel.add(r2h1);
-		regal2Panel.add(r2h2);
-		regal2Panel.add(r2h3);
-		regal2Panel.add(r2h4);
-		regal2Panel.add(r2h5);
+		regal2Panel.add(RegalHinten[0]);
+		regal2Panel.add(RegalHinten[1]);
+		regal2Panel.add(RegalHinten[2]);
+		regal2Panel.add(RegalHinten[3]);
+		regal2Panel.add(RegalHinten[4]);
 		
 		regal2Panel.add(Label2Regal);
 		regal2Panel.add(Label2Vorne);

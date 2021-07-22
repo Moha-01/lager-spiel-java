@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Auftrag.Auftrag;
 import GUI.GUI;
 
 public class Regal1 {
@@ -22,20 +23,14 @@ public class Regal1 {
 	
 	// r1v1 = Regal 1 Vorne 1 | r2h2 = regal 2 hinten 2
 	//Regal 1
-	private JButton r1v1 = new JButton();
-	private JButton r1v2 = new JButton();
-	private JButton r1v3 = new JButton();
-	private JButton r1v4 = new JButton();
-	private JButton r1v5 = new JButton();
-	private JButton r1h1 = new JButton();
-	private JButton r1h2 = new JButton();
-	private JButton r1h3 = new JButton();
-	private JButton r1h4 = new JButton();
-	private JButton r1h5 = new JButton();
+
+	private JButton [] RegalVorne = new JButton[5];
+	private JButton [] RegalHinten = new JButton[5];
 	
 	private JLabel Label1Regal = new JLabel();
 	private JLabel Label1Vorne = new JLabel();
 	private JLabel Label1Hinten = new JLabel();
+	private Auftrag auftrag[] = new Auftrag[4];
 	
 	private void Components() {
 		
@@ -43,81 +38,82 @@ public class Regal1 {
 		regal1Panel.setLayout(null);
 		
 		
-		//Regal 1 Vorne
+		for(int i = 0; i < 5; i++){
+			RegalVorne[i] = new JButton();
+			RegalHinten[i] = new JButton();
+
+			RegalVorne[i].setIcon(icnPlaceHolder);
+			RegalHinten[i].setIcon(icnPlaceHolder);
+			
+			RegalVorne[i].setBorder(new LineBorder(Color.BLACK));
+			RegalHinten[i].setBorder(new LineBorder(Color.BLACK));
+			
+			RegalVorne[i].setBackground(Color.WHITE);
+			RegalVorne[i].setForeground(Color.BLACK);
+			
+			RegalHinten[i].setBackground(Color.WHITE);
+			RegalHinten[i].setForeground(Color.BLACK);
+			
+
+			RegalVorne[i].setFocusPainted(false);
+			RegalVorne[i].setMargin(new Insets(2, 2, 2, 2));
+			
+
+			RegalHinten[i].setFocusPainted(false);
+			RegalHinten[i].setMargin(new Insets(2, 2, 2, 2));
+			
+		}
+		
 		int abstandy = 24;
 		
-		r1v1.setIcon(icnPlaceHolder);
-		r1v1.setBorder(new LineBorder(Color.BLACK));
-		r1v1.setBounds(0, abstandy, 180, 80);
-	    r1v1.setBackground(Color.WHITE);
-	    r1v1.setForeground(Color.BLACK);
-	    r1v1.setFocusPainted(false);
-	    r1v1.setMargin(new Insets(2, 2, 2, 2));
-	    r1v1.addActionListener(new ActionListener() {
+		
+		
+		auftrag = GUI.getAuftragDaten();
+		
+		
+		
+		RegalVorne[0].setBounds(0, abstandy, 180, 80);
+		RegalVorne[0].addActionListener(new ActionListener() {
 	      int klick = 0;
 	      public void actionPerformed(ActionEvent evt) {
-	    	  if(klick == 0) {
-	    		  klick = 1;
-	    		  r1v1.setBackground(Color.red);
-	    	  } else if(klick == 1) {
-	    		  klick = 0;
-	    		  r1v1.setBackground(Color.white);
+	    	  try {
+	    		  System.out.println("Test: " + auftrag[0].getAuftragArt());
+	    	  }catch (Exception e) {
+	    		  System.out.println(e);
 	    	  }
+	    	  
+	    	  
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
 	    
-	    r1v2.setIcon(icnPlaceHolder);
-		r1v2.setBorder(new LineBorder(Color.BLACK));
-	    r1v2.setBounds(0, abstandy, 180, 80);
-	    r1v2.setBackground(Color.WHITE);
-	    r1v2.setForeground(Color.BLACK);
-	    r1v2.setFocusPainted(false);
-	    r1v2.setMargin(new Insets(2, 2, 2, 2));
-	    r1v2.addActionListener(new ActionListener() {
+	    RegalVorne[1].setBounds(0, abstandy, 180, 80);
+	    RegalVorne[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	        
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1v3.setIcon(icnPlaceHolder);
-		r1v3.setBorder(new LineBorder(Color.BLACK));
-	    r1v3.setBounds(0, abstandy, 180, 80);
-	    r1v3.setBackground(Color.WHITE);
-	    r1v3.setForeground(Color.BLACK);
-	    r1v3.setFocusPainted(false);
-	    r1v3.setMargin(new Insets(2, 2, 2, 2));
-	    r1v3.addActionListener(new ActionListener() {
+	    RegalVorne[2].setBounds(0, abstandy, 180, 80);
+	    RegalVorne[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	        System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1v4.setIcon(icnPlaceHolder);
-		r1v4.setBorder(new LineBorder(Color.BLACK));
-	    r1v4.setBounds(0, abstandy, 180, 80);
-	    r1v4.setBackground(Color.WHITE);
-	    r1v4.setForeground(Color.BLACK);
-	    r1v4.setFocusPainted(false);
-	    r1v4.setMargin(new Insets(2, 2, 2, 2));
-	    r1v4.addActionListener(new ActionListener() {
+	    RegalVorne[3].setBounds(0, abstandy, 180, 80);
+	    RegalVorne[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	        System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1v5.setIcon(icnPlaceHolder);
-	    r1v5.setBorder(new LineBorder(Color.BLACK));
-	    r1v5.setBounds(0, abstandy, 180, 80);
-	    r1v5.setBackground(Color.WHITE);
-	    r1v5.setForeground(Color.BLACK);
-	    r1v5.setFocusPainted(false);
-	    r1v5.setMargin(new Insets(2, 2, 2, 2));
-	    r1v5.addActionListener(new ActionListener() {
+	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
+	    RegalVorne[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	        System.out.println("Klick");
 	      }
@@ -125,70 +121,40 @@ public class Regal1 {
 
 	    // Regal 1 Hinten
 	    abstandy = 24;
-	    r1h1.setIcon(icnPlaceHolder);
-	    r1h1.setBorder(new LineBorder(Color.BLACK));
-	    r1h1.setBounds(185, abstandy, 180, 80);
-	    r1h1.setBackground(Color.WHITE);
-	    r1h1.setForeground(Color.BLACK);
-	    r1h1.setFocusPainted(false);
-	    r1h1.setMargin(new Insets(2, 2, 2, 2));
-	    r1h1.addActionListener(new ActionListener() {
+	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	    	  System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1h2.setIcon(icnPlaceHolder);
-	    r1h2.setBorder(new LineBorder(Color.BLACK));
-	    r1h2.setBounds(185, abstandy, 180, 80);
-	    r1h2.setBackground(Color.WHITE);
-	    r1h2.setForeground(Color.BLACK);
-	    r1h2.setFocusPainted(false);
-	    r1h2.setMargin(new Insets(2, 2, 2, 2));
-	    r1h2.addActionListener(new ActionListener() {
+	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	    	  System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1h3.setIcon(icnPlaceHolder);
-		r1v1.setBorder(new LineBorder(Color.BLACK));
-	    r1h3.setBounds(185, abstandy, 180, 80);
-	    r1h3.setBackground(Color.WHITE);
-	    r1h3.setForeground(Color.BLACK);
-	    r1h3.setFocusPainted(false);
-	    r1h3.setMargin(new Insets(2, 2, 2, 2));
-	    r1h3.addActionListener(new ActionListener() {
+	    RegalHinten[2].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	    	  System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1h4.setIcon(icnPlaceHolder);
-	    r1h4.setBorder(new LineBorder(Color.BLACK));
-	    r1h4.setBounds(185, abstandy, 180, 80);
-	    r1h4.setBackground(Color.WHITE);
-	    r1h4.setForeground(Color.BLACK);
-	    r1h4.setFocusPainted(false);
-	    r1h4.setMargin(new Insets(2, 2, 2, 2));
-	    r1h4.addActionListener(new ActionListener() {
+	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	    	  System.out.println("Klick");
 	      }
 	    });
 
 	    abstandy=(abstandy + 82);
-	    r1h5.setIcon(icnPlaceHolder);
-	    r1h5.setBorder(new LineBorder(Color.BLACK));
-	    r1h5.setBounds(185, abstandy, 180, 80);
-	    r1h5.setBackground(Color.WHITE);
-	    r1h5.setForeground(Color.BLACK);
-	    r1h5.setFocusPainted(false);
-	    r1h5.setMargin(new Insets(2, 2, 2, 2));
-	    r1h5.addActionListener(new ActionListener() {
+	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
+	    RegalHinten[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
 	    	  System.out.println("Klick");
 	      }
@@ -219,18 +185,18 @@ public class Regal1 {
 		
 		
 		//Regal 1 Vorne
-		regal1Panel.add(r1v1);
-		regal1Panel.add(r1v2);
-		regal1Panel.add(r1v3);
-		regal1Panel.add(r1v4);
-		regal1Panel.add(r1v5);
+		regal1Panel.add(RegalVorne[0]);
+		regal1Panel.add(RegalVorne[1]);
+		regal1Panel.add(RegalVorne[2]);
+		regal1Panel.add(RegalVorne[3]);
+		regal1Panel.add(RegalVorne[4]);
 
 		//Regal 1 Hinten
-		regal1Panel.add(r1h1);
-		regal1Panel.add(r1h2);
-		regal1Panel.add(r1h3);
-		regal1Panel.add(r1h4);
-		regal1Panel.add(r1h5);
+		regal1Panel.add(RegalHinten[0]);
+		regal1Panel.add(RegalHinten[1]);
+		regal1Panel.add(RegalHinten[2]);
+		regal1Panel.add(RegalHinten[3]);
+		regal1Panel.add(RegalHinten[4]);
 		
 		regal1Panel.add(Label1Regal);
 		regal1Panel.add(Label1Vorne);
@@ -245,6 +211,4 @@ public class Regal1 {
 		Components();
 		return regal1Panel;
 	}
-	
-	
 }
