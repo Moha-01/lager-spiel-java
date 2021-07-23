@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
@@ -85,8 +87,10 @@ public class Regal1 {
 		RegalVorne[0].setBounds(0, abstandy, 180, 80);
 		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	 
-	    	  getIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
+	    	  setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[0].getProduktType() == "Holz" && ((Holz) ProduktVorne[0]).getForm() == "Balken") {
+	    		  setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  }
 	    	  
 	    	  
 	      }
@@ -97,7 +101,10 @@ public class Regal1 {
 	    RegalVorne[1].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
+	    	  setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[1].getProduktType() == "Holz" && ((Holz) ProduktVorne[1]).getForm() == "Balken") {
+	    		  setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  }
 	      }
 	    });
 
@@ -105,7 +112,10 @@ public class Regal1 {
 	    RegalVorne[2].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
+	    	  setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[2].getProduktType() == "Holz" && ((Holz) ProduktVorne[2]).getForm() == "Balken") {
+	    		  setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  }
 	      }
 	    });
 
@@ -113,7 +123,10 @@ public class Regal1 {
 	    RegalVorne[3].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
+	    	  setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[3].getProduktType() == "Holz" && ((Holz) ProduktVorne[3]).getForm() == "Balken") {
+	    		  setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  }
 	      }
 	    });
 
@@ -121,7 +134,10 @@ public class Regal1 {
 	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
+	    	  setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[4].getProduktType() == "Holz" && ((Holz) ProduktVorne[4]).getForm() == "Balken") {
+	    		  setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  }
 	      }
 	    });
 
@@ -130,7 +146,10 @@ public class Regal1 {
 	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  if(ProduktHinten[0].getProduktType() == "Holz" && ((Holz) ProduktHinten[0]).getForm() == "Balken") {
+	    		  setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
+	    	  }
 	      }
 	    });
 
@@ -138,7 +157,10 @@ public class Regal1 {
 	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  if(ProduktHinten[1].getProduktType() == "Holz" && ((Holz) ProduktHinten[1]).getForm() == "Balken") {
+	    		  setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
+	    	  }
 	      }
 	    });
 
@@ -146,7 +168,10 @@ public class Regal1 {
 	    RegalHinten[2].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  if(ProduktHinten[2].getProduktType() == "Holz" && ((Holz) ProduktHinten[2]).getForm() == "Balken") {
+	    		  setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
+	    	  }
 	      }
 	    });
 
@@ -154,7 +179,10 @@ public class Regal1 {
 	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  if(ProduktHinten[3].getProduktType() == "Holz" && ((Holz) ProduktHinten[3]).getForm() == "Balken") {
+	    		  setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
+	    	  }
 	      }
 	    });
 
@@ -162,7 +190,10 @@ public class Regal1 {
 	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  getIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  if(ProduktHinten[4].getProduktType() == "Holz" && ((Holz) ProduktHinten[4]).getForm() == "Balken") {
+	    		  setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
+	    	  }
 	      }
 	    });
 	    
@@ -213,7 +244,7 @@ public class Regal1 {
 		regal1Panel.setVisible(true);
 	}
 	
-	private void getIconInfo(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
+	private void setIconInfo(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
 		auftrag = GUI.getAuftragDaten();
 	  	auftragSelected = GUI.getAuftragSelected();
 	  	
@@ -227,7 +258,10 @@ public class Regal1 {
 	  	}catch (Exception e) {
 	  		  System.out.println(e);
 	  	}
-		if(ph[index] == false && auftragSelected[auftragIndex]) {
+	  	boolean leicht = false;
+	  	boolean mittel = false;
+	  	boolean schwer = false;
+		if(ph[index] == false && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
 			ph[index] = true;
   			if(product[index].getProduktType().equals("Papier")) {
   				product[index] = new Papier();
@@ -288,15 +322,40 @@ public class Regal1 {
   				}
   				if(auftrag[auftragIndex].getAttribut_2().equals("Leicht")) {
   					((Stein) product[index]).setGewicht("Leicht");
+  					leicht = true;
   				}
   				if(auftrag[auftragIndex].getAttribut_2().equals("Mittel")) {
   					((Stein) product[index]).setGewicht("Mittel");
+  					mittel = true;
   				}
   				if(auftrag[auftragIndex].getAttribut_2().equals("Schwer")) {
   					((Stein) product[index]).setGewicht("Schwer");
+  					schwer = true;
   				}
   				
-  				btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  				if(schwer && (index == 3 || index == 4)) {
+  					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  				}else if(schwer && (index == 0 || index == 1 || index == 2)){
+  					JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame ,
+				    "Stein zu Schwer!",
+				    "Fehler",
+				    JOptionPane.ERROR_MESSAGE);
+  				} 
+  					
+  				if(mittel && (index == 1 || index == 2 || index == 3 || index == 4)) {
+  					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  				}else if(mittel && (index == 0)){
+  					JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame ,
+				    "Stein zu Schwer!",
+				    "Fehler",
+				    JOptionPane.ERROR_MESSAGE);
+  				}
+  				
+  				if(leicht) {
+  					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  				}
   			}
   			
   		 }else {
