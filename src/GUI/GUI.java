@@ -28,7 +28,7 @@ public class GUI extends JFrame {
 	
 	private JButton bilanzButton = new JButton();
 	private JButton bNeuerAuftrag = new JButton();
-	private JButton [] AuftragListe = new JButton[4];
+	private static JButton [] AuftragListe = new JButton[4];
 	private JButton [] AuftragAblehnen = new JButton[4];
 	
 	private JLabel lKontostand = new JLabel();
@@ -75,6 +75,8 @@ public class GUI extends JFrame {
 	
 	private Product [] Regal1Produkte = new Product[10];
 	private Product [] Regal2Produkte = new Product[10];
+	
+	private static boolean [] auftragSelected = new boolean[4];
     
 	
 	
@@ -320,7 +322,7 @@ public class GUI extends JFrame {
             	}
         	}
         	if(AuftragListe[1].isSelected() == true) {
-    			
+        		
         		if(auftrag[1].getAuftragArt().equals("Einlagerung")) {
     				AuftragListe[1].setBackground(Color.GREEN);
     			}else if(auftrag[1].getAuftragArt().equals("Auslagerung")) {
@@ -393,7 +395,6 @@ public class GUI extends JFrame {
             	}
         		
         		if(AuftragListe[3].isSelected() == true) {
-        			
         			if(auftrag[3].getAuftragArt().equals("Einlagerung")) {
         				AuftragListe[3].setBackground(Color.GREEN);
         			}else if(auftrag[3].getAuftragArt().equals("Auslagerung")) {
@@ -528,5 +529,24 @@ public class GUI extends JFrame {
 			return null;
 		}
 		
+	}
+	
+	public static boolean[] getAuftragSelected() {
+		try {
+			try {
+				auftragSelected[0] = AuftragListe[0].isSelected();
+				auftragSelected[1] = AuftragListe[1].isSelected();
+				auftragSelected[2] = AuftragListe[2].isSelected();
+				auftragSelected[3] = AuftragListe[3].isSelected();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return auftragSelected;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

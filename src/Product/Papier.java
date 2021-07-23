@@ -50,7 +50,7 @@ public class Papier extends Product{
 	
 	public Icon getIcon() {
 		//Weis
-		if(Farbe == "White") {
+		if(Farbe == "Weiß") {
 			if(Groesse == "A3") {
 				return papier_white_a3;
 			}
@@ -62,7 +62,7 @@ public class Papier extends Product{
 			}
 		}
 		//Grün
-		if(Farbe == "Green") {
+		if(Farbe == "Grün") {
 			if(Groesse == "A3") {
 				return papier_green_a3;
 			}
@@ -74,7 +74,7 @@ public class Papier extends Product{
 			}
 		}
 		//Blau
-		if(Farbe == "Blue") {
+		if(Farbe == "Blau") {
 			if(Groesse == "A3") {
 				return papier_blue_a3;
 			}

@@ -32,11 +32,11 @@ public class Start {
 	
 	
 	if(test.getProduktType() == "Papier") {
-		test = new Papier("","");
+		test = new Papier("Weiﬂ","A3");
 	}
 	System.out.println("3. " + test);
-	((Papier) test).setFarbe("Rot");
 	System.out.println("4. " + ((Papier) test).getFarbe());
+	System.out.println("5. " + ((Papier) test).getIcon());
 	
 	GUI Spiel = new GUI();
   }

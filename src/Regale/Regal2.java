@@ -13,7 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Auftrag.Auftrag;
 import GUI.GUI;
+import Product.Holz;
+import Product.Papier;
+import Product.Product;
+import Product.Stein;
 
 public class Regal2 {
 	
@@ -23,12 +28,25 @@ public class Regal2 {
 	
 	// r1v1 = Regal 1 Vorne 1 | r2h2 = regal 2 hinten 2
 	//Regal 2
-	private JButton [] RegalVorne = new JButton[5];
-	private JButton [] RegalHinten = new JButton[5];
+	public JButton [] RegalVorne = new JButton[5];
+	public JButton [] RegalHinten = new JButton[5];
 	
 	private JLabel Label2Regal = new JLabel();
 	private JLabel Label2Vorne = new JLabel();
 	private JLabel Label2Hinten = new JLabel();
+	
+
+	private Auftrag auftrag[] = new Auftrag[4];
+	private int auftragIndex;
+	private boolean auftragSelected[] = new boolean[4];
+
+	
+	//Platzhalter
+	private boolean [] regalVornePH = new boolean[5];
+	private boolean [] regalHintenPH = new boolean[5];
+
+	private Product [] ProduktVorne = new Product[5];
+	private Product [] ProduktHinten = new Product[5];
 	
 	
 	private void Components() {
@@ -63,13 +81,19 @@ public class Regal2 {
 			RegalHinten[i].setFocusPainted(false);
 			RegalHinten[i].setMargin(new Insets(2, 2, 2, 2));
 			
+			regalVornePH[i] = false;
+			regalHintenPH[i] = false;
+			
+			ProduktVorne[i] = new Product();
+			ProduktHinten[i] = new Product();
+			
 		}
 		
 		
 		RegalVorne[0].setBounds(0, abstandy, 180, 80);
 		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-		        System.out.println("Klick");
+	    	  getIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
 		  }
 	    });
 
@@ -77,7 +101,7 @@ public class Regal2 {
   	  	RegalVorne[1].setBounds(0, abstandy, 180, 80);
   	  	RegalVorne[1].addActionListener(new ActionListener() {
 	  	  public void actionPerformed(ActionEvent evt) {
-	  	      System.out.println("Klick");
+	  		getIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
 	  	    }
   	  	});
 
@@ -85,7 +109,7 @@ public class Regal2 {
   	  	RegalVorne[2].setBounds(0, abstandy, 180, 80);
   	  	RegalVorne[2].addActionListener(new ActionListener() {
   	  		public void actionPerformed(ActionEvent evt) {
-  	  			System.out.println("Klick");
+  	  		getIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
   	  		}
   	  	});
 
@@ -93,7 +117,7 @@ public class Regal2 {
   	  	RegalVorne[3].setBounds(0, abstandy, 180, 80);
   	  	RegalVorne[3].addActionListener(new ActionListener() {
 	  	    public void actionPerformed(ActionEvent evt) {
-	  	      System.out.println("Klick");
+	  	    	getIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
 	  	    }
 	    });
 
@@ -101,7 +125,7 @@ public class Regal2 {
 	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[4].addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent evt) {
-	    		System.out.println("Klick");
+	    		getIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
 	    	}
 	    });
 
@@ -110,7 +134,7 @@ public class Regal2 {
 	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[0].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
-  	    	  System.out.println("Klick");
+  	    	getIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
   	      }
 	    });
 
@@ -118,7 +142,7 @@ public class Regal2 {
 	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[1].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
-  	    	  System.out.println("Klick");
+  	    	getIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
   	      }
   	  	});
 
@@ -126,7 +150,7 @@ public class Regal2 {
   	  	RegalHinten[2].setBounds(185, abstandy, 180, 80);  
   	  	RegalHinten[2].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
-  	    	  System.out.println("Klick");
+  	    	getIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
   	      }
 	    });
 
@@ -134,7 +158,7 @@ public class Regal2 {
 	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[3].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
-  	    	  System.out.println("Klick");
+  	    	getIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
   	      }
 	    });
 
@@ -142,7 +166,7 @@ public class Regal2 {
 	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[4].addActionListener(new ActionListener() {
   	      public void actionPerformed(ActionEvent evt) {
-  	    	  System.out.println("Klick");
+  	    	getIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
   	      }
 	    });
 	    
@@ -190,6 +214,98 @@ public class Regal2 {
 		
 		regal2Panel.setBackground(Color.GRAY);
 		regal2Panel.setVisible(true);
+	}
+	
+	private void getIconInfo(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
+		auftrag = GUI.getAuftragDaten();
+	  	auftragSelected = GUI.getAuftragSelected();
+	  	
+	  	for(int i = 0; i < 4; i++) {
+	  		if(auftragSelected[i] == true) {
+					auftragIndex = i;
+			}
+		}
+	  	try {
+	  		product[index].setProductType(auftrag[auftragIndex].getProdukt());
+	  	}catch (Exception e) {
+	  		  System.out.println(e);
+	  	}
+		if(ph[index] == false && auftragSelected[auftragIndex]) {
+			ph[index] = true;
+  			if(product[index].getProduktType().equals("Papier")) {
+  				product[index] = new Papier();
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Weiß")) {
+  					((Papier) product[index]).setFarbe("Weiß");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Blau")) {
+  					((Papier) product[index]).setFarbe("Blau");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Grün")) {
+  					((Papier) product[index]).setFarbe("Grün");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("A4")) {
+  					((Papier) product[index]).setGroesse("A4");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("A3")) {
+  					((Papier) product[index]).setGroesse("A3");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("A5")) {
+  					((Papier) product[index]).setGroesse("A5");
+  				}
+  				
+  				btnRegal[index].setIcon(((Papier) product[index]).getIcon());
+  			}
+  			if(product[index].getProduktType().equals("Holz")) {
+  				product[index] = new Holz();
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Kiefer")) {
+  					((Holz) product[index]).setArt("Kiefer");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Buche")) {
+  					((Holz) product[index]).setArt("Buche");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Eiche")) {
+  					((Holz) product[index]).setArt("Eiche");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Bretter")) {
+  					((Holz) product[index]).setForm("Bretter");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+  					((Holz) product[index]).setForm("Balken");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Scheit")) {
+  					((Holz) product[index]).setForm("Scheit");
+  				}
+  				
+  				btnRegal[index].setIcon(((Holz) product[index]).getIcon());
+  			}
+  			if(product[index].getProduktType().equals("Stein")) {
+  				product[index] = new Stein();
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Marmor")) {
+  					((Stein) product[index]).setArt("Marmor");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Granit")) {
+  					((Stein) product[index]).setArt("Granit");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Sandstein")) {
+  					((Stein) product[index]).setArt("Sandstein");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Leicht")) {
+  					((Stein) product[index]).setGewicht("Leicht");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Mittel")) {
+  					((Stein) product[index]).setGewicht("Mittel");
+  				}
+  				if(auftrag[auftragIndex].getAttribut_2().equals("Schwer")) {
+  					((Stein) product[index]).setGewicht("Schwer");
+  				}
+  				
+  				btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  			}
+  			
+  		 }else {
+  			ph[index] = false;
+  		 }
+		
 	}
 	
 	public JPanel getJPanel() {
