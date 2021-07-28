@@ -31,7 +31,7 @@ public class GUI extends JFrame {
 	private static JButton [] AuftragListe = new JButton[4];
 	private JButton [] AuftragAblehnen = new JButton[4];
 	
-	private JLabel lKontostand = new JLabel();
+	private static JLabel lKontostand = new JLabel();
 	private JLabel LabelBilanz = new JLabel();
 	private JLabel lAuftraege = new JLabel();
 	private JLabel colLeft_auf = new JLabel();
@@ -50,16 +50,16 @@ public class GUI extends JFrame {
 	
 	//Variablen
 	
-	private int KontoStand = 10000;
-	private int [] Belohnung = new int[4];
-	private int Umsatz = 0;
-	private String [] Art = new String[4];
+	private static int KontoStand = 10000;
+	private static int [] Belohnung = new int[4];
+	private static int Umsatz = 0;
+	private static String [] Art = new String[4];
 	
-	private int Eintrag = 0;
+	private static int Eintrag = 0;
 	
 	//Bilanz Variablen
 	private String[] colTableStrings = {"Eintrag", "Kosten", "Kontostand", "Umsatz"};
-	private String[][] dataStrings = new String[100][4];
+	private static String[][] dataStrings = new String[100][4];
 	
 	/*			(Daten zur übergabe und Rückgabe)
 	 * [][]	Auftragsnummer
@@ -548,5 +548,28 @@ public class GUI extends JFrame {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static boolean doneAuftrag(int Auftrag) {
+		if(AuftragListe[Auftrag].getText() != "Leer") {
+    		AuftragListe[Auftrag].setText("Leer");
+    		AuftragListe[Auftrag].setBorder(new LineBorder(Color.BLACK));
+    		KontoStand = KontoStand + Belohnung[Auftrag];
+    		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+    		
+    		Umsatz = (KontoStand + Belohnung[Auftrag]) - KontoStand;
+    		if(Eintrag != 0) {
+    			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+    		}
+    		dataStrings[Eintrag][0] = Art[Auftrag];
+    		dataStrings[Eintrag][1] = "+" + Belohnung[Auftrag];
+    		dataStrings[Eintrag][2] = "" + KontoStand;
+    		dataStrings[Eintrag][3] = "" + Umsatz;
+    		Eintrag++;
+    	}
+    	auftrag[Auftrag] = new Auftrag();
+    	AuftragListe[Auftrag].setBackground(Color.WHITE);
+    	AuftragListe[Auftrag].setSelected(false);
+		return true;
 	}
 }

@@ -45,6 +45,7 @@ public class Regal1 {
 	private Product [] ProduktVorne = new Product[5];
 	private Product [] ProduktHinten = new Product[5];
 	
+	
 	private void Components() {
 		
 		regal1Panel.setBounds(50 , 30, 370, 465);
@@ -83,14 +84,28 @@ public class Regal1 {
 			ProduktHinten[i] = new Product();
 		}
 		
+		
 		int abstandy = 24;
 		RegalVorne[0].setBounds(0, abstandy, 180, 80);
 		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
-	    	  if(ProduktVorne[0].getProduktType() == "Holz" && ((Holz) ProduktVorne[0]).getForm() == "Balken") {
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+		  	  setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
+	    	  if(ProduktVorne[0].getProduktType() == "Holz" && ((Holz) ProduktVorne[0]).getForm() == "Balken" ) {
+	    		  
 	    		  setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
+	    		  
 	    	  }
+	    	  
+	    	  GUI.doneAuftrag(auftragIndex);
 	    	  
 	    	  
 	      }
@@ -101,10 +116,24 @@ public class Regal1 {
 	    RegalVorne[1].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
+	    	  
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+		  	  
+		  	  
+    		  setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
 	    	  if(ProduktVorne[1].getProduktType() == "Holz" && ((Holz) ProduktVorne[1]).getForm() == "Balken") {
 	    		  setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  }
+	    	  
+	    	  GUI.doneAuftrag(auftragIndex);
+	    	  
 	      }
 	    });
 
@@ -112,10 +141,22 @@ public class Regal1 {
 	    RegalVorne[2].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
+	    	 
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
 	    	  if(ProduktVorne[2].getProduktType() == "Holz" && ((Holz) ProduktVorne[2]).getForm() == "Balken") {
 	    		  setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  }
+	    	  
+	    	  
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -123,10 +164,22 @@ public class Regal1 {
 	    RegalVorne[3].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
+	    	 
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
 	    	  if(ProduktVorne[3].getProduktType() == "Holz" && ((Holz) ProduktVorne[3]).getForm() == "Balken") {
 	    		  setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  }
+		    	 
+	    	  
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -134,10 +187,21 @@ public class Regal1 {
 	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
 	    	  if(ProduktVorne[4].getProduktType() == "Holz" && ((Holz) ProduktVorne[4]).getForm() == "Balken") {
 	    		  setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  }
+		    	
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -146,10 +210,21 @@ public class Regal1 {
 	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  if(ProduktHinten[0].getProduktType() == "Holz" && ((Holz) ProduktHinten[0]).getForm() == "Balken") {
 	    		  setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
 	    	  }
+		    	
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -157,10 +232,21 @@ public class Regal1 {
 	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  if(ProduktHinten[1].getProduktType() == "Holz" && ((Holz) ProduktHinten[1]).getForm() == "Balken") {
 	    		  setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
 	    	  }
+		    	
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -168,10 +254,21 @@ public class Regal1 {
 	    RegalHinten[2].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  if(ProduktHinten[2].getProduktType() == "Holz" && ((Holz) ProduktHinten[2]).getForm() == "Balken") {
 	    		  setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
 	    	  }
+		    	
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -179,10 +276,21 @@ public class Regal1 {
 	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
+	   
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+    		  setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
 	    	  if(ProduktHinten[3].getProduktType() == "Holz" && ((Holz) ProduktHinten[3]).getForm() == "Balken") {
 	    		  setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
 	    	  }
+		    	
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 
@@ -190,10 +298,22 @@ public class Regal1 {
 	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
-	    	  if(ProduktHinten[4].getProduktType() == "Holz" && ((Holz) ProduktHinten[4]).getForm() == "Balken") {
+	    	  
+	    	  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+		  	  setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
+		  	  if(ProduktHinten[4].getProduktType() == "Holz" && ((Holz) ProduktHinten[4]).getForm() == "Balken") {
 	    		  setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
 	    	  }
+		    	
+	    	  
+	    	  GUI.doneAuftrag(auftragIndex);
 	      }
 	    });
 	    
@@ -244,15 +364,8 @@ public class Regal1 {
 		regal1Panel.setVisible(true);
 	}
 	
-	private void setIconInfo(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
-		auftrag = GUI.getAuftragDaten();
-	  	auftragSelected = GUI.getAuftragSelected();
-	  	
-	  	for(int i = 0; i < 4; i++) {
-	  		if(auftragSelected[i] == true) {
-					auftragIndex = i;
-			}
-		}
+	private boolean setIconInfo(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
+		
 	  	try {
 	  		product[index].setProductType(auftrag[auftragIndex].getProdukt());
 	  	}catch (Exception e) {
@@ -261,6 +374,7 @@ public class Regal1 {
 	  	boolean leicht = false;
 	  	boolean mittel = false;
 	  	boolean schwer = false;
+	  	
 		if(ph[index] == false && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
 			ph[index] = true;
   			if(product[index].getProduktType().equals("Papier")) {
@@ -335,6 +449,7 @@ public class Regal1 {
   				
   				if(schwer && (index == 3 || index == 4)) {
   					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  					
   				}else if(schwer && (index == 0 || index == 1 || index == 2)){
   					JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
@@ -345,23 +460,29 @@ public class Regal1 {
   					
   				if(mittel && (index == 1 || index == 2 || index == 3 || index == 4)) {
   					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  					
   				}else if(mittel && (index == 0)){
   					JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
 				    "Stein zu Schwer!",
 				    "Fehler",
 				    JOptionPane.ERROR_MESSAGE);
+					//Idee
+					auftragSelected[auftragIndex] = false;
   				}
   				
   				if(leicht) {
   					btnRegal[index].setIcon(((Stein) product[index]).getIcon());
+  					
   				}
   			}
+  			//GUI.doneAuftrag(auftragIndex);
   			
   		 }else {
+  			//Auslagern
   			ph[index] = false;
   		 }
-		
+		return true;
 	}
 	
 	public JPanel getJPanel() {
