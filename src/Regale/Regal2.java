@@ -1,7 +1,6 @@
 package Regale;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -98,46 +97,7 @@ public class Regal2 {
 		RegalVorne[0].setBounds(0, abstandy, 180, 80);
 		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	  if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktHinten[0].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
-			  	  }
-			  	  
-			  	  
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-		    	  
-		    	  
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-	    	  
-	    	System.out.println("[Platzhalter]: " + regalVornePH[0]);
-	    	  
-	    	  
+	    	  buttonClickVorne(0);
 	      }
 	    });
 
@@ -146,42 +106,7 @@ public class Regal2 {
 	    RegalVorne[1].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	  if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktHinten[1].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
-			  	  }
-			  	  
-			  	  
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-		    	  
-		    	  
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+	    	  buttonClickVorne(1);
 	      }
 	    });
 
@@ -189,41 +114,7 @@ public class Regal2 {
 	    RegalVorne[2].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktHinten[2].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
-			  	  }
-		    	  
-		    	  
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickVorne(2);
 	      }
 	    });
 
@@ -231,41 +122,7 @@ public class Regal2 {
 	    RegalVorne[3].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktHinten[3].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
-			  	  }
-			    	 
-		    	  
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickVorne(3);
 	      }
 	    });
 
@@ -273,40 +130,7 @@ public class Regal2 {
 	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktHinten[4].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
-			  	  }
-			    	
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickVorne(4);
 	      }
 	    });
 
@@ -315,40 +139,7 @@ public class Regal2 {
 	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktVorne[0].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(0, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(0, regalHintenPH, ProduktHinten, RegalHinten);
-			  	  }
-			    	
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickHinten(0);
 	      }
 	    });
 
@@ -356,41 +147,7 @@ public class Regal2 {
 	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-	    	  
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktVorne[1].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(1, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(1, regalHintenPH, ProduktHinten, RegalHinten);
-			  	  }
-			    	
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
-	    	  
+	    	  buttonClickHinten(1);
 	      }
 	    });
 
@@ -398,40 +155,7 @@ public class Regal2 {
 	    RegalHinten[2].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktVorne[2].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(2, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(2, regalHintenPH, ProduktHinten, RegalHinten);
-			  	  }
-			    	
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickHinten(2);
 	      }
 	    });
 
@@ -439,40 +163,7 @@ public class Regal2 {
 	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-	    		  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktVorne[3].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(3, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(3, regalHintenPH, ProduktHinten, RegalHinten);
-			  	  }
-			    	
-		    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
-	    	  
+	    	  buttonClickHinten(3); 
 	      }
 	    });
 
@@ -480,44 +171,10 @@ public class Regal2 {
 	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
-
-	    	  try {
-
-		    	  auftrag = GUI.getAuftragDaten();
-		  	  	  auftragSelected = GUI.getAuftragSelected();
-			  	  for(int i = 0; i < 4; i++) {
-				  	if(auftragSelected[i] == true) {
-							auftragIndex = i;
-					}
-			  	  }
-		    	  
-			  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-			  		if(ProduktVorne[4].getIcon().toString().contains("placeholder.png") == true) {
-			    		setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
-			    		setIconInfo(4, regalVornePH, ProduktVorne, RegalVorne);
-			    	  }else {
-							JFrame frame = new JFrame();
-							JOptionPane.showMessageDialog(frame ,
-							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
-							"Fehler",
-							JOptionPane.ERROR_MESSAGE);
-			    	  }
-			  	  }else {
-			  		setIconInfo(4, regalHintenPH, ProduktHinten, RegalHinten);
-			  	  }
-			    	
-		    	  
-			  	if(auftrag[auftragIndex].getAuftragDone() == true) {
-		    		  GUI.doneAuftrag(auftragIndex);
-		    	  }else {
-		    		  System.out.println("Do nothing!!");
-		    	  }
-	    	  }catch (Exception e) {
-				System.out.println(e);
-	    	  }
+	    	  buttonClickHinten(4);
 	      }
 	    });
-	    
+	        
 	    Label2Regal.setBounds(1, 0, 363, 20);
 	    Label2Regal.setText("2. Regal");
 	    Label2Regal.setHorizontalAlignment(SwingConstants.CENTER);
@@ -723,14 +380,110 @@ public class Regal2 {
   				}
   			}
   			
-  		 }else if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
-  			 
-  			//test Auslager Auftrag
-  			ph[index] = false;
-  			
   		 }
+		if(ph[index] == false && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
+  			
+  			if (btnRegal[index].getIcon().toString().contains("placeholder.png") == true) {
+  				JFrame frame = new JFrame();
+				JOptionPane.showMessageDialog(frame ,
+			    "Lagerplatz leer!",
+			    "Fehler",
+			    JOptionPane.ERROR_MESSAGE);
+			}
+  		 }
+		
+		if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
+		  			//ToDo Auslagern....
+  		}
 		return true;
 	}
+
+	private void buttonClickVorne(int index) {
+		try {
+  		  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+		  	  if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+		  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
+		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
+		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		    	  }else {
+						JFrame frame = new JFrame();
+						JOptionPane.showMessageDialog(frame ,
+						"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+						"Fehler",
+						JOptionPane.ERROR_MESSAGE);
+						regalVornePH[auftragIndex] = false;
+		    	  }
+		  	  }else {
+		  		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		  	  }
+		  	  
+		  	  
+	    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
+	    		  GUI.doneAuftrag(auftragIndex);
+	    	  }else {
+	    		  System.out.println("Do nothing!!");
+	    	  }
+	    	  
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+  	  
+  	
+	}
+	
+	private void buttonClickHinten(int index) {
+		try {
+  		  auftrag = GUI.getAuftragDaten();
+	  	  	  auftragSelected = GUI.getAuftragSelected();
+		  	  for(int i = 0; i < 4; i++) {
+			  	if(auftragSelected[i] == true) {
+						auftragIndex = i;
+				}
+		  	  }
+	    	  
+		  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+		  		if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == true) {
+		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
+		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		    	  }else {
+						JFrame frame = new JFrame();
+						JOptionPane.showMessageDialog(frame ,
+						"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+						"Fehler",
+						JOptionPane.ERROR_MESSAGE);
+						regalHintenPH[auftragIndex] = false;
+		    	  }
+		  	  }else {
+		  		  if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false){
+		  			
+		  			JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame ,
+					"Eingang blockiert!\n befreien Sie zuerst den Eingang oder nehmen Sie ein weiterer Lagerplatz",
+					"Fehler",
+					JOptionPane.ERROR_MESSAGE);
+					regalHintenPH[auftragIndex] = false;
+		  		  }else {
+		  			setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
+		  		  }
+		  	  }
+		    	
+	    	  if(auftrag[auftragIndex].getAuftragDone() == true) {
+	    		  GUI.doneAuftrag(auftragIndex);
+	    	  }else {
+	    		  System.out.println("Do nothing!!");
+	    	  }
+  	  }catch (Exception e) {
+			System.out.println(e);
+  	  }
+	}
+	
 	
 	public JPanel getJPanel() {
 		Components();

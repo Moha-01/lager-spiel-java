@@ -458,7 +458,7 @@ public class GUI extends JFrame {
     		if(Eintrag != 0) {
     			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
     		}
-    		dataStrings[Eintrag][0] = Art[index];
+    		dataStrings[Eintrag][0] = "Ablehnung";
     		dataStrings[Eintrag][1] = "-" + Belohnung[index];
     		dataStrings[Eintrag][2] = "" + KontoStand;
     		dataStrings[Eintrag][3] = "" + Umsatz;
