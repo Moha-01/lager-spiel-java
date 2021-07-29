@@ -503,6 +503,26 @@ public class GUI extends JFrame {
 		
 		if(auftrag[Auftrag].getAuftragArt().equals("Auslagerung")) {
 			System.out.println("Auslagerung Auftrag");
+			if(AuftragListe[Auftrag].getText() != "Leer") {
+	    		AuftragListe[Auftrag].setText("Leer");
+	    		AuftragListe[Auftrag].setBorder(new LineBorder(Color.BLACK));
+	    		KontoStand = KontoStand + Belohnung[Auftrag];
+	    		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+	    		
+	    		Umsatz = (KontoStand + Belohnung[Auftrag]) - KontoStand;
+	    		if(Eintrag != 0) {
+	    			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+	    		}
+	    		dataStrings[Eintrag][0] = Art[Auftrag];
+	    		dataStrings[Eintrag][1] = "+" + Belohnung[Auftrag];
+	    		dataStrings[Eintrag][2] = "" + KontoStand;
+	    		dataStrings[Eintrag][3] = "" + Umsatz;
+	    		Eintrag++;
+	    	}
+	    	auftrag[Auftrag] = new Auftrag();
+	    	AuftragListe[Auftrag].setBackground(Color.WHITE);
+	    	AuftragListe[Auftrag].setSelected(false);
+	    	
 			return true;
 		} else if(auftrag[Auftrag].getAuftragArt().equals("Einlagerung")) {
 			System.out.println("Einlagerung Auftrag");
