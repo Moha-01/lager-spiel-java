@@ -7,8 +7,8 @@ import GUI.GUI;
 
 public class Stein extends Product{
 		
-	private String Art;			//Art (Marmor, Granit, Sandstein)
-	private String Gewicht;		//Gewicht (Leicht, Mittel, Schwer)
+	private String Art = new String();			//Art (Marmor, Granit, Sandstein)
+	private String Gewicht = new String();		//Gewicht (Leicht, Mittel, Schwer)
 	
 	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
 	private Icon granit_leicht = new ImageIcon(GUI.class.getResource("Granit_Leicht.png"));

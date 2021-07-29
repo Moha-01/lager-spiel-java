@@ -7,8 +7,8 @@ import GUI.GUI;
 
 public class Papier extends Product{
 	
-	private String Farbe;		//Farbe (Weiß, Grün, Blau)	
-	private String Groesse;		//Größe (A3, A4, A5)
+	private String Farbe = new String();		//Farbe (Weiß, Grün, Blau)	
+	private String Groesse = new String();		//Größe (A3, A4, A5)
 	
 	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
 	private Icon papier_blue_a3 = new ImageIcon(GUI.class.getResource("papier_blue_a3.png"));

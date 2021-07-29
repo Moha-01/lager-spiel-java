@@ -7,8 +7,8 @@ import GUI.GUI;
 
 public class Holz extends Product{
 	
-	private String Art;		//Art (Kiefer, Buche, Eiche)
-	private String Form;	//Form (Bretter, Balken, Scheit)
+	private String Art = new String();		//Art (Kiefer, Buche, Eiche)
+	private String Form = new String();	//Form (Bretter, Balken, Scheit)
 	
 	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
 	private Icon buche_balken = new ImageIcon(GUI.class.getResource("Buche_Balken.png"));

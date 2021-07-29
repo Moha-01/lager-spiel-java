@@ -6,17 +6,38 @@ public class Auftrag {
 	private String produkt = new String();
 	private String [] Attribut = new String[2];
 	private String auftragBelohnung = new String();
+	private String status = new String();
+	private boolean auftragDone = false;
 	
 	public Auftrag() {
+		status = "Leer";
 		System.out.println("Auftrag Leer");
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String Status) {
+		this.status = Status;
+	}
+	
 	public Auftrag(String Auftrag_Nummer, String AuftragArt, String Produkt, String Attribut1, String Attribut2, String Belohnung) {
+		status = "Besetzt";
 		auftragNr = Auftrag_Nummer;
 		auftragArt = AuftragArt;
 		produkt = Produkt;
 		Attribut[0] = Attribut1;
 		Attribut[1] = Attribut2;
 		auftragBelohnung  = Belohnung;
+	}
+	
+	public void setAuftragDone(boolean done) {
+		auftragDone = done;
+	}
+	
+	public boolean getAuftragDone() {
+		return auftragDone;
 	}
 	
 	

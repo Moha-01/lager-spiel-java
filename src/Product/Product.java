@@ -3,10 +3,11 @@ package Product;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+
 import GUI.GUI;
 
 public class Product {
-	private String productType;
+	private String productType = new String();
 	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
 	
 	public void setProductType(String PT) {
