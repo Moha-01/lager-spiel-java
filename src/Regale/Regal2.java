@@ -238,15 +238,15 @@ public class Regal2 {
   			if(product[index].getProduktType().equals("Papier")) {
   				product[index] = new Papier();
   				//.equals() & eine einfache String "" unterscheiden sich an irgendein Punkt
-  				//Papier(auftrag[auftragIndex].getAuftragAttribut_1(), ...) wï¿½re hier Fehlerhaft
-  				if(auftrag[auftragIndex].getAttribut_1().equals("Weiï¿½")) {
-  					((Papier) product[index]).setFarbe("Weiï¿½");
+  				//Papier(auftrag[auftragIndex].getAuftragAttribut_1(), ...) wärre hier Fehlerhaft
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Weiß")) {
+  					((Papier) product[index]).setFarbe("Weiß");
   				}
   				if(auftrag[auftragIndex].getAttribut_1().equals("Blau")) {
   					((Papier) product[index]).setFarbe("Blau");
   				}
-  				if(auftrag[auftragIndex].getAttribut_1().equals("Grï¿½n")) {
-  					((Papier) product[index]).setFarbe("Grï¿½n");
+  				if(auftrag[auftragIndex].getAttribut_1().equals("Grün")) {
+  					((Papier) product[index]).setFarbe("Grün");
   				}
   				if(auftrag[auftragIndex].getAttribut_2().equals("A4")) {
   					((Papier) product[index]).setGroesse("A4");
@@ -464,115 +464,6 @@ public class Regal2 {
 
 			funcAuslagerung(index, ph, product, btnRegal);
 
-			/*if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Kiefer") && auftrag[auftragIndex].getAttribut_2().equals("Scheit")) {
-				if (btnRegal[index].getIcon().toString().contains("Kiefer_Scheit")) {
-					ph[index] = false;
-					btnRegal[index].setIcon(icnPlaceHolder);
-					product[index] = new Product();
-					iconPath = btnRegal[index].getIcon().toString();
-  	  				if (iconPath.contains("placeholder.png")) {
-  	  					auftrag[auftragIndex].setAuftragDone(true);
-  					}else {
-  						auftrag[auftragIndex].setAuftragDone(false);
-  					}
-				}else {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame ,
-				    "Falscher Produkt zum auslagern!",
-				    "Fehler",
-				    JOptionPane.ERROR_MESSAGE);
-				}
-			}
-
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Eiche") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Eiche") && auftrag[auftragIndex].getAttribut_2().equals("Bretter")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Eiche") && auftrag[auftragIndex].getAttribut_2().equals("Scheit")) {
-				//TODO: #####################
-			}
-
-			//Papier
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Weiï¿½") && auftrag[auftragIndex].getAttribut_2().equals("A3")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Weiï¿½") && auftrag[auftragIndex].getAttribut_2().equals("A4")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Weiï¿½") && auftrag[auftragIndex].getAttribut_2().equals("A5")) {
-				//TODO: #####################
-			}
-
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Grï¿½n") && auftrag[auftragIndex].getAttribut_2().equals("A3")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Grï¿½n") && auftrag[auftragIndex].getAttribut_2().equals("A4")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Grï¿½n") && auftrag[auftragIndex].getAttribut_2().equals("A5")) {
-				//TODO: #####################
-			}
-
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Blau") && auftrag[auftragIndex].getAttribut_2().equals("A3")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Blau") && auftrag[auftragIndex].getAttribut_2().equals("A4")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Papier") && auftrag[auftragIndex].getAttribut_1().equals("Blau") && auftrag[auftragIndex].getAttribut_2().equals("A5")) {
-				//TODO: #####################
-			}
-
-			//Stein
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Marmor") && auftrag[auftragIndex].getAttribut_2().equals("Leicht")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Marmor") && auftrag[auftragIndex].getAttribut_2().equals("Mittel")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Marmor") && auftrag[auftragIndex].getAttribut_2().equals("Schwer")) {
-				//TODO: #####################
-			}
-
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Granit") && auftrag[auftragIndex].getAttribut_2().equals("Leicht")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Granit") && auftrag[auftragIndex].getAttribut_2().equals("Mittel")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Granit") && auftrag[auftragIndex].getAttribut_2().equals("Schwer")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Sandstein") && auftrag[auftragIndex].getAttribut_2().equals("Leicht")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Sandstein") && auftrag[auftragIndex].getAttribut_2().equals("Mittel")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Stein") && auftrag[auftragIndex].getAttribut_1().equals("Sandstein") && auftrag[auftragIndex].getAttribut_2().equals("Schwer")) {
-				//TODO: #####################
-			}*/
 
   		}
 		return true;
@@ -587,31 +478,29 @@ public class Regal2 {
 					auftragIndex = i;
 			}
 	  	  }
-
-	  	  if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-	  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
-	    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
-	    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
-	    	 }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
-				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame ,
-				"Platz Belegt!",
-				"Fehler",
-				JOptionPane.ERROR_MESSAGE);
-				regalVornePH[auftragIndex] = false;
-	    	  }else {
-	    		  JFrame frame = new JFrame();
+	  		if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+		  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
+		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
+		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		    	 }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
+					JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
-					"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+					"Platz Belegt!",
 					"Fehler",
 					JOptionPane.ERROR_MESSAGE);
 					regalVornePH[auftragIndex] = false;
-	    	  }
-	  	  }else {
-	  		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
-	  	  }
-
-
+		    	  }else {
+		    		  JFrame frame = new JFrame();
+						JOptionPane.showMessageDialog(frame ,
+						"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+						"Fehler",
+						JOptionPane.ERROR_MESSAGE);
+						regalVornePH[auftragIndex] = false;
+		    	  }
+		  	  }else {
+		  		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		  	  }
+	  	  
     	  if(auftrag[auftragIndex].getAuftragDone() == true) {
     		  GUI.doneAuftrag(auftragIndex);
     	  }else {
@@ -676,17 +565,17 @@ public class Regal2 {
   	  }
 	}
 
+	
+	//Idee 2x Methode für Auslagern Vorne und Hinten. //1.Regal fehlt noch
 	private void funcAuslagerung(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
 		String iconPath = "";
 		if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
-
-			//Holz
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Buche") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Buche") && auftrag[auftragIndex].getAttribut_2().equals("Bretter")) {
-				if (btnRegal[index].getIcon().toString().contains("Buche_Bretter")) {
+			if(auftrag[auftragIndex].getProdukt().equals(auftrag[auftragIndex].getProdukt()) && auftrag[auftragIndex].getAttribut_1().equals(auftrag[auftragIndex].getAttribut_1()) && auftrag[auftragIndex].getAttribut_2().equals(auftrag[auftragIndex].getAttribut_2())) {
+				if (auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+					
+				}
+				
+				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2())) {
 					ph[index] = false;
 					btnRegal[index].setIcon(icnPlaceHolder);
 					product[index] = new Product();

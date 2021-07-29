@@ -11,15 +11,15 @@ public class Papier extends Product{
 	private String Groesse = new String();		//Größe (A3, A4, A5)
 	
 	private Icon icnPlaceHolder = new ImageIcon(GUI.class.getResource("placeholder.png"));
-	private Icon papier_blue_a3 = new ImageIcon(GUI.class.getResource("papier_blue_a3.png"));
-	private Icon papier_blue_a4 = new ImageIcon(GUI.class.getResource("papier_blue_a4.png"));
-	private Icon papier_blue_a5 = new ImageIcon(GUI.class.getResource("papier_blue_a5.png"));
-	private Icon papier_green_a3 = new ImageIcon(GUI.class.getResource("papier_green_a3.png"));
-	private Icon papier_green_a4 = new ImageIcon(GUI.class.getResource("papier_green_a4.png"));
-	private Icon papier_green_a5 = new ImageIcon(GUI.class.getResource("papier_green_a5.png"));
-	private Icon papier_white_a3 = new ImageIcon(GUI.class.getResource("papier_white_a3.png"));
-	private Icon papier_white_a4 = new ImageIcon(GUI.class.getResource("papier_white_a4.png"));
-	private Icon papier_white_a5 = new ImageIcon(GUI.class.getResource("papier_white_a5.png"));
+	private Icon papier_blue_a3 = new ImageIcon(GUI.class.getResource("Blau_A3.png"));
+	private Icon papier_blue_a4 = new ImageIcon(GUI.class.getResource("Blau_A4.png"));
+	private Icon papier_blue_a5 = new ImageIcon(GUI.class.getResource("Blau_A5.png"));
+	private Icon papier_green_a3 = new ImageIcon(GUI.class.getResource("Grün_A3.png"));
+	private Icon papier_green_a4 = new ImageIcon(GUI.class.getResource("Grün_A4.png"));
+	private Icon papier_green_a5 = new ImageIcon(GUI.class.getResource("Grün_A5.png"));
+	private Icon papier_white_a3 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
+	private Icon papier_white_a4 = new ImageIcon(GUI.class.getResource("Weiß_A4.png"));
+	private Icon papier_white_a5 = new ImageIcon(GUI.class.getResource("Weiß_A5.png"));
 	
 	public Papier() {
 		setProductType("Papier");
