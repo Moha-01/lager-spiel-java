@@ -412,8 +412,15 @@ public class Regal2 {
 		  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
+		    	 }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
+					JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame ,
+					"Platz Belegt!",
+					"Fehler",
+					JOptionPane.ERROR_MESSAGE);
+					regalVornePH[auftragIndex] = false;
 		    	  }else {
-						JFrame frame = new JFrame();
+		    		  JFrame frame = new JFrame();
 						JOptionPane.showMessageDialog(frame ,
 						"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
 						"Fehler",
@@ -452,16 +459,23 @@ public class Regal2 {
 		  		if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
-		    	  }else {
+		    	  }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
 						JFrame frame = new JFrame();
 						JOptionPane.showMessageDialog(frame ,
-						"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+						"Platz Belegt!",
 						"Fehler",
 						JOptionPane.ERROR_MESSAGE);
-						regalHintenPH[auftragIndex] = false;
-		    	  }
+						regalVornePH[auftragIndex] = false;
+			    	  }else {
+			    		  JFrame frame = new JFrame();
+							JOptionPane.showMessageDialog(frame ,
+							"Balken benötigen zwei Lagerplätze!\n befreien Sie zuerst ein Lagerplatz",
+							"Fehler",
+							JOptionPane.ERROR_MESSAGE);
+							regalVornePH[auftragIndex] = false;
+			    	 }
 		  	  }else {
-		  		  if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false){
+		  		  if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true){
 		  			
 		  			JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
