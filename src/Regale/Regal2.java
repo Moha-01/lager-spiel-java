@@ -391,81 +391,8 @@ public class Regal2 {
 			}
   		 }
 
-		if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
+		funcAuslagerung(index, ph, product, btnRegal);
 
-			//Holz
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Buche") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Buche") && auftrag[auftragIndex].getAttribut_2().equals("Bretter")) {
-				if (btnRegal[index].getIcon().toString().contains("Buche_Bretter")) {
-					ph[index] = false;
-					btnRegal[index].setIcon(icnPlaceHolder);
-					product[index] = new Product();
-					iconPath = btnRegal[index].getIcon().toString();
-  	  				if (iconPath.contains("placeholder.png")) {
-  	  					auftrag[auftragIndex].setAuftragDone(true);
-  					}else {
-  						auftrag[auftragIndex].setAuftragDone(false);
-  					}
-				}else {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame ,
-				    "Falscher Produkt zum auslagern!",
-				    "Fehler",
-				    JOptionPane.ERROR_MESSAGE);
-				}
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Buche") && auftrag[auftragIndex].getAttribut_2().equals("Scheit")) {
-				if (btnRegal[index].getIcon().toString().contains("Buche_Scheit")) {
-					ph[index] = false;
-					btnRegal[index].setIcon(icnPlaceHolder);
-					product[index] = new Product();
-					iconPath = btnRegal[index].getIcon().toString();
-  	  				if (iconPath.contains("placeholder.png")) {
-  	  					auftrag[auftragIndex].setAuftragDone(true);
-  					}else {
-  						auftrag[auftragIndex].setAuftragDone(false);
-  					}
-				}else {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame ,
-				    "Falscher Produkt zum auslagern!",
-				    "Fehler",
-				    JOptionPane.ERROR_MESSAGE);
-				}
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Kiefer") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
-				//TODO: #####################
-			}
-
-			if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_1().equals("Kiefer") && auftrag[auftragIndex].getAttribut_2().equals("Bretter")) {
-				if (btnRegal[index].getIcon().toString().contains("Kiefer_Bretter")) {
-					ph[index] = false;
-					btnRegal[index].setIcon(icnPlaceHolder);
-					product[index] = new Product();
-					iconPath = btnRegal[index].getIcon().toString();
-  	  				if (iconPath.contains("placeholder.png")) {
-  	  					auftrag[auftragIndex].setAuftragDone(true);
-  					}else {
-  						auftrag[auftragIndex].setAuftragDone(false);
-  					}
-				}else {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame ,
-				    "Falscher Produkt zum auslagern!",
-				    "Fehler",
-				    JOptionPane.ERROR_MESSAGE);
-				}
-			}
-
-			funcAuslagerung(index, ph, product, btnRegal);
-
-
-  		}
 		return true;
 	}
 
@@ -478,7 +405,7 @@ public class Regal2 {
 					auftragIndex = i;
 			}
 	  	  }
-	  		if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+	  		if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
 		  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
@@ -522,7 +449,7 @@ public class Regal2 {
 				}
 		  	  }
 
-		  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+		  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
 		  		if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
@@ -564,18 +491,42 @@ public class Regal2 {
 			System.out.println(e);
   	  }
 	}
-
 	
-	//Idee 2x Methode für Auslagern Vorne und Hinten. //1.Regal fehlt noch
+	
+	//Not done
 	private void funcAuslagerung(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
 		String iconPath = "";
 		if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
 			if(auftrag[auftragIndex].getProdukt().equals(auftrag[auftragIndex].getProdukt()) && auftrag[auftragIndex].getAttribut_1().equals(auftrag[auftragIndex].getAttribut_1()) && auftrag[auftragIndex].getAttribut_2().equals(auftrag[auftragIndex].getAttribut_2())) {
-				if (auftrag[auftragIndex].getAttribut_2().equals("Balken")) {
+				if (auftrag[auftragIndex].getAttribut_2().equals("Balken") && RegalHinten[index].getIcon().toString().contains("Balken") == true) {
+					RegalHinten[index].setIcon(icnPlaceHolder);
+					regalHintenPH[index] = false;
+					ph[index] = false;
+					btnRegal[index].setIcon(icnPlaceHolder);
+					product[index] = new Product();
+					iconPath = btnRegal[index].getIcon().toString();
+  	  				if (iconPath.contains("placeholder.png")) {
+  	  					auftrag[auftragIndex].setAuftragDone(true);
+  					}else {
+  						auftrag[auftragIndex].setAuftragDone(false);
+  					}
+				}
+				if(auftrag[auftragIndex].getAttribut_2().equals("Balken") && RegalVorne[index].getIcon().toString().contains("Balken") == true) {
+					
+					RegalVorne[index].setIcon(icnPlaceHolder);
+					regalVornePH[index] = false;
+					ph[index] = false;
+					btnRegal[index].setIcon(icnPlaceHolder);
+					product[index] = new Product();
+					iconPath = btnRegal[index].getIcon().toString();
+  	  				if (iconPath.contains("placeholder.png")) {
+  	  					auftrag[auftragIndex].setAuftragDone(true);
+  					}else {
+  						auftrag[auftragIndex].setAuftragDone(false);
+  					}
 					
 				}
-				
-				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2())) {
+				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
 					ph[index] = false;
 					btnRegal[index].setIcon(icnPlaceHolder);
 					product[index] = new Product();
@@ -595,7 +546,6 @@ public class Regal2 {
 			}
 		}
 	}
-
 
 	public JPanel getJPanel() {
 		Components();

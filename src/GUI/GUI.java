@@ -71,6 +71,7 @@ public class GUI extends JFrame {
 	 * 
 	 * */
 	private String auftragDaten[][] = new String[6][100];
+	
 	private static Auftrag [] auftrag = new Auftrag[4];
 	
 	private Product [] Regal1Produkte = new Product[10];
