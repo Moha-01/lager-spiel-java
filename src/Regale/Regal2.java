@@ -493,11 +493,30 @@ public class Regal2 {
 	}
 	
 	
-	//Not done
+	
 	private void funcAuslagerung(int index, boolean [] ph, Product [] product, JButton [] btnRegal) {
 		String iconPath = "";
 		if(ph[index] == true && auftragSelected[auftragIndex] && auftrag[auftragIndex].getAuftragArt().equals("Auslagerung")){
 			if(auftrag[auftragIndex].getProdukt().equals(auftrag[auftragIndex].getProdukt()) && auftrag[auftragIndex].getAttribut_1().equals(auftrag[auftragIndex].getAttribut_1()) && auftrag[auftragIndex].getAttribut_2().equals(auftrag[auftragIndex].getAttribut_2())) {
+				
+				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
+					ph[index] = false;
+					btnRegal[index].setIcon(icnPlaceHolder);
+					product[index] = new Product();
+					iconPath = btnRegal[index].getIcon().toString();
+  	  				if (iconPath.contains("placeholder.png")) {
+  	  					auftrag[auftragIndex].setAuftragDone(true);
+  					}else {
+  						auftrag[auftragIndex].setAuftragDone(false);
+  					}
+				}else if(!(btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()))){
+					JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame ,
+				    "Falscher Produkt zum auslagern!",
+				    "Fehler",
+				    JOptionPane.ERROR_MESSAGE);
+				}
+				
 				if (auftrag[auftragIndex].getAttribut_2().equals("Balken") && RegalHinten[index].getIcon().toString().contains("Balken") == true) {
 					RegalHinten[index].setIcon(icnPlaceHolder);
 					regalHintenPH[index] = false;
@@ -526,23 +545,7 @@ public class Regal2 {
   					}
 					
 				}
-				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
-					ph[index] = false;
-					btnRegal[index].setIcon(icnPlaceHolder);
-					product[index] = new Product();
-					iconPath = btnRegal[index].getIcon().toString();
-  	  				if (iconPath.contains("placeholder.png")) {
-  	  					auftrag[auftragIndex].setAuftragDone(true);
-  					}else {
-  						auftrag[auftragIndex].setAuftragDone(false);
-  					}
-				}else {
-					JFrame frame = new JFrame();
-					JOptionPane.showMessageDialog(frame ,
-				    "Falscher Produkt zum auslagern!",
-				    "Fehler",
-				    JOptionPane.ERROR_MESSAGE);
-				}
+				
 			}
 		}
 	}

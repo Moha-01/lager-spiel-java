@@ -148,6 +148,7 @@ public class GUI extends JFrame {
 	            JFrame jf=new JFrame();
 	            Bilanz tab= new Bilanz(colTableStrings, dataStrings);
 	            jf.setTitle("Bilanz");
+	            jf.setIconImage(img.getImage());
 	            jf.setSize(800, 500);
 	            jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	            jf.setVisible(true);
