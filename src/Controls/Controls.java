@@ -29,7 +29,7 @@ public class Controls {
 	//Buttons
 	private JButton infoButton = new JButton();
 	private JButton moveControl = new JButton();
-	private JButton destroyControl = new JButton();
+	private static JButton destroyControl = new JButton();
 	
 	//Labels
 	private JLabel controlsLabel = new JLabel();
@@ -49,117 +49,118 @@ public class Controls {
 	
 	
 	//INFO PNG
-	 ImageIcon B3 = new ImageIcon(GUI.class.getResource("Blau_A3.png"));
-	 ImageIcon B4 = new ImageIcon(GUI.class.getResource("Blau_A4.png"));
-	 ImageIcon B5 = new ImageIcon(GUI.class.getResource("Blau_A5.png"));
-	 ImageIcon G3 = new ImageIcon(GUI.class.getResource("Grün_A3.png"));
-	 ImageIcon G4 = new ImageIcon(GUI.class.getResource("Grün_A4.png"));
-	 ImageIcon G5 = new ImageIcon(GUI.class.getResource("Grün_A5.png"));
-	 ImageIcon W3 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
-	 ImageIcon W4 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
-	 ImageIcon W5 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
-	 
-	 ImageIcon EBA = new ImageIcon(GUI.class.getResource("Eiche_Balken.png"));
-	 ImageIcon EBR = new ImageIcon(GUI.class.getResource("Eiche_Bretter.png"));
-	 ImageIcon ESC = new ImageIcon(GUI.class.getResource("Eiche_Scheit.png"));
-	 ImageIcon BBA = new ImageIcon(GUI.class.getResource("Buche_Balken.png"));
-	 ImageIcon BBR = new ImageIcon(GUI.class.getResource("Buche_Bretter.png"));
-	 ImageIcon BSC = new ImageIcon(GUI.class.getResource("Buche_Scheit.png"));
-	 ImageIcon KBA = new ImageIcon(GUI.class.getResource("Kiefer_Balken.png"));
-	 ImageIcon KBR = new ImageIcon(GUI.class.getResource("Kiefer_Bretter.png"));
-	 ImageIcon KSC = new ImageIcon(GUI.class.getResource("Kiefer_Scheit.png"));
-	 
-	 ImageIcon GL = new ImageIcon(GUI.class.getResource("Granit_Leicht.png"));
-	 ImageIcon GM = new ImageIcon(GUI.class.getResource("Granit_Mittel.png"));
-	 ImageIcon GS = new ImageIcon(GUI.class.getResource("Granit_Schwer.png"));
-	 ImageIcon ML = new ImageIcon(GUI.class.getResource("Marmor_Leicht.png"));
-	 ImageIcon MM = new ImageIcon(GUI.class.getResource("Marmor_Mittel.png"));
-	 ImageIcon MS = new ImageIcon(GUI.class.getResource("Marmor_Schwer.png"));
-	 ImageIcon SL = new ImageIcon(GUI.class.getResource("Sandstein_Leicht.png"));
-	 ImageIcon SM = new ImageIcon(GUI.class.getResource("Sandstein_Mittel.png"));
-	 ImageIcon SS = new ImageIcon(GUI.class.getResource("Sandstein_Schwer.png"));
-	 
-	 
-	 JLabel blau_a3 = new JLabel(B3);
-	 JLabel Blau_a3 = new JLabel("Blau A3");
-	 
-	 JLabel blau_a4 = new JLabel(B4);
-	 JLabel Blau_a4 = new JLabel("Blau A4");
-	 
-	 JLabel blau_a5 = new JLabel(B5);
-	 JLabel Blau_a5 = new JLabel("Blau A5");
-	 
-	 JLabel green_a3 = new JLabel(G3);
-	 JLabel Green_a3 = new JLabel("Grün A3");
-	 
-	 JLabel green_a4 = new JLabel(G4);
-	 JLabel Green_a4 = new JLabel("Grün A4");
-	 
-	 JLabel green_a5 = new JLabel(G5);
-	 JLabel Green_a5 = new JLabel("Grün A5");
-	 
-	 JLabel white_a3 = new JLabel(W3);
-	 JLabel White_a3 = new JLabel("Weiß A3");
-	 
-	 JLabel white_a4 = new JLabel(W4);
-	 JLabel White_a4 = new JLabel("Weiß A4");
-	 
-	 JLabel white_a5 = new JLabel(W5);
-	 JLabel White_a5 = new JLabel("Weiß A5");
-	 
-	 JLabel buche_balken = new JLabel(BBA);
-	 JLabel Buche_Balken = new JLabel("Buche Balken");
-	 
-	 JLabel buche_bretter = new JLabel(BBR);
-	 JLabel Buche_Bretter = new JLabel("Buche Bretter");
-	 
-	 JLabel buche_scheit = new JLabel(BSC);
-	 JLabel Buche_Scheit = new JLabel("Buche Scheit");
-	 
-	 JLabel eiche_balken = new JLabel(EBA);
-	 JLabel Eiche_Balken = new JLabel("Eiche Balken");
-	 
-	 JLabel eiche_bretter = new JLabel(EBR);
-	 JLabel Eiche_Bretter = new JLabel("Eiche Bretter");
-	 
-	 JLabel eiche_scheit = new JLabel(ESC);
-	 JLabel Eiche_Scheit = new JLabel("Eiche Scheit");
-	 
-	 JLabel kiefer_balken = new JLabel(KBA);
-	 JLabel Kiefer_Balken = new JLabel("Kiefer Balken");
-	 
-	 JLabel kiefer_bretter = new JLabel(KBR);
-	 JLabel Kiefer_Bretter = new JLabel("Kiefer Bretter");
-	 
-	 JLabel kiefer_scheit = new JLabel(KSC);
-	 JLabel Kiefer_Scheit = new JLabel("Kiefer Scheit");
-	 
-	 JLabel marmor_leicht = new JLabel(ML);
-	 JLabel Marmor_Leicht = new JLabel("Marmor Leicht");
-	 
-	 JLabel marmor_mittel = new JLabel(MM);
-	 JLabel Marmor_Mittel = new JLabel("Marmor Mittel");
-	 
-	 JLabel marmor_schwer = new JLabel(MS);
-	 JLabel Marmor_Schwer = new JLabel("Marmor Schwer");
-	 
-	 JLabel granit_leicht = new JLabel(GL);
-	 JLabel Granit_Leicht = new JLabel("Granit Leicht");
-	 
-	 JLabel granit_mittel = new JLabel(GM);
-	 JLabel Granit_Mittel = new JLabel("Granit Mittel");
-	 
-	 JLabel granit_schwer = new JLabel(GS);
-	 JLabel Granit_Schwer = new JLabel("Granit Schwer");
-	 
-	 JLabel sandstein_leicht = new JLabel(SL);
-	 JLabel Sandstein_Leicht = new JLabel("Sandstein Leicht");
-	 
-	 JLabel sandstein_mittel = new JLabel(SM);
-	 JLabel Sandstein_Mittel = new JLabel("Sandstein Mittel");
-	 
-	 JLabel sandstein_schwer = new JLabel(SS);
-	 JLabel Sandstein_Schwer = new JLabel("Sandstein Schwer");
+	private ImageIcon B3 = new ImageIcon(GUI.class.getResource("Blau_A3.png"));
+	private ImageIcon B4 = new ImageIcon(GUI.class.getResource("Blau_A4.png"));
+	private ImageIcon B5 = new ImageIcon(GUI.class.getResource("Blau_A5.png"));
+	private ImageIcon G3 = new ImageIcon(GUI.class.getResource("Grün_A3.png"));
+	private ImageIcon G4 = new ImageIcon(GUI.class.getResource("Grün_A4.png"));
+	private ImageIcon G5 = new ImageIcon(GUI.class.getResource("Grün_A5.png"));
+	private ImageIcon W3 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
+	private ImageIcon W4 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
+	private ImageIcon W5 = new ImageIcon(GUI.class.getResource("Weiß_A3.png"));
+	
+	private ImageIcon EBA = new ImageIcon(GUI.class.getResource("Eiche_Balken.png"));
+	private ImageIcon EBR = new ImageIcon(GUI.class.getResource("Eiche_Bretter.png"));
+	private ImageIcon ESC = new ImageIcon(GUI.class.getResource("Eiche_Scheit.png"));
+	private ImageIcon BBA = new ImageIcon(GUI.class.getResource("Buche_Balken.png"));
+	private ImageIcon BBR = new ImageIcon(GUI.class.getResource("Buche_Bretter.png"));
+	private ImageIcon BSC = new ImageIcon(GUI.class.getResource("Buche_Scheit.png"));
+	private ImageIcon KBA = new ImageIcon(GUI.class.getResource("Kiefer_Balken.png"));
+	private ImageIcon KBR = new ImageIcon(GUI.class.getResource("Kiefer_Bretter.png"));
+	private ImageIcon KSC = new ImageIcon(GUI.class.getResource("Kiefer_Scheit.png"));
+	
+	private ImageIcon GL = new ImageIcon(GUI.class.getResource("Granit_Leicht.png"));
+	private ImageIcon GM = new ImageIcon(GUI.class.getResource("Granit_Mittel.png"));
+	private ImageIcon GS = new ImageIcon(GUI.class.getResource("Granit_Schwer.png"));
+	private ImageIcon ML = new ImageIcon(GUI.class.getResource("Marmor_Leicht.png"));
+	private ImageIcon MM = new ImageIcon(GUI.class.getResource("Marmor_Mittel.png"));
+	private ImageIcon MS = new ImageIcon(GUI.class.getResource("Marmor_Schwer.png"));
+	private ImageIcon SL = new ImageIcon(GUI.class.getResource("Sandstein_Leicht.png"));
+	private ImageIcon SM = new ImageIcon(GUI.class.getResource("Sandstein_Mittel.png"));
+	private ImageIcon SS = new ImageIcon(GUI.class.getResource("Sandstein_Schwer.png"));
+		
+	private JLabel blau_a3 = new JLabel(B3);
+	private JLabel Blau_a3 = new JLabel("Blau A3");
+	
+	private JLabel blau_a4 = new JLabel(B4);
+	private JLabel Blau_a4 = new JLabel("Blau A4");
+	
+	private JLabel blau_a5 = new JLabel(B5);
+	private JLabel Blau_a5 = new JLabel("Blau A5");
+	
+	private JLabel green_a3 = new JLabel(G3);
+	private JLabel Green_a3 = new JLabel("Grün A3");
+	
+	private JLabel green_a4 = new JLabel(G4);
+	private JLabel Green_a4 = new JLabel("Grün A4");
+	
+	private JLabel green_a5 = new JLabel(G5);
+	private JLabel Green_a5 = new JLabel("Grün A5");
+	
+	private JLabel white_a3 = new JLabel(W3);
+	private JLabel White_a3 = new JLabel("Weiß A3");
+	
+	private JLabel white_a4 = new JLabel(W4);
+	private JLabel White_a4 = new JLabel("Weiß A4");
+	
+	private JLabel white_a5 = new JLabel(W5);
+	private JLabel White_a5 = new JLabel("Weiß A5");
+	
+	private JLabel buche_balken = new JLabel(BBA);
+	private JLabel Buche_Balken = new JLabel("Buche Balken");
+	
+	private JLabel buche_bretter = new JLabel(BBR);
+	private JLabel Buche_Bretter = new JLabel("Buche Bretter");
+	
+	private JLabel buche_scheit = new JLabel(BSC);
+	private JLabel Buche_Scheit = new JLabel("Buche Scheit");
+	
+	private JLabel eiche_balken = new JLabel(EBA);
+	private JLabel Eiche_Balken = new JLabel("Eiche Balken");
+	
+	private JLabel eiche_bretter = new JLabel(EBR);
+	private JLabel Eiche_Bretter = new JLabel("Eiche Bretter");
+	
+	private JLabel eiche_scheit = new JLabel(ESC);
+	private JLabel Eiche_Scheit = new JLabel("Eiche Scheit");
+	
+	private JLabel kiefer_balken = new JLabel(KBA);
+	private JLabel Kiefer_Balken = new JLabel("Kiefer Balken");
+	
+	private JLabel kiefer_bretter = new JLabel(KBR);
+	private JLabel Kiefer_Bretter = new JLabel("Kiefer Bretter");
+	
+	private JLabel kiefer_scheit = new JLabel(KSC);
+	private JLabel Kiefer_Scheit = new JLabel("Kiefer Scheit");
+	
+	private JLabel marmor_leicht = new JLabel(ML);
+	private JLabel Marmor_Leicht = new JLabel("Marmor Leicht");
+	
+	private JLabel marmor_mittel = new JLabel(MM);
+	private JLabel Marmor_Mittel = new JLabel("Marmor Mittel");
+	
+	private JLabel marmor_schwer = new JLabel(MS);
+	private JLabel Marmor_Schwer = new JLabel("Marmor Schwer");
+	
+	private JLabel granit_leicht = new JLabel(GL);
+	private JLabel Granit_Leicht = new JLabel("Granit Leicht");
+	
+	private JLabel granit_mittel = new JLabel(GM);
+	private JLabel Granit_Mittel = new JLabel("Granit Mittel");
+	
+	private JLabel granit_schwer = new JLabel(GS);
+	private JLabel Granit_Schwer = new JLabel("Granit Schwer");
+	
+	private JLabel sandstein_leicht = new JLabel(SL);
+	private JLabel Sandstein_Leicht = new JLabel("Sandstein Leicht");
+	
+	private JLabel sandstein_mittel = new JLabel(SM);
+	private JLabel Sandstein_Mittel = new JLabel("Sandstein Mittel");
+	
+	private JLabel sandstein_schwer = new JLabel(SS);
+	private JLabel Sandstein_Schwer = new JLabel("Sandstein Schwer");
+	
+	private static boolean verschrotten = false;
 	
 	private void Components() {
 		
@@ -264,9 +265,6 @@ public class Controls {
 	    	  frame.add(sandstein_schwer);
 	    	  frame.add(Sandstein_Schwer);
 	    	  
-	    	  
-	    	  
-	    	  
 	    	  frame.setTitle("Information");
 	    	  frame.setSize(750, 670);
 	    	  frame.setIconImage(img.getImage());
@@ -309,7 +307,19 @@ public class Controls {
 	    destroyControl.setBorder(new LineBorder(Color.BLACK));
 	    destroyControl.addActionListener(new ActionListener() { 
 	        public void actionPerformed(ActionEvent evt) { 
-	        	System.out.println("Klick");
+	        	if(destroyControl.isSelected() == true) {
+	        		destroyControl.setSelected(false);
+	        	}else {
+	        		destroyControl.setSelected(true);
+	        	}
+	        	
+	        	if (destroyControl.isSelected() == true) {
+					destroyControl.setBackground(Color.YELLOW);
+				}else {
+					destroyControl.setBackground(Color.WHITE);
+				}
+	        	
+	        	verschrotten = destroyControl.isSelected();
 	        }
 	    });
 	      
@@ -334,6 +344,21 @@ public class Controls {
 		
 		controlPanel.setBackground(Color.GRAY);
 		controlPanel.setVisible(true);
+	}
+	
+	
+	public static boolean getVerschrotten() {
+		return verschrotten;
+	}
+	
+	public static void setVerschrotten(boolean v) {
+		verschrotten = v;
+		if(v) {
+			System.out.println("Do nothing!");
+		}else {
+			destroyControl.setBackground(Color.WHITE);
+			destroyControl.setSelected(v);
+		}
 	}
 	
 	public JPanel getJPanel() {

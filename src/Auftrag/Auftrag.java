@@ -40,7 +40,6 @@ public class Auftrag {
 		return auftragDone;
 	}
 	
-	
 	public String getAuftragNr() {
 		return auftragNr;
 	}

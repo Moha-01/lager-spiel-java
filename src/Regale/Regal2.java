@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Auftrag.Auftrag;
+import Controls.Controls;
 import GUI.GUI;
 import Product.Holz;
 import Product.Papier;
@@ -433,7 +434,23 @@ public class Regal2 {
     	  }else {
     		  System.out.println("Do nothing!!");
     	  }
-
+    	  
+    	  	boolean verschrotten = Controls.getVerschrotten();
+	  		if(verschrotten == true && RegalHinten[index].getIcon().toString().contains("Balken.png")) {
+	  			regalVornePH[index] = false;
+	  			RegalVorne[index].setIcon(icnPlaceHolder);
+	  			ProduktVorne[index] = new Product();
+	  			regalHintenPH[index] = false;
+	  			RegalHinten[index].setIcon(icnPlaceHolder);
+	  			ProduktHinten[index] = new Product();
+	  			GUI.doneVerschrotten(false);
+	  		}else if(verschrotten == true && !(RegalVorne[index].getIcon().toString().contains("placeholder.png") == true)) {
+	  			regalVornePH[index] = false;
+	  			RegalVorne[index].setIcon(icnPlaceHolder);
+	  			ProduktVorne[index] = new Product();
+	  			GUI.doneVerschrotten(false);
+	  		}
+    	  
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -487,6 +504,22 @@ public class Regal2 {
 	    	  }else {
 	    		  System.out.println("Do nothing!!");
 	    	  }
+	    	  boolean verschrotten = Controls.getVerschrotten();
+	    	  if(verschrotten == true && RegalVorne[index].getIcon().toString().contains("Balken.png")) {
+	  			regalVornePH[index] = false;
+	  			RegalVorne[index].setIcon(icnPlaceHolder);
+	  			ProduktVorne[index] = new Product();
+	  			regalHintenPH[index] = false;
+	  			RegalHinten[index].setIcon(icnPlaceHolder);
+	  			ProduktHinten[index] = new Product();
+	  			GUI.doneVerschrotten(false);
+		  	}else if(verschrotten == true && !(RegalHinten[index].getIcon().toString().contains("placeholder.png") == true)) {
+	  			regalHintenPH[index] = false;
+	  			RegalHinten[index].setIcon(icnPlaceHolder);
+	  			ProduktHinten[index] = new Product();
+	  			GUI.doneVerschrotten(false);
+		  	}
+	    	  
   	  }catch (Exception e) {
 			System.out.println(e);
   	  }
@@ -500,6 +533,17 @@ public class Regal2 {
 			if(auftrag[auftragIndex].getProdukt().equals(auftrag[auftragIndex].getProdukt()) && auftrag[auftragIndex].getAttribut_1().equals(auftrag[auftragIndex].getAttribut_1()) && auftrag[auftragIndex].getAttribut_2().equals(auftrag[auftragIndex].getAttribut_2())) {
 				
 				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
+					//TODO Auslagern bei vorne frei
+					ph[index] = false;
+					btnRegal[index].setIcon(icnPlaceHolder);
+					product[index] = new Product();
+					iconPath = btnRegal[index].getIcon().toString();
+  	  				if (iconPath.contains("placeholder.png")) {
+  	  					auftrag[auftragIndex].setAuftragDone(true);
+  					}else {
+  						auftrag[auftragIndex].setAuftragDone(false);
+  					}
+				}else if(btnRegal[index].getIcon().toString().contains("Wei%c3%9f_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
 					ph[index] = false;
 					btnRegal[index].setIcon(icnPlaceHolder);
 					product[index] = new Product();
@@ -510,6 +554,7 @@ public class Regal2 {
   						auftrag[auftragIndex].setAuftragDone(false);
   					}
 				}else if(!(btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()))){
+					System.out.println("Auslagern:  " + btnRegal[index].getIcon().toString());
 					JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
 				    "Falscher Produkt zum auslagern!",
@@ -549,7 +594,11 @@ public class Regal2 {
 			}
 		}
 	}
+	
+	
 
+	
+	
 	public JPanel getJPanel() {
 		Components();
 		return regal2Panel;

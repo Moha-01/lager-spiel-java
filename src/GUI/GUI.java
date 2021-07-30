@@ -501,6 +501,24 @@ public class GUI extends JFrame {
 		}
 	}
 	
+	public static void doneVerschrotten(boolean v) {
+		KontoStand = KontoStand - 300;
+		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+
+		Umsatz = KontoStand - (KontoStand + 300);
+		if(Eintrag != 0) {
+			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+		}
+		dataStrings[Eintrag][0] = "Verschrotten";
+		dataStrings[Eintrag][1] = "-" + 300;
+		dataStrings[Eintrag][2] = "" + KontoStand;
+		dataStrings[Eintrag][3] = "" + Umsatz;
+		Eintrag++;
+		
+		Controls.setVerschrotten(v);
+	}
+	
+	
 	public static boolean doneAuftrag(int Auftrag) {
 		
 		if(auftrag[Auftrag].getAuftragArt().equals("Auslagerung")) {
