@@ -10,8 +10,6 @@
 
 package GUI;
 
-
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -71,7 +69,7 @@ public class GUI extends JFrame {
 	private String[] colTableStrings = {"Eintrag", "Kosten", "Kontostand", "Umsatz"};
 	private static String[][] dataStrings = new String[100][4];
 	
-	/*			(Daten zur übergabe und Rückgabe)
+	/*			(Daten zur Übergabe und Rückgabe)
 	 * [][]	Auftragsnummer
 	 * [][]	Auftragsart
 	 * [][]	Produkt
