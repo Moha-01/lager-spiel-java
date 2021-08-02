@@ -58,7 +58,7 @@ public class GUI extends JFrame {
 	
 	//Variablen
 	
-	private static int KontoStand = 10000;
+	private static int KontoStand = 0;
 	private static int [] Belohnung = new int[4];
 	private static int Umsatz = 0;
 	private static String [] Art = new String[4];
