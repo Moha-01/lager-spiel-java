@@ -852,23 +852,28 @@ public class Regal1 {
     	  }else {
     		  System.out.println("Do nothing!!");
     	  }
+    	  if(index == 4) {
+    		  boolean verschrotten = Controls.getVerschrotten();
+      	  	
+  	  		if(verschrotten == true && RegalHinten[index].getIcon().toString().contains("Balken.png")) {
+  	  			regalVornePH[index] = false;
+  	  			RegalVorne[index].setIcon(icnPlaceHolder);
+  	  			ProduktVorne[index] = new Product();
+  	  			regalHintenPH[index] = false;
+  	  			RegalHinten[index].setIcon(icnPlaceHolder);
+  	  			ProduktHinten[index] = new Product();
+  	  			GUI.doneVerschrotten(false);
+  	  		}else if(verschrotten == true && !(RegalVorne[index].getIcon().toString().contains("placeholder.png") == true)) {
+  	  			regalVornePH[index] = false;
+  	  			RegalVorne[index].setIcon(icnPlaceHolder);
+  	  			ProduktVorne[index] = new Product();
+  	  			GUI.doneVerschrotten(false);
+  	  		}
+    	  }else {
+    		  System.out.println("Verschrotten klick!");
+    	  }
     	  
-    	  	boolean verschrotten = Controls.getVerschrotten();
     	  	
-	  		if(verschrotten == true && RegalHinten[index].getIcon().toString().contains("Balken.png")) {
-	  			regalVornePH[index] = false;
-	  			RegalVorne[index].setIcon(icnPlaceHolder);
-	  			ProduktVorne[index] = new Product();
-	  			regalHintenPH[index] = false;
-	  			RegalHinten[index].setIcon(icnPlaceHolder);
-	  			ProduktHinten[index] = new Product();
-	  			GUI.doneVerschrotten(false);
-	  		}else if(verschrotten == true && !(RegalVorne[index].getIcon().toString().contains("placeholder.png") == true)) {
-	  			regalVornePH[index] = false;
-	  			RegalVorne[index].setIcon(icnPlaceHolder);
-	  			ProduktVorne[index] = new Product();
-	  			GUI.doneVerschrotten(false);
-	  		}
     	  
 		} catch (Exception e) {
 			System.out.println(e);
@@ -923,21 +928,25 @@ public class Regal1 {
 	    	  }else {
 	    		  System.out.println("Do nothing!!");
 	    	  }
-	    	  boolean verschrotten = Controls.getVerschrotten();
-	    	  if(verschrotten == true && RegalVorne[index].getIcon().toString().contains("Balken.png")) {
-	  			regalVornePH[index] = false;
-	  			RegalVorne[index].setIcon(icnPlaceHolder);
-	  			ProduktVorne[index] = new Product();
-	  			regalHintenPH[index] = false;
-	  			RegalHinten[index].setIcon(icnPlaceHolder);
-	  			ProduktHinten[index] = new Product();
-	  			GUI.doneVerschrotten(false);
-		  	}else if(verschrotten == true && !(RegalHinten[index].getIcon().toString().contains("placeholder.png") == true)) {
-	  			regalHintenPH[index] = false;
-	  			RegalHinten[index].setIcon(icnPlaceHolder);
-	  			ProduktHinten[index] = new Product();
-	  			GUI.doneVerschrotten(false);
-		  	}
+	    	  if(index == 4) {
+	    		  boolean verschrotten = Controls.getVerschrotten();
+		    	  if(verschrotten == true && RegalVorne[index].getIcon().toString().contains("Balken.png")) {
+		  			regalVornePH[index] = false;
+		  			RegalVorne[index].setIcon(icnPlaceHolder);
+		  			ProduktVorne[index] = new Product();
+		  			regalHintenPH[index] = false;
+		  			RegalHinten[index].setIcon(icnPlaceHolder);
+		  			ProduktHinten[index] = new Product();
+		  			GUI.doneVerschrotten(false);
+			  	  }else if(verschrotten == true && !(RegalHinten[index].getIcon().toString().contains("placeholder.png") == true)) {
+		  			regalHintenPH[index] = false;
+		  			RegalHinten[index].setIcon(icnPlaceHolder);
+		  			ProduktHinten[index] = new Product();
+		  			GUI.doneVerschrotten(false);
+			  	  }
+	    	  }else {
+	    		  System.out.println("Verschrotten Klick!");
+	    	  }
 	    	  
   	  }catch (Exception e) {
 			System.out.println(e);
