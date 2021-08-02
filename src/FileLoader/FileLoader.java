@@ -1,3 +1,12 @@
+/*
+ * Student:  Mohamed Haji
+ * Kurs: 	 INF20B
+ * Matr.Nr.: 8528264
+ * GitHub: 	 https://github.com/Moha-01/lager-spiel-java
+ * 
+ */
+
+
 package FileLoader;
 
 import java.io.File;

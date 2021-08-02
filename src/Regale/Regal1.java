@@ -1,3 +1,12 @@
+/*
+ * Student:  Mohamed Haji
+ * Kurs: 	 INF20B
+ * Matr.Nr.: 8528264
+ * GitHub: 	 https://github.com/Moha-01/lager-spiel-java
+ * 
+ */
+
+
 package Regale;
 
 import java.awt.Color;
@@ -961,7 +970,6 @@ public class Regal1 {
 			if(auftrag[auftragIndex].getProdukt().equals(auftrag[auftragIndex].getProdukt()) && auftrag[auftragIndex].getAttribut_1().equals(auftrag[auftragIndex].getAttribut_1()) && auftrag[auftragIndex].getAttribut_2().equals(auftrag[auftragIndex].getAttribut_2())) {
 				
 				if (btnRegal[index].getIcon().toString().contains(auftrag[auftragIndex].getAttribut_1() + "_" + auftrag[auftragIndex].getAttribut_2()) && !(auftrag[auftragIndex].getAttribut_2().equals("Balken"))) {
-					//TODO Auslagern bei vorne frei
 					ph[index] = false;
 					btnRegal[index].setIcon(icnPlaceHolder);
 					product[index] = new Product();
