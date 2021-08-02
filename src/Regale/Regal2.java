@@ -31,8 +31,8 @@ public class Regal2 {
 
 	// r1v1 = Regal 1 Vorne 1 | r2h2 = regal 2 hinten 2
 	//Regal 2
-	public JButton [] RegalVorne = new JButton[5];
-	public JButton [] RegalHinten = new JButton[5];
+	public static JButton [] RegalVorne = new JButton[5];
+	public static JButton [] RegalHinten = new JButton[5];
 
 	private JLabel Label2Regal = new JLabel();
 	private JLabel Label2Vorne = new JLabel();
@@ -45,11 +45,18 @@ public class Regal2 {
 
 
 	//Platzhalter
-	private boolean [] regalVornePH = new boolean[5];
-	private boolean [] regalHintenPH = new boolean[5];
+	private static boolean [] regalVornePH = new boolean[5];
+	private static boolean [] regalHintenPH = new boolean[5];
 
 	private Product [] ProduktVorne = new Product[5];
 	private Product [] ProduktHinten = new Product[5];
+	
+
+	private JButton [] Regal1Vorne = new JButton[5];
+	private JButton [] Regal1Hinten = new JButton[5];
+	
+	private boolean [] Regal1VornePH = new boolean[5];
+	private boolean [] Regal1HintenPH = new boolean[5];
 
 
 
@@ -58,6 +65,12 @@ public class Regal2 {
 		regal2Panel.setLayout(null);
 
 
+
+		Regal1Vorne = Regal1.getRegalVorne();
+		Regal1Hinten = Regal1.getRegalHinten();
+		Regal1VornePH = Regal1.getRegalVornePH();
+		Regal1HintenPH = Regal1.getRegalHintenPH();
+		
 		//Regal 2 Vorne
 		int abstandy = 24;
 
@@ -98,6 +111,41 @@ public class Regal2 {
 		RegalVorne[0].setBounds(0, abstandy, 180, 80);
 		RegalVorne[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveVorne(0);
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[1].isSelected()) {
+	    		  RegalVorne[1].setSelected(false);
+	    		  RegalVorne[0].setIcon(RegalVorne[1].getIcon());
+	    		  RegalVorne[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  GUI.doneMove(true);
+	    		  Controls.setMove(false);
+	    		  regalVornePH[1] = false;
+	    		  regalVornePH[0] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[0].isSelected()) {
+	    		  RegalHinten[0].setSelected(false);
+	    		  RegalVorne[0].setIcon(RegalHinten[0].getIcon());
+	    		  RegalHinten[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[0] = false;
+	    		  regalVornePH[0] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Vorne[0].isSelected()) {
+	    		  Regal1Vorne[0].setSelected(false);
+	    		  RegalVorne[0].setIcon(Regal1Vorne[0].getIcon());
+	    		  Regal1Vorne[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1VornePH[0] = false;
+	    		  regalVornePH[0] = true;
+	    	  }
+	    	  
 	    	  buttonClickVorne(0);
 	      }
 	    });
@@ -107,6 +155,52 @@ public class Regal2 {
 	    RegalVorne[1].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveVorne(1);
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[0].isSelected()) {
+	    		  RegalVorne[0].setSelected(false);
+	    		  RegalVorne[1].setIcon(RegalVorne[0].getIcon());
+	    		  RegalVorne[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[0] = false;
+	    		  regalVornePH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[2].isSelected()) {
+	    		  RegalVorne[2].setSelected(false);
+	    		  RegalVorne[1].setIcon(RegalVorne[2].getIcon());
+	    		  RegalVorne[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[2] = false;
+	    		  regalVornePH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[1].isSelected()) {
+	    		  RegalHinten[1].setSelected(false);
+	    		  RegalVorne[1].setIcon(RegalHinten[1].getIcon());
+	    		  RegalHinten[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[1] = false;
+	    		  regalVornePH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Vorne[1].isSelected()) {
+	    		  Regal1Vorne[1].setSelected(false);
+	    		  RegalVorne[1].setIcon(Regal1Vorne[1].getIcon());
+	    		  Regal1Vorne[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1VornePH[1] = false;
+	    		  regalVornePH[1] = true;
+	    	  }
+	    	  
 	    	  buttonClickVorne(1);
 	      }
 	    });
@@ -115,6 +209,50 @@ public class Regal2 {
 	    RegalVorne[2].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveVorne(2);
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[1].isSelected()) {
+	    		  RegalVorne[1].setSelected(false);
+	    		  RegalVorne[2].setIcon(RegalVorne[1].getIcon());
+	    		  RegalVorne[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[1] = false;
+	    		  regalVornePH[2] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[3].isSelected()) {
+	    		  RegalVorne[3].setSelected(false);
+	    		  RegalVorne[2].setIcon(RegalVorne[3].getIcon());
+	    		  RegalVorne[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[3] = false;
+	    		  regalVornePH[2] = true;
+	    	  }
+	    	  if(Controls.getMove() && RegalHinten[2].isSelected()) {
+	    		  RegalHinten[2].setSelected(false);
+	    		  RegalVorne[2].setIcon(RegalHinten[2].getIcon());
+	    		  RegalHinten[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[2] = false;
+	    		  regalVornePH[2] = true;
+	    	  }
+	    	  if(Controls.getMove() && Regal1Vorne[2].isSelected()) {
+	    		  Regal1Vorne[2].setSelected(false);
+	    		  RegalVorne[2].setIcon(Regal1Vorne[2].getIcon());
+	    		  Regal1Vorne[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1VornePH[2] = false;
+	    		  regalVornePH[2] = true;
+	    	  }
+	    	  
 	    	  buttonClickVorne(2);
 	      }
 	    });
@@ -123,6 +261,51 @@ public class Regal2 {
 	    RegalVorne[3].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveVorne(3);
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[2].isSelected()) {
+	    		  RegalVorne[2].setSelected(false);
+	    		  RegalVorne[3].setIcon(RegalVorne[2].getIcon());
+	    		  RegalVorne[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[2] = false;
+	    		  regalVornePH[3] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[4].isSelected()) {
+	    		  RegalVorne[4].setSelected(false);
+	    		  RegalVorne[3].setIcon(RegalVorne[4].getIcon());
+	    		  RegalVorne[4].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[4] = false;
+	    		  regalVornePH[3] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[3].isSelected()) {
+	    		  RegalHinten[3].setSelected(false);
+	    		  RegalVorne[3].setIcon(RegalHinten[3].getIcon());
+	    		  RegalHinten[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[3] = false;
+	    		  regalVornePH[3] = true;
+	    	  }
+	    	  if(Controls.getMove() && Regal1Vorne[3].isSelected()) {
+	    		  Regal1Vorne[3].setSelected(false);
+	    		  RegalVorne[3].setIcon(Regal1Vorne[3].getIcon());
+	    		  Regal1Vorne[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1VornePH[3] = false;
+	    		  regalVornePH[3] = true;
+	    	  }
+	    	  
 	    	  buttonClickVorne(3);
 	      }
 	    });
@@ -131,15 +314,85 @@ public class Regal2 {
 	    RegalVorne[4].setBounds(0, abstandy, 180, 80);
 	    RegalVorne[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveVorne(4);
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[3].isSelected()) {
+	    		  RegalVorne[3].setSelected(false);
+	    		  RegalVorne[4].setIcon(RegalVorne[3].getIcon());
+	    		  RegalVorne[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[3] = false;
+	    		  regalVornePH[4] = true;
+	    	  }
+	    	  
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[4].isSelected()) {
+	    		  RegalHinten[4].setSelected(false);
+	    		  RegalVorne[4].setIcon(RegalHinten[4].getIcon());
+	    		  RegalHinten[4].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[4] = false;
+	    		  regalVornePH[4] = true;
+	    	  }
+	    	  if(Controls.getMove() && Regal1Vorne[3].isSelected()) {
+	    		  Regal1Vorne[3].setSelected(false);
+	    		  RegalVorne[3].setIcon(Regal1Vorne[3].getIcon());
+	    		  Regal1Vorne[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1VornePH[3] = false;
+	    		  regalVornePH[4] = true;
+	    	  }
+	    	  
 	    	  buttonClickVorne(4);
 	      }
 	    });
 
-	    // Regal 1 Hinten
+	    // Regal 2 Hinten
 	    abstandy = 24;
 	    RegalHinten[0].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[0].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveHinten(0);
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[1].isSelected()) {
+	    		  RegalHinten[1].setSelected(false);
+	    		  RegalHinten[0].setIcon(RegalHinten[1].getIcon());
+	    		  RegalHinten[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[1] = false;
+	    		  regalHintenPH[0] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[0].isSelected()) {
+	    		  RegalVorne[0].setSelected(false);
+	    		  RegalHinten[0].setIcon(RegalVorne[0].getIcon());
+	    		  RegalVorne[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[0] = false;
+	    		  regalHintenPH[0] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Hinten[0].isSelected()) {
+	    		  Regal1Hinten[0].setSelected(false);
+	    		  RegalHinten[0].setIcon(Regal1Hinten[0].getIcon());
+	    		  Regal1Hinten[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1HintenPH[0] = false;
+	    		  regalHintenPH[0] = true;
+	    	  }
+	    	  
 	    	  buttonClickHinten(0);
 	      }
 	    });
@@ -148,6 +401,52 @@ public class Regal2 {
 	    RegalHinten[1].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[1].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveHinten(1);
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[0].isSelected()) {
+	    		  RegalHinten[0].setSelected(false);
+	    		  RegalHinten[1].setIcon(RegalHinten[0].getIcon());
+	    		  RegalHinten[0].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[0] = false;
+	    		  regalHintenPH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[2].isSelected()) {
+	    		  RegalHinten[2].setSelected(false);
+	    		  RegalHinten[1].setIcon(RegalHinten[2].getIcon());
+	    		  RegalHinten[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[2] = false;
+	    		  regalHintenPH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[1].isSelected()) {
+	    		  RegalVorne[1].setSelected(false);
+	    		  RegalHinten[1].setIcon(RegalVorne[1].getIcon());
+	    		  RegalVorne[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[1] = false;
+	    		  regalHintenPH[1] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Hinten[1].isSelected()) {
+	    		  Regal1Hinten[1].setSelected(false);
+	    		  RegalHinten[1].setIcon(Regal1Hinten[1].getIcon());
+	    		  Regal1Hinten[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1HintenPH[1] = false;
+	    		  regalHintenPH[1] = true;
+	    	  }
+	    	  
 	    	  buttonClickHinten(1);
 	      }
 	    });
@@ -156,6 +455,52 @@ public class Regal2 {
 	    RegalHinten[2].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[2].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveHinten(2);
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[1].isSelected()) {
+	    		  RegalHinten[1].setSelected(false);
+	    		  RegalHinten[2].setIcon(RegalHinten[1].getIcon());
+	    		  RegalHinten[1].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[1] = false;
+	    		  regalHintenPH[2] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[3].isSelected()) {
+	    		  RegalHinten[3].setSelected(false);
+	    		  RegalHinten[2].setIcon(RegalHinten[3].getIcon());
+	    		  RegalHinten[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[3] = false;
+	    		  regalHintenPH[2] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[2].isSelected()) {
+	    		  RegalVorne[2].setSelected(false);
+	    		  RegalHinten[2].setIcon(RegalVorne[2].getIcon());
+	    		  RegalVorne[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[2] = false;
+	    		  regalHintenPH[2] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Hinten[2].isSelected()) {
+	    		  Regal1Hinten[2].setSelected(false);
+	    		  RegalHinten[2].setIcon(Regal1Hinten[2].getIcon());
+	    		  Regal1Hinten[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1HintenPH[2] = false;
+	    		  regalHintenPH[2] = true;
+	    	  }
+	    	  
 	    	  buttonClickHinten(2);
 	      }
 	    });
@@ -164,6 +509,52 @@ public class Regal2 {
 	    RegalHinten[3].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[3].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveHinten(3);
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[2].isSelected()) {
+	    		  RegalHinten[2].setSelected(false);
+	    		  RegalHinten[3].setIcon(RegalHinten[2].getIcon());
+	    		  RegalHinten[2].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[2] = false;
+	    		  regalHintenPH[3] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[4].isSelected()) {
+	    		  RegalHinten[4].setSelected(false);
+	    		  RegalHinten[3].setIcon(RegalHinten[4].getIcon());
+	    		  RegalHinten[4].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[4] = false;
+	    		  regalHintenPH[3] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[3].isSelected()) {
+	    		  RegalVorne[3].setSelected(false);
+	    		  RegalHinten[3].setIcon(RegalVorne[3].getIcon());
+	    		  RegalVorne[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[3] = false;
+	    		  regalHintenPH[3] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Hinten[3].isSelected()) {
+	    		  Regal1Hinten[3].setSelected(false);
+	    		  RegalHinten[3].setIcon(Regal1Hinten[3].getIcon());
+	    		  Regal1Hinten[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1HintenPH[3] = false;
+	    		  regalHintenPH[3] = true;
+	    	  }
+	    	  
 	    	  buttonClickHinten(3);
 	      }
 	    });
@@ -172,6 +563,41 @@ public class Regal2 {
 	    RegalHinten[4].setBounds(185, abstandy, 180, 80);
 	    RegalHinten[4].addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent evt) {
+	    	  funcMoveHinten(4);
+	    	  
+	    	  if(Controls.getMove() && RegalHinten[3].isSelected()) {
+	    		  RegalHinten[3].setSelected(false);
+	    		  RegalHinten[4].setIcon(RegalHinten[3].getIcon());
+	    		  RegalHinten[3].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalHintenPH[3] = false;
+	    		  regalHintenPH[4] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && RegalVorne[4].isSelected()) {
+	    		  RegalVorne[4].setSelected(false);
+	    		  RegalHinten[4].setIcon(RegalVorne[4].getIcon());
+	    		  RegalVorne[4].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  regalVornePH[4] = false;
+	    		  regalHintenPH[4] = true;
+	    	  }
+	    	  
+	    	  if(Controls.getMove() && Regal1Hinten[4].isSelected()) {
+	    		  Regal1Hinten[4].setSelected(false);
+	    		  RegalHinten[4].setIcon(Regal1Hinten[4].getIcon());
+	    		  Regal1Hinten[4].setIcon(icnPlaceHolder);
+	    		  allWhite();
+	    		  Controls.setMove(false);
+	    		  GUI.doneMove(true);
+	    		  Regal1HintenPH[4] = false;
+	    		  regalHintenPH[4] = true;
+	    	  }
+	    	  
 	    	  buttonClickHinten(4);
 	      }
 	    });
@@ -406,11 +832,11 @@ public class Regal2 {
 					auftragIndex = i;
 			}
 	  	  }
-	  		if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
-		  		if(ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true) {
+	  		if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung") && RegalVorne[index].getIcon().toString().contains("placeholder.png") == true) {
+		  		if(RegalHinten[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
-		    	 }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
+		    	 }else if(RegalVorne[index].getIcon().toString().contains("placeholder.png") == false && RegalHinten[index].getIcon().toString().contains("placeholder.png") == false) {
 					JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
 					"Platz Belegt!",
@@ -466,11 +892,11 @@ public class Regal2 {
 				}
 		  	  }
 
-		  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung")) {
+		  	if(auftrag[auftragIndex].getProdukt().equals("Holz") && auftrag[auftragIndex].getAttribut_2().equals("Balken") && auftrag[auftragIndex].getAuftragArt().equals("Einlagerung") && RegalHinten[index].getIcon().toString().contains("placeholder.png") == true) {
 		  		if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == true) {
 		    		setIconInfo(index, regalHintenPH, ProduktHinten, RegalHinten);
 		    		setIconInfo(index, regalVornePH, ProduktVorne, RegalVorne);
-		    	  }else if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == false) {
+		    	  }else if(RegalVorne[index].getIcon().toString().contains("placeholder.png") == false && RegalHinten[index].getIcon().toString().contains("placeholder.png") == false) {
 						JFrame frame = new JFrame();
 						JOptionPane.showMessageDialog(frame ,
 						"Platz Belegt!",
@@ -486,7 +912,7 @@ public class Regal2 {
 							regalVornePH[auftragIndex] = false;
 			    	 }
 		  	  }else {
-		  		  if(ProduktVorne[index].getIcon().toString().contains("placeholder.png") == false && ProduktHinten[index].getIcon().toString().contains("placeholder.png") == true){
+		  		  if(RegalVorne[index].getIcon().toString().contains("placeholder.png") == false && RegalHinten[index].getIcon().toString().contains("placeholder.png") == true){
 
 		  			JFrame frame = new JFrame();
 					JOptionPane.showMessageDialog(frame ,
@@ -596,12 +1022,387 @@ public class Regal2 {
 	}
 	
 	
-
+	public static JButton [] getRegalVorne() {
+		return RegalVorne;
+	}
+	
+	public static JButton [] getRegalHinten() {
+		return RegalHinten;
+	}
+	
+	public static void setRegalVorne(JButton []  vorne) {
+		RegalVorne = vorne;
+	}
+	
+	public static void setRegalHinten(JButton []  hinten) {
+		RegalHinten = hinten;
+	}
+	
+	public void funcMoveVorne(int index) {
+		if(Controls.getMove()) {
+			if(index == 0 && RegalVorne[index].getIcon().toString().contains("placeholder.png") == false) {
+				if(RegalVorne[index].isSelected()) {
+					RegalVorne[index].setSelected(false);
+					RegalVorne[index].setBackground(Color.WHITE);
+				}else {
+					RegalVorne[index].setSelected(true);
+					RegalVorne[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index+1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index+1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalHinten[index].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Vorne[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					Regal1Vorne[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Vorne[index].setBackground(Color.WHITE);
+				}
+				
+				
+			}
+			if(index == 1 && RegalVorne[index].getIcon().toString().contains("placeholder.png") == false) {
+				if(RegalVorne[index].isSelected()) {
+					RegalVorne[index].setSelected(false);
+					RegalVorne[index].setBackground(Color.WHITE);
+				}else {
+					RegalVorne[index].setSelected(true);
+					RegalVorne[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index-1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index+1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index+1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalHinten[index].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Vorne[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					Regal1Vorne[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Vorne[index].setBackground(Color.WHITE);
+				}
+				
+				
+			}
+			if(index == 2 && RegalVorne[index].getIcon().toString().contains("placeholder.png") == false) {
+				if(RegalVorne[index].isSelected()) {
+					RegalVorne[index].setSelected(false);
+					RegalVorne[index].setBackground(Color.WHITE);
+				}else {
+					RegalVorne[index].setSelected(true);
+					RegalVorne[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index-1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index+1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index+1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalHinten[index].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Vorne[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					Regal1Vorne[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Vorne[index].setBackground(Color.WHITE);
+				}
+			}
+			if(index == 3 && RegalVorne[index].getIcon().toString().contains("placeholder.png") == false) {
+				if(RegalVorne[index].isSelected()) {
+					RegalVorne[index].setSelected(false);
+					RegalVorne[index].setBackground(Color.WHITE);
+				}else {
+					RegalVorne[index].setSelected(true);
+					RegalVorne[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index-1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index+1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index+1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalHinten[index].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Vorne[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					Regal1Vorne[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Vorne[index].setBackground(Color.WHITE);
+				}
+			}
+			if(index == 4 && RegalVorne[index].getIcon().toString().contains("placeholder.png") == false) {
+				if(RegalVorne[index].isSelected()) {
+					RegalVorne[index].setSelected(false);
+					RegalVorne[index].setBackground(Color.WHITE);
+				}else {
+					RegalVorne[index].setSelected(true);
+					RegalVorne[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index-1].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalVorne[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					RegalHinten[index].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Vorne[index].getIcon().toString().contains("placeholder.png") && RegalVorne[index].isSelected() == true) {
+					Regal1Vorne[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Vorne[index].setBackground(Color.WHITE);
+				}
+			}
+		}
+	}
+	
+	public void funcMoveHinten(int index) {
+		if(Controls.getMove()) {
+			if(index == 0) {
+				if(RegalHinten[index].isSelected()) {
+					RegalHinten[index].setSelected(false);
+					RegalHinten[index].setBackground(Color.WHITE);
+				}else {
+					RegalHinten[index].setSelected(true);
+					RegalHinten[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalHinten[index+1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index+1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalVorne[index].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Hinten[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					Regal1Hinten[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Hinten[index].setBackground(Color.WHITE);
+				}
+				
+				
+			}
+			if(index == 1) {
+				if(RegalHinten[index].isSelected()) {
+					RegalHinten[index].setSelected(false);
+					RegalHinten[index].setBackground(Color.WHITE);
+				}else {
+					RegalHinten[index].setSelected(true);
+					RegalHinten[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalHinten[index+1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index+1].setBackground(Color.WHITE);
+				}
+				if(RegalHinten[index-1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalVorne[index].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Hinten[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					Regal1Hinten[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Hinten[index].setBackground(Color.WHITE);
+				}
+			}
+			if(index == 2) {
+				if(RegalHinten[index].isSelected()) {
+					RegalHinten[index].setSelected(false);
+					RegalHinten[index].setBackground(Color.WHITE);
+				}else {
+					RegalHinten[index].setSelected(true);
+					RegalHinten[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalHinten[index+1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index+1].setBackground(Color.WHITE);
+				}
+				if(RegalHinten[index-1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalVorne[index].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Hinten[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					Regal1Hinten[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Hinten[index].setBackground(Color.WHITE);
+				}
+				
+				
+			}
+			if(index == 3) {
+				if(RegalHinten[index].isSelected()) {
+					RegalHinten[index].setSelected(false);
+					RegalHinten[index].setBackground(Color.WHITE);
+				}else {
+					RegalHinten[index].setSelected(true);
+					RegalHinten[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalHinten[index+1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index+1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index+1].setBackground(Color.WHITE);
+				}
+				if(RegalHinten[index-1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index-1].setBackground(Color.WHITE);
+				}
+				
+				if(RegalVorne[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalVorne[index].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Hinten[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					Regal1Hinten[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Hinten[index].setBackground(Color.WHITE);
+				}
+				
+			}
+			if(index == 4) {
+				if(RegalHinten[index].isSelected()) {
+					RegalHinten[index].setSelected(false);
+					RegalHinten[index].setBackground(Color.WHITE);
+				}else {
+					RegalHinten[index].setSelected(true);
+					RegalHinten[index].setBackground(Color.GREEN);
+				}
+				
+				if(RegalVorne[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalVorne[index].setBackground(Color.YELLOW);
+				}else {
+					RegalVorne[index].setBackground(Color.WHITE);
+				}
+				
+				if(Regal1Hinten[index].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					Regal1Hinten[index].setBackground(Color.YELLOW);
+				}else {
+					Regal1Hinten[index].setBackground(Color.WHITE);
+				}
+				
+				if(RegalHinten[index-1].getIcon().toString().contains("placeholder.png") && RegalHinten[index].isSelected() == true) {
+					RegalHinten[index-1].setBackground(Color.YELLOW);
+				}else {
+					RegalHinten[index-1].setBackground(Color.WHITE);
+				}
+			}
+		}
+	}
 	
 	
 	public JPanel getJPanel() {
 		Components();
 		return regal2Panel;
+	}
+
+	public static boolean[] getRegalVornePH() {
+		return regalVornePH;
+	}
+
+	public static boolean[] getRegalHintenPH() {
+		return regalHintenPH;
+	}
+	
+	public void allWhite() {
+		for(int i = 0; i < 5; i++) {
+			RegalVorne[i].setBackground(Color.WHITE);
+			RegalHinten[i].setBackground(Color.WHITE);
+			Regal1Vorne[i].setBackground(Color.WHITE);
+			Regal1Hinten[i].setBackground(Color.WHITE);
+			
+			if(RegalHinten[i].getIcon().toString().contains("placeholder.png")) {
+				regalHintenPH[i] = false;
+				RegalHinten[i].setSelected(false);
+				
+			}
+			
+			if(RegalVorne[i].getIcon().toString().contains("placeholder.png")) {
+				regalVornePH[i] = false;
+				RegalVorne[i].setSelected(false);
+			}
+			
+			if(Regal1Hinten[i].getIcon().toString().contains("placeholder.png")) {
+				Regal1HintenPH[i] = false;
+				Regal1Hinten[i].setSelected(false);
+			}
+			
+			if(Regal1Vorne[i].getIcon().toString().contains("placeholder.png")) {
+				Regal1VornePH[i] = false;
+				Regal1Vorne[i].setSelected(false);
+			}
+			
+		}
 	}
 
 

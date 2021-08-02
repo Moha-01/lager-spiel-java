@@ -28,7 +28,7 @@ public class Controls {
 	
 	//Buttons
 	private JButton infoButton = new JButton();
-	private JButton moveControl = new JButton();
+	private static JButton moveControl = new JButton();
 	private static JButton destroyControl = new JButton();
 	
 	//Labels
@@ -161,6 +161,7 @@ public class Controls {
 	private JLabel Sandstein_Schwer = new JLabel("Sandstein Schwer");
 	
 	private static boolean verschrotten = false;
+	private static boolean move = false;
 	
 	private void Components() {
 		
@@ -288,7 +289,25 @@ public class Controls {
 	    moveControl.setBorder(new LineBorder(Color.BLACK));
 	    moveControl.addActionListener(new ActionListener() { 
 	        public void actionPerformed(ActionEvent evt) { 
-	        	System.out.println("Klick");
+	        	
+	        	if(destroyControl.isSelected()) {
+	        		destroyControl.setSelected(false);
+	        		destroyControl.setBackground(Color.WHITE);
+	        		setVerschrotten(false);
+	        	}
+	        	if(moveControl.isSelected() == true) {
+	        		moveControl.setSelected(false);
+	        	}else {
+	        		moveControl.setSelected(true);
+	        	}
+	        	
+	        	if (moveControl.isSelected() == true) {
+	        		moveControl.setBackground(Color.YELLOW);
+				}else {
+					moveControl.setBackground(Color.WHITE);
+				}
+	        	
+	        	move = moveControl.isSelected();
 	        }
 	    });
 	      
@@ -307,6 +326,13 @@ public class Controls {
 	    destroyControl.setBorder(new LineBorder(Color.BLACK));
 	    destroyControl.addActionListener(new ActionListener() { 
 	        public void actionPerformed(ActionEvent evt) { 
+	        	
+	        	if(moveControl.isSelected()) {
+	        		moveControl.setSelected(false);
+	        		moveControl.setBackground(Color.WHITE);
+	        		setMove(false);
+	        	}
+	        	
 	        	if(destroyControl.isSelected() == true) {
 	        		destroyControl.setSelected(false);
 	        	}else {
@@ -360,6 +386,23 @@ public class Controls {
 			destroyControl.setSelected(v);
 		}
 	}
+	
+	
+	public static boolean getMove() {
+		return move;
+	}
+	
+	public static void setMove(boolean m) {
+		move = m;
+		if(m) {
+			System.out.println("Move: True");
+		}else {
+			System.out.println("Move: False");
+			moveControl.setBackground(Color.WHITE);
+			moveControl.setSelected(m);
+		}
+	}
+	
 	
 	public JPanel getJPanel() {
 		Components();

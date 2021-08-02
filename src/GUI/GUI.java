@@ -518,6 +518,22 @@ public class GUI extends JFrame {
 		Controls.setVerschrotten(v);
 	}
 	
+	public static void doneMove(boolean m) {
+		KontoStand = KontoStand - 50;
+		lKontostand.setText("  Kontostand:  " + KontoStand +" €");
+
+		Umsatz = KontoStand - (KontoStand + 50);
+		if(Eintrag != 0) {
+			Umsatz = Umsatz + Integer.parseInt(dataStrings[Eintrag-1][3]);
+		}
+		dataStrings[Eintrag][0] = "Umlagerung";
+		dataStrings[Eintrag][1] = "-" + 50;
+		dataStrings[Eintrag][2] = "" + KontoStand;
+		dataStrings[Eintrag][3] = "" + Umsatz;
+		Eintrag++;
+		
+	}
+	
 	
 	public static boolean doneAuftrag(int Auftrag) {
 		
